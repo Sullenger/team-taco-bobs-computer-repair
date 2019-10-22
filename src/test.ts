@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+*/
+
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
 
 import 'zone.js/dist/zone-testing';

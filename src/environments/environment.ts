@@ -1,3 +1,12 @@
+/*
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+*/
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
