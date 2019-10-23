@@ -135,9 +135,11 @@ app.post("/login", (req, res, next) => {
         "tokenKey",
         { expiresIn: "4h" }
       );
+      console.log(fetchedUser);
       // send generated web token to front-end
       res.status(200).json({
         token: token,
+        userId: fetchedUser._id,
         expiresIn: 3600
       });
     })
