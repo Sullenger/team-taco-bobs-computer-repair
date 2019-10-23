@@ -19,6 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SessionLayoutComponent } from './shared';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { UserManagementComponent } from './pages/user-management/user-management.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     HomeComponent,
     SessionLayoutComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UserManagementComponent
   ],
   imports: [
     BrowserModule,
