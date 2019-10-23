@@ -53,7 +53,7 @@ app.post("api/users/registration", function(req, res, next) {
       return next(err);
     } else {
       if (!user) {
-        
+
         // hash password first
 
         let user = {
