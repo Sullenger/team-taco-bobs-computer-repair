@@ -26,7 +26,6 @@ let securityQuestions = mongoose.Schema({
 });
 
 let invoices = mongoose.Schema({
-  id: { type: String },
   date: { type: String },
   services_ordered: { type: String },
   total: { type: String }
