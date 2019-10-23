@@ -26,6 +26,7 @@ let securityQuestions = mongoose.Schema({
 });
 
 let invoices = mongoose.Schema({
+  id: { type: String },
   date: { type: String },
   services_ordered: { type: String },
   total: { type: String }
@@ -44,6 +45,6 @@ let userSchema = mongoose.Schema({
   invoices: [invoices],
   date_created: { type: Date, default: new Date() },
   date_updated: { type: Date }
-});
+}, { collection: 'users'});
 
 module.exports = mongoose.model("User", userSchema);
