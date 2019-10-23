@@ -127,47 +127,6 @@ app.post('/login', (req, res, next) => {
   })
 })
 
-// app.post("/login", (req, res, next) => {
-//   let fetchedUser;
-//   // find user by username
-//   User.findOne({ username: req.body.username })
-//     .then(user => {
-//       if (!user) {
-//         return res.status(401).json({
-//           message: "Authentication failed"
-//         });
-//       }
-//       fetchedUser = user;
-//       // compare user password input to hased password stored in DB
-//       return bcrypt.compare(req.body.password, user.password);
-//     })
-//     .then(result => {
-//       if (!result) {
-//         return res.status(401).json({
-//           message: "Authentication failed"
-//         });
-//       }
-//       // if username and password are authenticated generate json web token
-//       const token = jwt.sign(
-//         { email: fetchedUser.email, userId: fetchedUser._id },
-//         "tokenKey",
-//         { expiresIn: "4h" }
-//       );
-//       console.log(fetchedUser);
-//       // send generated web token to front-end
-//       res.status(200).json({
-//         token: token,
-//         userId: fetchedUser._id,
-//         expiresIn: 3600
-//       });
-//     })
-//     .catch(err => {
-//       return res.status(401).json({
-//         message: "Authentication failed"
-//       });
-//     });
-// });
-
 // Find all users
 app.get("/api/users", function(req, res, next) {
   User.find({}, function(err, users) {
