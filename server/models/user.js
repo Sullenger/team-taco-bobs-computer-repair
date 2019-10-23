@@ -10,40 +10,40 @@
 const mongoose = require("mongoose");
 
 let userRoles = mongoose.Schema({
-  role: { type: String, default: "standard"}
-})
+  role: { type: String, default: "standard" }
+});
 
 let userAddress = mongoose.Schema({
-  streetAddress: { type: String },
+  street_address: { type: String },
   city: { type: String },
   state: { type: String },
   zip: { type: String }
-})
+});
 
 let securityQuestions = mongoose.Schema({
-  questionId: { type: String },
-  userAnswer: { type: String }
-})
+  question_id: { type: String },
+  user_answer: { type: String }
+});
 
 let invoices = mongoose.Schema({
   date: { type: String },
-  servicesOrdered: { type: String },
-  total: {type: String }
-})
+  services_ordered: { type: String },
+  total: { type: String }
+});
 
 let userSchema = mongoose.Schema({
   username: { type: String, required: true, unique: true, dropDups: true },
-  email: { type: String, unique:true },
-  password: { type: String, required:true },
-  nameFirst: { type: String },
-  nameLast: { type: String },
-  phoneNumber: { type: String },
+  email: { type: String, unique: true },
+  password: { type: String, required: true },
+  name_first: { type: String },
+  name_last: { type: String },
+  phone_number: { type: String },
   roles: [userRoles],
   address: [userAddress],
-  securityQuestions: [securityQuestions],
+  security_questions: [securityQuestions],
   invoices: [invoices],
-  dateCreated: { type: Date, default: new Date() },
-  dateUpdated: { type: Date },
-})
+  date_created: { type: Date, default: new Date() },
+  date_updated: { type: Date }
+});
 
 module.exports = mongoose.model("User", userSchema);
