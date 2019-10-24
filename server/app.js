@@ -109,23 +109,57 @@ app.post("/api/users/registration", function(req, res, next) {
 // ************** USER LOGIN *************** //
 // ***************************************** //
 
-app.post('/login', (req, res, next) => {
-  User.findOne({ username: req.body.username }, (err, user) => {
-    if(!user) {
-      res.status(401).json({
-        message: "authentication failed"
-      });
+// app.post('/login', (req, res, next) => {
+//   User.findOne({ username: req.body.username }, (err, user) => {
+//     if(!user) {
+//       res.status(401).json({
+//         message: "authentication failed"
+//       });
+//       bcrypt.compare(req.body.password, user.password);
+//     } else if (err) {
+//       console.log(err);
+//     } else {
+//       res.status(200).send({
+//         name_first: user.name_first,
+//         id: user._id
+//       })
+//     }
+//   })
+// })
+
+app.post("/login", (req, res, next) => {
+  let fetchedUser;
+  // find user by username
+  User.findOne({ username: req.body.username })
+    .then(user => {
+      if (!user) {
+        return res.status(401).json({
+          message: "Authentication failed"
+        });
+      }
+      fetchedUser = user;
+      // compare user password input to hased password stored in DB
       return bcrypt.compare(req.body.password, user.password);
-    } else if (err) {
-      console.log(err);
-    } else {
-      res.status(200).send({
-        name_first: user.name_first,
-        id: user._id
-      })
-    }
-  })
-})
+    })
+    .then(result => {
+      if (!result) {
+        return res.status(401).json({
+          message: "Authentication failed"
+        });
+      }
+      console.log(fetchedUser);
+      // send generated web token to front-end
+      res.status(200).json({
+        userId: fetchedUser._id,
+        name_first: fetchedUser.name_first,
+      });
+    })
+    .catch(err => {
+      return res.status(401).json({
+        message: "Authentication failed"
+      });
+    });
+});
 
 // Find all users
 app.get("/api/users", function(req, res, next) {
