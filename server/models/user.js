@@ -25,12 +25,6 @@ let securityQuestions = mongoose.Schema({
   user_answer: { type: String }
 });
 
-let invoices = mongoose.Schema({
-  date: { type: String },
-  services_ordered: { type: String },
-  total: { type: String }
-});
-
 let userSchema = mongoose.Schema({
   username: { type: String, required: true, unique: true, dropDups: true },
   email: { type: String, unique: true },
@@ -41,7 +35,6 @@ let userSchema = mongoose.Schema({
   roles: [userRoles],
   address: [userAddress],
   security_questions: [securityQuestions],
-  invoices: [invoices],
   date_created: { type: Date, default: new Date() },
   date_updated: { type: Date }
 }, { collection: 'users'});

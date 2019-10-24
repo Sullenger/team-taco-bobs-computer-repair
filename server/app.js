@@ -16,6 +16,7 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
 
 const User = require("./models/user");
+const Invoice = require("./models/invoice");
 
 let app = express();
 
@@ -73,7 +74,7 @@ app.post("/api/users/registration", function(req, res, next) {
             date_created: req.body.dateCreated,
             date_updated: req.body.dateUpdated
           });
-          
+
           //save user to DB
           user.save().then( result => {
             res.status(201).json({
@@ -82,7 +83,7 @@ app.post("/api/users/registration", function(req, res, next) {
             });
           });
         })
-        
+
         // User.create(user, function(req, res, next) {
         //   if (err) {
         //     console.log(err);
@@ -168,7 +169,7 @@ app.get("/api/users/:id", function(req, res, next) {
   });
 });
 
-// Login User by 
+// Login User by
 
 /**
  * Creates an express server and listens on port 3000
