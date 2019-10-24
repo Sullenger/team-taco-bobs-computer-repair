@@ -20,6 +20,7 @@ import { SessionLayoutComponent } from './shared';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
+import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserManagementComponent } from './pages/user-management/user-management
     SessionLayoutComponent,
     LoginComponent,
     NotFoundComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    SecurityQuestionsComponent
   ],
   imports: [
     BrowserModule,
