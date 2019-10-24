@@ -14,7 +14,6 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 const User = require("./models/user");
 
@@ -108,24 +107,6 @@ app.post("/api/users/registration", function(req, res, next) {
 // ***************************************** //
 // ************** USER LOGIN *************** //
 // ***************************************** //
-
-// app.post('/login', (req, res, next) => {
-//   User.findOne({ username: req.body.username }, (err, user) => {
-//     if(!user) {
-//       res.status(401).json({
-//         message: "authentication failed"
-//       });
-//       bcrypt.compare(req.body.password, user.password);
-//     } else if (err) {
-//       console.log(err);
-//     } else {
-//       res.status(200).send({
-//         name_first: user.name_first,
-//         id: user._id
-//       })
-//     }
-//   })
-// })
 
 app.post("/login", (req, res, next) => {
   let fetchedUser;
