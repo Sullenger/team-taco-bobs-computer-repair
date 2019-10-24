@@ -1,1 +1,29 @@
-<p>user-management works!</p>
+<button class="add-user" (click)="Submit">Add User</button>
+<br />
+
+<table id="table">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+        <th>Address</th>
+        <th>Last Updated</th>
+    </tr>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <th>{{user.userId}}</th>
+            <td>{{user.firstName}}
+            <td>{{user.lastName}}</td>
+            <td>{{user.role}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.dateCreated | date: 'MMM d, y'}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="edit-user" mat-raised-button (click)='Submit'>Edit User</button>
+
+<br />
+
+<button class="delete-user" mat-raised-button (click)='Submit'>Delete User</button>

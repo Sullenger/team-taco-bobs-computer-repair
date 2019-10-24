@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { User } from '.../../server/models/user.js';
+import { User } from '.../../server/models/user.js';
 
 
 @Component({
@@ -8,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-management.component.css']
 })
 export class UserManagementComponent implements OnInit {
+  users: User[];
 
   constructor() { }
 
   ngOnInit() {
+    this.getUser();
+  }
+
+  getUser(): void {
+
   }
 
 }
