@@ -95,4 +95,22 @@ router.post("/users/registration", function(req, res, next) {
     });
   });
 
+  // find users security questions/answers by user id
+
+  router.get('/security-questions/:id', (req, res, next) => {
+    User.findOne({ _id: req.params.id }, (err, user) => {
+      if(err) {
+        console.log(err);
+    } else 
+        if(!user) {
+            res.status(401).send(console.log('No User Found!'));
+    } else {
+        res.status(201).json({
+            user: user.security_questions
+        })
+    }
+    // console.log(user.security_questions);
+    })
+  })
+
 module.exports = router;
