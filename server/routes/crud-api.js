@@ -134,4 +134,26 @@ router.delete("/users/:id", function(req, res, next) {
   });
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+  // find users security questions/answers by user id
+
+  router.get('/security-questions/:id', (req, res, next) => {
+    User.findOne({ _id: req.params.id }, (err, user) => {
+      if(err) {
+        console.log(err);
+    } else 
+        if(!user) {
+            res.status(401).send(console.log('No User Found!'));
+    } else {
+        res.status(201).json({
+            user: user.security_questions
+        })
+    }
+    // console.log(user.security_questions);
+    })
+  })
+
+module.exports = router;
+>>>>>>> 86ff3c90a3a0d6f409239b5a11571555530698cc
