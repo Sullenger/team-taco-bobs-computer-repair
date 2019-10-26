@@ -154,26 +154,14 @@ router.delete("/users/:id", function(req, res, next) {
   })
 
   router.put('/edit/security-questions/:id', (req, res, next) => {
-    User.updateOne({ _id: req.params.id }, (err, result) => {
-      if(err) {
-        console.log(err)
-      } else {
-        console.log(result)
-        result.set({
-          _id: req.body.id,
-          security_questions: req.body.security_questions 
-      });
-      result.save(function(err, newResult) {
-        if (err) {
-          console.log(err);
-          return next(err);
-        } else {
-          console.log(newResult);
-          res.json(newResult);
-        }
-      });
-      }
-    })
-  })
+    const newSecurity = new User({
+      _id: req.params.id,
+      security_questions: req.body.security_questions,
+    });
+    User.updateOne({ _id: req.params.id }, newSecurity).then( result => {
+      console.log(result)
+      res.status(200).json({ message: "security questions successfully updated." });
+    });
+  });
 
 module.exports = router;
