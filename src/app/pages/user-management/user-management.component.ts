@@ -8,6 +8,7 @@ import { User } from '.../../server/models/user.js';
   styleUrls: ['./user-management.component.css']
 })
 export class UserManagementComponent implements OnInit {
+  displayedColumns: string[] = ['userName', 'firstName', 'lastName', 'phone_number', 'email', 'address', 'update', 'delete'];
   users: User[];
 
   constructor() { }

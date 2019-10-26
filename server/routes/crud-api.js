@@ -135,7 +135,6 @@ router.delete("/users/:id", function(req, res, next) {
   });
 });
 
-
   // find users security questions/answers by user id
 
   router.get('/security-questions/:id', (req, res, next) => {
@@ -178,4 +177,3 @@ router.delete("/users/:id", function(req, res, next) {
   })
 
 module.exports = router;
-

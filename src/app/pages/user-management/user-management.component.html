@@ -6,32 +6,56 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
-<button class="add-user" (click)="Submit">Add User</button>
-<br />
+<table mat-table [dataSource]="myDataArray">
 
-<table id="table">
-    <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Role</th>
-        <th>Address</th>
-        <th>Last Updated</th>
-    </tr>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <th>{{user.userId}}</th>
-            <td>{{user.firstName}}
-            <td>{{user.lastName}}</td>
-            <td>{{user.role}}</td>
-            <td>{{user.address}}</td>
-            <td>{{user.dateCreated | date: 'MMM d, y'}}</td>
-        </tr>
-    </tbody>
+    <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.name_first }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.name_last }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone_number">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let user">{{ user.phone_number}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let user">{{ user.address }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+        <button mat-icon-button>
+            <td mat-cell *matCellDef="let user">
+                <mat-icon>edit</mat-icon>
+            </td>
+        </button>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+        <button mat-icon-button>
+            <td mat-cell *matCellDef="let user">
+                <mat-icon>delete</mat-icon>
+            </td>
+        </button>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
 </table>
-
-<button class="edit-user" mat-raised-button (click)='Submit'>Edit User</button>
-
-<br />
-
-<button class="delete-user" mat-raised-button (click)='Submit'>Delete User</button>

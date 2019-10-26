@@ -7,4 +7,23 @@
 ;===========================================
 -->
 
-<h1>The Login Page works!</h1>
+<mat-card class="login-container">
+    <mat-card-title>Please Sign In</mat-card-title>
+    
+    <mat-card-content>
+        <form #loginForm="ngForm" (ngSubmit)="submit(); form.reset();">
+            <mat-card-content>
+                <mat-form-field>
+                    <input type="text" matInput [formControl]="form.controls['username']" placeholder="username">
+                    <small *ngIf="form.controls['username'].hasError('required') && form.controls['username'].touched">A username is required.</small>
+                    <small *ngIf="form.controls['username'].hasError('pattern') && form.controls['username'].touched">Please try again</small>
+                    <input type="text" matInput [formControl]="form.controls['password']" placeholder="password">
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" [disabled]="!form.valid" type="submit">Log In</button>
+            </mat-card-actions>
+
+        </form>
+    </mat-card-content>
+</mat-card>

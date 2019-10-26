@@ -22,6 +22,18 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
 
+import { CookieService } from 'ngx-cookie-service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule, matMenuAnimations } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { HeaderComponent } from './shared/header/header.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,14 +43,25 @@ import { SecurityQuestionsComponent } from './pages/security-questions/security-
     LoginComponent,
     NotFoundComponent,
     UserManagementComponent,
-    SecurityQuestionsComponent
+    SecurityQuestionsComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
+    MatTableModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes, {useHash: true, enableTracing: false})
+    RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false })
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ CookieService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
