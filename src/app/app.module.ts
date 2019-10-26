@@ -22,7 +22,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
 
-
+import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
@@ -61,7 +61,7 @@ import { HeaderComponent } from './shared/header/header.component';
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false })
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ CookieService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
