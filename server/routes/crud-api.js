@@ -9,6 +9,7 @@
 
 const express = require("express");
 const router = express.Router();
+const bcrypt = require('bcrypt')
 
 const User = require("../models/user");
 
@@ -134,9 +135,7 @@ router.delete("/users/:id", function(req, res, next) {
   });
 });
 
-<<<<<<< HEAD
-module.exports = router;
-=======
+
   // find users security questions/answers by user id
 
   router.get('/security-questions/:id', (req, res, next) => {
@@ -155,5 +154,28 @@ module.exports = router;
     })
   })
 
+  router.put('/edit/security-questions/:id', (req, res, next) => {
+    User.updateOne({ _id: req.params.id }, (err, result) => {
+      if(err) {
+        console.log(err)
+      } else {
+        console.log(result)
+        result.set({
+          _id: req.body.id,
+          security_questions: req.body.security_questions 
+      });
+      result.save(function(err, newResult) {
+        if (err) {
+          console.log(err);
+          return next(err);
+        } else {
+          console.log(newResult);
+          res.json(newResult);
+        }
+      });
+      }
+    })
+  })
+
 module.exports = router;
->>>>>>> 86ff3c90a3a0d6f409239b5a11571555530698cc
+
