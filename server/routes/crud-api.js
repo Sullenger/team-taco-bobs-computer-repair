@@ -134,9 +134,9 @@ router.delete("/users/:id", function(req, res, next) {
   });
 });
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 module.exports = router;
-=======
+//=======
   // find users security questions/answers by user id
 
   router.get('/security-questions/:id', (req, res, next) => {
@@ -156,4 +156,4 @@ module.exports = router;
   })
 
 module.exports = router;
->>>>>>> 86ff3c90a3a0d6f409239b5a11571555530698cc
+//>>>>>>> 86ff3c90a3a0d6f409239b5a11571555530698cc
