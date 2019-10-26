@@ -7,4 +7,16 @@
 ;===========================================
 -->
 
-<h1>The Login Page works!</h1>
+<mat-card class="login-container">
+    <mat-card-title>Please Sign In</mat-card-title>
+    
+    <mat-card-content>
+        <form #loginForm="ngForm" (ngSubmit)="submit(); form.reset();">
+            <mat-card-content>
+                <mat-form-field>
+                    <input type="text" matInput [formControl]="form.controls['username']" placeholder="username">
+                </mat-form-field>
+            </mat-card-content>
+        </form>
+    </mat-card-content>
+</mat-card>
