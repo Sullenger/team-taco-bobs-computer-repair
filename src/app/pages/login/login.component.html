@@ -11,6 +11,7 @@
     <mat-card-title>Please Sign In</mat-card-title>
     
     <mat-card-content>
+        <small *ngIf="errorMessage">{{ errorMessage }}</small>
         <form #loginForm="ngForm" (ngSubmit)="submit(); loginForm.reset();">
             <mat-card-content>
                 <mat-form-field class="username">
