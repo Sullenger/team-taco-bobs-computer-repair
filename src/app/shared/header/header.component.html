@@ -1,24 +1,25 @@
 <mat-toolbar class="menu" role="header" color="primary">
-        <mat-toolbar-row>
-            <mat-icon>computer</mat-icon>
-            <button mat-button class="toolbar__icon-button mat-button" (click)="navHome()">
+    <mat-toolbar-row>
+        <mat-icon aria-hidden"false" aria-label="computer icon">computer</mat-icon>
+        <button mat-button class="toolbar__icon-button mat-button" (click)="navHome()">
             <span style="margin-left: 5px !important;">Bob's</span>
-            </button>
-            <div fxFlex></div>
+        </button>
+        
+        <!-- <div fxFlex></div> Commented out due to formatting not appearing correctly-->
     
-            <!-- User Profile -->
-            <button [matMenuTriggerFor]="menu" mat-icon-button>
-                <mat-icon>account_circle</mat-icon>
+        <!-- User Profile -->
+        <button [matMenuTriggerFor]="menu" mat-icon-button>
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>library_books</mat-icon>
+                <span>Another Button</span>
             </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                    <mat-icon>library_books</mat-icon>
-                    <span>Another Button</span>
-                </button>
-                <button mat-menu-item (click)="logout()">
-                    <mat-icon>exit_to_app</mat-icon>
-                    <span>Logout</span>
-                </button>
-            </mat-menu>
-        </mat-toolbar-row>
-    </mat-toolbar>
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
