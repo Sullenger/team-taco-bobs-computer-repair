@@ -15,10 +15,21 @@ import {NotFoundComponent} from './pages/not-found/not-found.component';
 import { AuthGuardService } from '../auth.guard';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
+import { Session } from 'protractor';
 
 export const AppRoutes: Routes = [
   {
     path: '',
+    component: SessionLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: LoginComponent
+      }
+    ]
+  },
+  {
+    path: 'home',
     component: BaseLayoutComponent,
     children: [
       {
