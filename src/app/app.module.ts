@@ -34,6 +34,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HeaderComponent } from './shared/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatInputModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    HttpClientModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false })
   ],
   providers: [ CookieService ],
