@@ -21,6 +21,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { UserManagementComponent } from './pages/user-management/user-management.component';
 import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
+import { AuthGuardService } from './../auth.guard';
 
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -65,7 +66,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false })
   ],
-  providers: [ CookieService ],
+  providers: [ CookieService, AuthGuardService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
