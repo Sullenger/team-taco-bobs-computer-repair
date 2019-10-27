@@ -33,6 +33,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HeaderComponent } from './shared/header/header.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { HeaderComponent } from './shared/header/header.component';
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false })
   ],
   providers: [ CookieService ],

@@ -12,6 +12,9 @@ import {BaseLayoutComponent, SessionLayoutComponent} from './shared';
 import {LoginComponent} from './pages/login/login.component';
 import {HomeComponent} from './pages/home/home.component';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
+import { AuthGuardService } from '../auth.guard';
+import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
+import { UserManagementComponent } from './pages/user-management/user-management.component';
 
 export const AppRoutes: Routes = [
   {
@@ -20,7 +23,18 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'security-questions/:id',
+        component: SecurityQuestionsComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'user-management/:id',
+        component: UserManagementComponent,
+        canActivate: [AuthGuardService]
       }
     ]
   },
