@@ -11,14 +11,49 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router, private cookie: CookieService) { }
 
-  logout() {
-    console.log('You have logged out');
-    this.cookie.delete('isAuthenticated');
-    //this.router.navigate(["/login"]); will bring back when pages are created
-  }
   ngOnInit() {
   }
+
+  logout() {
+    console.log('You have logged out');
+    this.cookie.deleteAll();
+    this.router.navigate(["/session/login"])
+    // this.cookie.delete('isAuthenticated');
+    //this.router.navigate(["/login"]); will bring back when pages are created
+  }
+
   navHome() {
-    //this.router.navigate(["/home"]);
+    console.log("Home")
+    this.router.navigate(["/"]);
+  }
+
+  navOrder() {
+    console.log("Service Repair")
+    // this.router.navigate(["/"]);
+  }
+
+  navAbout() {
+    console.log("About Us")
+    // this.router.navigate(["/"]);
+  }
+
+  navContact() {
+    console.log("Contact Us")
+    // this.router.navigate(["/"]);
+  }
+
+  userProfile() {
+    console.log("User Profile")
+    // this.router.navigate(["/"]);
+  }
+
+  navManagement() {
+    console.log("User Management")
+    // this.router.navigate(["/"]);
+  }
+
+  navUserList() {
+    console.log("User List")
+    // this.router.navigate(["/"]);
   }
 }
