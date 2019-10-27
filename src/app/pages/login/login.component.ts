@@ -8,8 +8,7 @@
 */
 
 import { Component, OnInit } from '@angular/core';
-// Added Formbuilder for field parameters
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
@@ -20,20 +19,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  loginForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl('')
-  }); 
 
-  // Added fb FormBuilder
-  constructor(private http: HttpClient, private cookie: CookieService, private router: Router, private fb: FormBuilder) { }
-  
-  //Added validator for username.. Need password as well
+  loginForm = this.fb.group({
+    username: [''],
+    password: ['']
+  })
+
+  // loginForm = new FormGroup({
+  //   username: new FormControl(''),
+  //   password: new FormControl('')
+  // });
+
+  constructor(private fb: FormBuilder, private http: HttpClient, private cookie: CookieService, private router: Router) { }
+
   ngOnInit() {
-    this.loginForm = this.fb.group({
-      username: [null, Validators.compose([Validators.required, Validators.pattern("^[0-9]*$")])]
-    });
   }
 
   onSubmit(submit){
@@ -45,7 +44,6 @@ export class LoginComponent implements OnInit {
         console.log(res)
         this.cookie.set("isAuthenticated", "true", 10);
         this.cookie.set('user', res.userId)
-        //Changed router to /home instead of /
         this.router.navigate(['/home']);
       } else {
         console.log('error')

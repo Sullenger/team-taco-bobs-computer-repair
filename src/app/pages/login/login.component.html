@@ -7,27 +7,39 @@
 ;===========================================
 -->
 
+<!--
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+-->
+
 <mat-card class="login-container" and fxLayoutAlgin="center" >
     <mat-card-title>Please Sign In</mat-card-title>
     
     <mat-card-content>
-        <form #loginForm="ngForm" (ngSubmit)="submit(); loginForm.reset();">
+        <form [formGroup]='loginForm' #loginform = 'ngForm' (ngSubmit)='onSubmit(loginForm.value); loginForm.reset()'>
             <mat-card-content>
                 <mat-form-field class="username">
+
                     <small *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">A username is required.</small>
                     <small *ngIf="loginForm.controls['username'].hasError('pattern') && loginForm.controls['username'].touched">Please try again</small>
-                    <input type="text" matInput [formControl]="loginForm.controls['username']" placeholder="username">
+
+                    <input type="text" matInput formControlName='username' placeholder="username"> 
+
                 </mat-form-field>
-                
+                <br/>
                 <mat-form-field class="password">
-                    <input type="password" matInput [formControl]="loginForm.controls['password']" placeholder="password">
+                    <input type="password" matInput formControlName='password' placeholder="password">
                 </mat-form-field>
             </mat-card-content>
 
             <mat-card-actions>
-                <button mat-raised-button color="primary" [disabled]="!form.valid" type="submit">Log In</button>
+                <button mat-raised-button color="primary" [disabled]="!loginform.valid" type="submit">Log In</button>
             </mat-card-actions>
-
+            {{ loginForm.value | json }}
         </form>
     </mat-card-content>
 </mat-card>
