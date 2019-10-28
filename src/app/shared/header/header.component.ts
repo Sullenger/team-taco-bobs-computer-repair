@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     this.cookie.deleteAll();
     this.router.navigate(["/session/login"])
     this.cookie.delete('isAuthenticated');
-
+    this.router.navigate(["/login"]);
   }
 
   navHome() {
