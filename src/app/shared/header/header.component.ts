@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
     console.log('You have logged out');
     this.cookie.deleteAll();
     this.router.navigate(["/session/login"])
-    // this.cookie.delete('isAuthenticated');
-    //this.router.navigate(["/login"]); will bring back when pages are created
+    this.cookie.delete('isAuthenticated');
+
   }
 
   navHome() {

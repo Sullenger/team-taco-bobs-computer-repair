@@ -37,11 +37,11 @@ const User = require('../models/user');
             message: "Authentication failed"
           });
         }
-        console.log(fetchedUser);
         // send generated web token to front-end
         res.status(200).json({
           userId: fetchedUser._id,
-          name_first: fetchedUser.name_first
+          name_first: fetchedUser.name_first,
+          role: fetchedUser.roles
         });
       })
       .catch(err => {

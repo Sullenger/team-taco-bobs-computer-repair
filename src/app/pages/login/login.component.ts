@@ -20,9 +20,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  error: string;
+  role: any;
+
   loginForm = this.fb.group({
-    username: [''],
-    password: ['']
+    username: ['', Validators.required],
+    password: ['', [ Validators.required, Validators.minLength(8) ]]
   })
 
   // loginForm = new FormGroup({
@@ -40,14 +43,31 @@ export class LoginComponent implements OnInit {
     console.log(submit)
 
     this.http.post<any>('/auth/api/login', submit).subscribe( res => {
+
+      this.role = JSON.stringify(res.role);
+      let userRole = this.role.split(/[{};:"",]+/, 20)
+      let newRole = ''
+      console.log(userRole)
+
+      loop()
+
+        function loop(){
+        for(let i = 0; i < userRole.length; i++) {
+          if( userRole[i] ===  "admin") {
+            console.log(userRole[i])
+            newRole = userRole[i]
+        }
+      }
+    }
+
       if(res) {
-        console.log(res)
         this.cookie.set("isAuthenticated", "true", 10);
-        this.cookie.set('user', res.userId)
+        this.cookie.set('user', res.userId);
+        this.cookie.set('role', newRole);
         this.router.navigate(['/home']);
       } else {
-        console.log('error')
-      }
+        this.error = 'Invalid login credentials';
+      } 
     })
   }
 
