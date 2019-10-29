@@ -14,11 +14,11 @@
         <h2>Security Question Management</h2>
       </div>
       <div *ngIf="newQuestion">
-          <input type="text" [(ngModel)]="addingQuestion" />
-          <button mat-raised-button color="accent" class="buttonStyle" (click)="addQuestion(addingQuestion)">
-              Submit Question
-            </button>
-        </div>
+        <input type="text" [(ngModel)]="addingQuestion" />
+        <button mat-raised-button color="accent" class="buttonStyle" (click)="addQuestion(addingQuestion)">
+          Submit Question
+        </button>
+      </div>
       <button mat-raised-button color="primary" class="buttonStyle" *ngIf="!newQuestion" (click)="addNewQuestion()">
         New Question
       </button>
@@ -34,27 +34,19 @@
             <td *ngIf="question._id === editQuestionId">
               <input type="text" [(ngModel)]="question.question" />
               <button mat-raised-button color="accent" class="buttonStyle" (click)="update(question)">
-                  Update
-                </button>
+                Update
+              </button>
             </td>
-            <td
-              *ngIf="question._id !== editQuestionId"
-              scope="row"
-            >
+            <td *ngIf="question._id !== editQuestionId" scope="row">
               {{ question.question }}
             </td>
 
             <td scope="row">
-              <button mat-raised-button color="accent" class="buttonStyle" (click)="edit(question._id)">
-                Edit
+              <button mat-button color="accent" class="buttonStyle" (click)="edit(question._id)">
+                <mat-icon>edit</mat-icon>
               </button>
-              <button
-                mat-raised-button
-                color="warn"
-                class="buttonStyle"
-                (click)="deleteQuestion(question)"
-              >
-                Delete
+              <button mat-button color="warn" class="buttonStyle" (click)="deleteQuestion(question)">
+                <mat-icon>delete</mat-icon>
               </button>
             </td>
           </tr>
