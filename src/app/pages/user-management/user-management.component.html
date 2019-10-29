@@ -30,7 +30,7 @@
                 <th scope="row">{{ user.name_last }}</th>
                 <th scope="row">{{ user.phone_number }}</th>
                 <th scope="row">{{ user.email }}</th>
-                <th scope="row">{{ user.address }}</th>
+                <th scope="row" *ngFor='let address of user.address'>{{ address.street_address }} {{ address.city }}, {{ address.state }}, {{ address.zip }} </th>
             </tr>
         </tbody>
     </table>
