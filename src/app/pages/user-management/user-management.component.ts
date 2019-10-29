@@ -32,13 +32,11 @@ export class UserManagementComponent implements OnInit {
   ];
   users: any;
   errorMessage: string;
+  tableData: any = [];
+  ShowEditedTable: boolean = false;
+  editUserId: any = '';
 
-  constructor(
-    private fb: FormBuilder,
-    private http: HttpClient,
-    private cookie: CookieService,
-    private router: Router
-  ) {}
+  constructor(private fb: FormBuilder, private http: HttpClient, private cookie: CookieService, private router: Router) { }
 
   ngOnInit() {
     this.http.get("/api/users/").subscribe(res => {
@@ -48,5 +46,9 @@ export class UserManagementComponent implements OnInit {
         return (this.errorMessage = "Welcome to the land of no users :D");
       }
     });
+  }
+
+  edit(val) {
+    this.editUserId = val;
   }
 }
