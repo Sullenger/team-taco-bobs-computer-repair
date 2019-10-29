@@ -7,59 +7,57 @@
 ;===========================================
 */
 
-import {Routes} from '@angular/router';
-import {BaseLayoutComponent, SessionLayoutComponent} from './shared';
-import {LoginComponent} from './pages/login/login.component';
-import {HomeComponent} from './pages/home/home.component';
-import {NotFoundComponent} from './pages/not-found/not-found.component';
-import { AuthGuardService } from '../auth.guard';
-import { SecurityQuestionsComponent } from './pages/security-questions/security-questions.component';
-import { UserManagementComponent } from './pages/user-management/user-management.component';
-import { Session } from 'protractor';
+import { Routes } from "@angular/router";
+import { BaseLayoutComponent, SessionLayoutComponent } from "./shared";
+import { LoginComponent } from "./pages/login/login.component";
+import { HomeComponent } from "./pages/home/home.component";
+import { NotFoundComponent } from "./pages/not-found/not-found.component";
+import { AuthGuardService } from "../auth.guard";
+import { SecurityQuestionsComponent } from "./pages/security-questions/security-questions.component";
+import { UserManagementComponent } from "./pages/user-management/user-management.component";
+import { Session } from "protractor";
 
 export const AppRoutes: Routes = [
   //removed empty paths
   // modified line 25 to be empty path
   {
-    path: '',
+    path: "",
     component: BaseLayoutComponent,
+    canActivate: [AuthGuardService],
     children: [
       {
         // changed path to home
-        path: 'home',
-        component: HomeComponent,
-        canActivate: [AuthGuardService]
+        path: "home",
+        component: HomeComponent
       },
       {
         // changed path to not include id
-        path: 'security-questions',
-        component: SecurityQuestionsComponent,
-        canActivate: [AuthGuardService]
+        path: "security-questions",
+        component: SecurityQuestionsComponent
       },
       {
         // changed path to not include id
-        path: 'user-management',
-        component: UserManagementComponent,
-        canActivate: [AuthGuardService]
+        path: "user-management",
+        component: UserManagementComponent
       }
     ]
   },
   {
-    path: 'session',
+    path: "session",
     component: SessionLayoutComponent,
     children: [
       {
-        path: 'login',
+        path: "login",
         component: LoginComponent
       },
       {
-        path: '404',
+        path: "404",
         component: NotFoundComponent
       }
     ]
-  }, 
+  },
   {
-    path: '**',
-    redirectTo: 'session/404'
+    path: "**",
+    redirectTo: "session/404"
   }
 ];

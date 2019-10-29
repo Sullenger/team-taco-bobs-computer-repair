@@ -9,7 +9,7 @@
 
 const express = require("express");
 const router = express.Router();
-const bcrypt = require('bcrypt')
+const bcrypt = require("bcrypt");
 
 const User = require("../models/user");
 
@@ -45,16 +45,6 @@ router.post("/users/registration", function(req, res, next) {
             });
           });
         });
-
-        // User.create(user, function(req, res, next) {
-        //   if (err) {
-        //     console.log(err);
-        //     return next(err);
-        //   } else {
-        //     console.log(newUser);
-        //     res.json(newUser);
-        //   }
-        // });
       } else {
         console.log("Username Unavailable");
         res.status(500).send({
@@ -130,38 +120,41 @@ router.delete("/users/:id", function(req, res, next) {
       return next(err);
     } else {
       console.log(user);
-      res.json(user)
+      res.json(user);
     }
   });
 });
 
-  // find users security questions/answers by user id
+// find users security questions/answers by user id
 
-  router.get('/security-questions/:id', (req, res, next) => {
-    User.findOne({ _id: req.params.id }, (err, user) => {
-      if(err) {
-        console.log(err);
-    } else 
-        if(!user) {
-            res.status(401).send(console.log('No User Found!'));
+router.get("/security-questions/:id", (req, res, next) => {
+  User.findOne({ _id: req.params.id }, (err, user) => {
+    if (err) {
+      console.log(err);
+    } else if (!user) {
+      res.status(401).send(console.log("No User Found!"));
     } else {
-        res.status(201).json({
-            user: user.security_questions
-        })
+      res.status(201).json({
+        user: user.security_questions
+      });
     }
     // console.log(user.security_questions);
-    })
-  })
-
-  router.put('/edit/security-questions/:id', (req, res, next) => {
-    const newSecurity = new User({
-      _id: req.params.id,
-      security_questions: req.body.security_questions,
-    });
-    User.updateOne({ _id: req.params.id }, newSecurity).then( result => {
-      console.log(result)
-      res.status(200).json({ message: "security questions successfully updated." });
-    });
   });
+});
+
+router.put("/edit/security-questions/:id", (req, res, next) => {
+  const newSecurity = new User({
+    _id: req.params.id,
+    security_questions: req.body.security_questions
+  });
+  User.updateOne({ _id: req.params.id }, newSecurity).then(result => {
+    console.log(result);
+    res
+      .status(200)
+      .json({ message: "security questions successfully updated." });
+  });
+});
+
+
 
 module.exports = router;

@@ -7,19 +7,10 @@
 ;===========================================
 */
 
-/* You can add global styles to this file, and also import other style files */
+const mongoose = require("mongoose");
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+let securityQuestionSchema = mongoose.Schema({
+  question: { type: String }
+});
 
-body {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(119, 15, 157, 0.24);
-}
+module.exports = mongoose.model("SecurityQuestion", securityQuestionSchema);
