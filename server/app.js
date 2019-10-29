@@ -16,6 +16,7 @@ const mongoose = require("mongoose");
 
 const crudApi = require('./routes/crud-api');
 const authApi = require('./routes/auth-api');
+const questionApi = require('./routes/question-crud-api');
 
 let app = express();
 
@@ -28,6 +29,7 @@ app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
 
 app.use('/api', crudApi);
 app.use('/auth/api', authApi)
+app.use('/questions/api', questionApi)
 
 // Global variables
 const serverPort = 3000;
@@ -51,7 +53,7 @@ const connString =
 
 /************************* API routes go below this line ********************/
 
-// Login User by 
+// Login User by
 
 /**
  * Creates an express server and listens on port 3000
