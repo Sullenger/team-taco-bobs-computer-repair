@@ -8,58 +8,29 @@
 -->
 <!-- Added error message -->
 <small *ngIf="errorMessage">{{ errorMessage }} </small>
-<!-- changed dataSource to users-->
-<!--
-<table mat-table [dataSource]="users">
-
-    <ng-container matColumnDef="userName">
-        <th mat-header-cell *matHeaderCellDef>Username</th>
-    </ng-container>
-
-    <ng-container matColumnDef="firstName">
-        <th mat-header-cell *matHeaderCellDef>First Name</th>
-        <td mat-cell *matCellDef="let user">{{ user.name_first }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef>Last Name</th>
-        <td mat-cell *matCellDef="let user">{{ user.name_last }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="phone_number">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let user">{{ user.phone_number}}</td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef>Email</th>
-        <td mat-cell *matCellDef="let user">{{ user.email }}</td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="address">
-        <th mat-header-cell *matHeaderCellDef>Address</th>
-        <td mat-cell *matCellDef="let user">{{ user.address }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="update">
-        <button mat-icon-button>
-            <td mat-cell *matCellDef="let user">
-                <mat-icon>edit</mat-icon>
-            </td>
-        </button>
-    </ng-container>
-
-    <ng-container matColumnDef="delete">
-        <button mat-icon-button>
-            <td mat-cell *matCellDef="let user">
-                <mat-icon>delete</mat-icon>
-            </td>
-        </button>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
-
-</table> -->
+<div class="UserListing">
+    <div class="userTitle">
+        <h2>User Summary</h2>
+    </div>
+    <table class="tableUser">
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let user of users">
+            <tr>
+                <th scope="row">{{ user.username }}</th>
+                <th scope="row">{{ user.name_first }}</th>
+                <th scope="row">{{ user.name_last }}</th>
+                <th scope="row">{{ user.phone_number }}</th>
+                <th scope="row">{{ user.email }}</th>
+                <th scope="row">{{ user.address }}</th>
+            </tr>
+        </tbody>
+    </table>
