@@ -44,16 +44,16 @@
 
                 <div *ngFor='let address of user.address'>
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ address.street_address }}</td>
-                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='adress.street_address'></td>
+                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='address.street_address'></td>
 
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ address.city }}</td>
-                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='adress.city'></td>
+                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='address.city'></td>
 
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ address.state }}</td>
-                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='adress.state'></td>
+                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='address.state'></td>
 
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ address.zip }}</td>
-                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='adress.zip'></td>
+                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='address.zip'></td>
                 </div>
 
                 <!-- <button (click)='loadData()'>Update</button> -->
