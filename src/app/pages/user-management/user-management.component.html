@@ -10,54 +10,63 @@
 <!-- Added error message -->
 <small *ngIf="errorMessage">{{ errorMessage }} </small>
 
-<div class="userTitle">
-    <h2>User Summary</h2>
-</div>
-<table class="tableUser">
-    <thead>
-        <tr>
-            <th scope="col">Username</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Phone Number</th>
-            <th scope="col">Email</th>
-            <th scope="col">Address</th>
-            <th scope="col">Update</th>
-            <th scope="col">Delete</th>
-        </tr>
-    </thead>
-
-    <tbody *ngFor="let user of users">
+<mat-card>
+    <div class="userTitle">
+        <h2>Manage Users</h2>
+    </div>
+    <table class="table">
+        <thead>
             <tr>
-                <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='user.username'></td>
-                <td *ngIf='user._id !== editUserId' (click)='edit(user._id)' scope="row">{{ user.username }}</td>
-
-                <td scope="row" *ngIf='user._id !== editUserId'>{{ user.name_first }}</td>
-                <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='user.name_first'></td>
-
-                <td scope="row" *ngIf='user._id !== editUserId'>{{ user.name_last }}</td>
-                <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='user.name_last'></td>
-
-                <td scope="row" *ngIf='user._id !== editUserId'>{{ user.phone_number }}</td>
-                <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='user.phone_number'></td>
-
-                <td scope="row" *ngIf='user._id !== editUserId'>{{ user.email }}</td>
-                <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='user.email'></td>
-
-                <div *ngFor='let address of user.address'>
-                    <td scope="row" *ngIf='user._id !== editUserId'>{{ address.street_address }}</td>
-                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='address.street_address'></td>
-
-                    <td scope="row" *ngIf='user._id !== editUserId'>{{ address.city }}</td>
-                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='address.city'></td>
-
-                    <td scope="row" *ngIf='user._id !== editUserId'>{{ address.state }}</td>
-                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='address.state'></td>
-
-                    <td scope="row" *ngIf='user._id !== editUserId'>{{ address.zip }}</td>
-                    <td *ngIf='user._id === editUserId'><input type='text' [(ngModel)]='address.zip'></td>
-                </div>
-                <button (click)='onUpdate(user._id)'>Update</button>
+                <th scope="col">Username</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
             </tr>
-        </tbody>
-</table>
+        </thead>
+
+        <tbody *ngFor="let user of users">
+                <tr>
+                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.username'></td>
+                    <td scope="row" *ngIf='user._id !== editUserId' scope="row">{{ user.username }}</td>
+
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.name_first }}</td>
+                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.name_first'></td>
+
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.name_last }}</td>
+                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.name_last'></td>
+
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.phone_number }}</td>
+                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.phone_number'></td>
+
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.email }}</td>
+                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.email'></td>
+
+                    <div *ngFor='let address of user.address'>
+                        <td scope="row" *ngIf='user._id !== editUserId'>{{ address.street_address }}</td>
+                        <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='address.street_address'></td>
+
+                        <td scope="row" *ngIf='user._id !== editUserId'>{{ address.city }}</td>
+                        <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='address.city'></td>
+
+                        <td scope="row" *ngIf='user._id !== editUserId'>{{ address.state }}</td>
+                        <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='address.state'></td>
+
+                        <td scope="row" *ngIf='user._id !== editUserId'>{{ address.zip }}</td>
+                        <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='address.zip'></td>
+                    </div>
+                    <td>
+                        <button mat-button color='accent' *ngIf='isEdit === true' (click)='onUpdate(user)'><mat-icon>check_circle_outline</mat-icon></button>
+                        <button mat-button color='accent' *ngIf='isEdit !== true' (click)='edit(user._id)'><mat-icon>edit</mat-icon></button>
+                    </td>
+                    <td>
+                        <button mat-button color='danger' (click)='onDelete(user, user._id)'><mat-icon>delete</mat-icon></button> 
+                    </td>
+                
+                </tr>
+            </tbody>
+    </table>
+</mat-card>

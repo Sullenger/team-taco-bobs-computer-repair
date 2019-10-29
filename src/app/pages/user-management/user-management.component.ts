@@ -33,9 +33,10 @@ export class UserManagementComponent implements OnInit {
   users: any;
   errorMessage: string;
 
-  tableData: any = [];
+  tableData: any;
   ShowEditedTable: boolean = false;
   editUserId: any = '';
+  isEdit: boolean = false;
 
   constructor(private fb: FormBuilder, private http: HttpClient, private cookie: CookieService, private router: Router) { }
 
@@ -49,16 +50,29 @@ export class UserManagementComponent implements OnInit {
     });
   }
 
-    onUpdate(val) {
-    console.log(val)
-    this.http.put('/api/users/' + val, { user: this.users}).subscribe( res => {
-      console.log(res);
+    onUpdate(val1) {
+    console.log(val1)
+
+    this.http.put('/api/users/' + this.editUserId, val1 ).subscribe( res => {
+      this.tableData = res;
+      document.location.reload(true)
+     })
+  }
+
+  onDelete(val1, val2) {
+    console.log(val1)
+    console.log(this.editUserId)
+
+    this.http.delete('/api/users/' + val2, val1 ).subscribe( res => {
+      this.tableData = res;
+      document.location.reload(true)
      })
   }
 
   edit(val) {
     console.log(val)
     this.editUserId = val;
+    this.isEdit = true
   }
 
 }
