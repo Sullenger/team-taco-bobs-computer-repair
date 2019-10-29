@@ -52,6 +52,7 @@
           <span style="margin-left: 5px !important">Contact Us</span>
         </button>
 
+
         <div fxFlex></div>
 
         <button
@@ -66,12 +67,12 @@
             <mat-icon>account_circle</mat-icon>
             <span>My Profile</span>
           </button>
-          <button mat-menu-item (click)="navManagement()">
+          <button *ngIf='isAdmin == true' mat-menu-item (click)="navManagement()">
             <mat-icon>perm_contact_calendar</mat-icon>
             <span>User Management</span>
           </button>
           <!-- Modied user list to be security questions -->
-          <button mat-menu-item (click)="navSecQ()">
+          <button *ngIf='isAdmin == true' mat-menu-item (click)="navSecQ()">
             <mat-icon>list</mat-icon>
             <span>Security Questions</span>
           </button>

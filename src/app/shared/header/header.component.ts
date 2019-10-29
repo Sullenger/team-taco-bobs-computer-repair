@@ -17,7 +17,24 @@ import { CookieService } from "ngx-cookie-service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private cookie: CookieService) {}
+  constructor(private router: Router, private cookie: CookieService) {
+    this.userAdmin()
+  }
+
+  isAdmin: boolean = false;
+  role: string;
+
+  userAdmin() {
+    this.role = this.cookie.get('role')
+    console.log(this.role);
+    if(this.role == "admin") {
+      this.isAdmin = true;
+      console.log(this.isAdmin)
+    }
+    else {
+      this.isAdmin = false;
+    }
+  }
 
   ngOnInit() {}
 
