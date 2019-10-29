@@ -9,7 +9,7 @@
 
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 // import { FormBuilder, Validators } from '@angular/forms';
 // import { CookieService } from 'ngx-cookie-service';
 
@@ -22,12 +22,13 @@ export class SecurityQuestionsComponent implements OnInit {
   questions: any;
   errorMessage: string;
   questionId: string;
+  editQuestionId: any = "";
+  newQuestion: boolean;
+  newQuestionText: string;
 
   constructor(
     private http: HttpClient,
-    private router: Router,
-     // private fb: FormBuilder,
-   // private cookie: CookieService,
+    private router: Router // private fb: FormBuilder, // private cookie: CookieService,
   ) {}
 
   ngOnInit() {
@@ -41,12 +42,50 @@ export class SecurityQuestionsComponent implements OnInit {
     });
   }
 
+  // Deletes existing question
   deleteQuestion(question) {
-    this.questionId = question._id
-    console.log(this.questionId)
-    this.http.delete("/questions/api/question/" + this.questionId).subscribe(res => {
-      this.questions = res;
-      document.location.reload(true);
-    })
+    this.questionId = question._id;
+    console.log(this.questionId);
+    this.http
+      .delete("/questions/api/question/" + this.questionId)
+      .subscribe(res => {
+        this.questions = res;
+        document.location.reload(true);
+      });
+  }
+
+  // Enables modifying existing questions
+  edit(val) {
+    this.editQuestionId = val;
+  }
+
+  // Enables adding new question
+  addNewQuestion() {
+    this.newQuestion = true;
+  }
+
+  // Sends new question from input to DB
+  addQuestion(questionInput) {
+    console.log(questionInput);
+    this.http
+      .post("/questions/api/question/", { question: questionInput })
+      .subscribe(res => {
+        this.questions = res;
+        document.location.reload(true);
+      });
+  }
+
+  // Updates existing questions
+  update(question) {
+    this.questionId = question._id;
+    console.log(this.questionId);
+    this.http
+      .put("/questions/api/question/" + this.questionId, {
+        question: question.question
+      })
+      .subscribe(res => {
+        this.questions = res;
+        document.location.reload(true);
+      });
   }
 }
