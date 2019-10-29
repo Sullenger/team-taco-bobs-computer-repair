@@ -14,9 +14,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const mongoose = require("mongoose");
 
-const crudApi = require('./routes/crud-api');
-const authApi = require('./routes/auth-api');
-const questionApi = require('./routes/question-crud-api');
+const crudApi = require("./routes/crud-api");
+const authApi = require("./routes/auth-api");
+const questionApi = require("./routes/question-crud-api");
 
 let app = express();
 
@@ -27,9 +27,9 @@ app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "../dist/bcrs")));
 app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
 
-app.use('/api', crudApi);
-app.use('/auth/api', authApi)
-app.use('/questions/api', questionApi)
+app.use("/api", crudApi);
+app.use("/auth/api", authApi);
+app.use("/questions/api", questionApi);
 
 // Global variables
 const serverPort = 3000;
@@ -41,7 +41,7 @@ const connString =
 
 /************************* Mongoose connection strings go below this line  ***************/
 
-  mongoose
+mongoose
   .connect(connString, {
     promiseLibrary: require("bluebird"),
     useNewUrlParser: true

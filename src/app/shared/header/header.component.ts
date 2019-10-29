@@ -1,60 +1,67 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+/*
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+*/
+
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
+  constructor(private router: Router, private cookie: CookieService) {}
 
-  constructor(private router: Router, private cookie: CookieService) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   logout() {
-    console.log('You have logged out');
+    console.log("You have logged out");
     this.cookie.deleteAll();
-    this.router.navigate(["/session/login"])
-    this.cookie.delete('isAuthenticated');
+    this.router.navigate(["/session/login"]);
+    this.cookie.delete("isAuthenticated");
   }
 
   navHome() {
-    console.log("Home")
+    console.log("Home");
     this.router.navigate(["/"]);
   }
 
   navOrder() {
-    console.log("Service Repair")
+    console.log("Service Repair");
     // this.router.navigate(["/"]);
   }
 
   navAbout() {
-    console.log("About Us")
+    console.log("About Us");
     // this.router.navigate(["/"]);
   }
 
   navContact() {
-    console.log("Contact Us")
+    console.log("Contact Us");
     // this.router.navigate(["/"]);
   }
 
   userProfile() {
-    console.log("User Profile")
+    console.log("User Profile");
     // this.router.navigate(["/"]);
   }
 
   navManagement() {
-    console.log("User Management")
+    console.log("User Management");
     // modified route to ./user-management
     this.router.navigate(["./user-management/"]);
   }
-  
+
   // modified to security questions route
   navSecQ() {
-    console.log("Security Questions")
+    console.log("Security Questions");
     //changed route to ./security-questions
     this.router.navigate(["./security-questions"]);
   }

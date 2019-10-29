@@ -6,15 +6,18 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 */
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 
-const SecurityQuestion = require('../models/securityQuestion');
+const SecurityQuestion = require("../models/securityQuestion");
 
 // Create Security Question
 router.post("/question", function(req, res, next) {
-  SecurityQuestion.create({ question: req.body.question }, function(err, questions) {
+  SecurityQuestion.create({ question: req.body.question }, function(
+    err,
+    questions
+  ) {
     if (err) {
       console.log(err);
       return next(err);
@@ -59,7 +62,7 @@ router.put("/question/:id", function(req, res, next) {
       return next(err);
     } else {
       console.log(question);
-      question.set({question: req.body.question});
+      question.set({ question: req.body.question });
       question.save(function(err, updatedSecurityQuestion) {
         if (err) {
           console.log(err);
@@ -75,13 +78,16 @@ router.put("/question/:id", function(req, res, next) {
 
 // delete security question by id
 router.delete("/question/:id", function(req, res, next) {
-  SecurityQuestion.findByIdAndDelete({ _id: req.params.id }, function(err, question) {
+  SecurityQuestion.findByIdAndDelete({ _id: req.params.id }, function(
+    err,
+    question
+  ) {
     if (err) {
       console.log(err);
       return next(err);
     } else {
       console.log(question);
-      res.json(question)
+      res.json(question);
     }
   });
 });

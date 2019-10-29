@@ -1,16 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+/*
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+*/
 
-import { SecurityQuestionsComponent } from './security-questions.component';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-describe('SecurityQuestionsComponent', () => {
+import { SecurityQuestionsComponent } from "./security-questions.component";
+
+describe("SecurityQuestionsComponent", () => {
   let component: SecurityQuestionsComponent;
   let fixture: ComponentFixture<SecurityQuestionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SecurityQuestionsComponent ]
-    })
-    .compileComponents();
+      declarations: [SecurityQuestionsComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +27,7 @@ describe('SecurityQuestionsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
