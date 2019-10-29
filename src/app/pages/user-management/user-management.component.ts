@@ -49,7 +49,15 @@ export class UserManagementComponent implements OnInit {
     });
   }
 
+    onUpdate(val) {
+    console.log(val)
+    this.http.put('/api/users/' + val, { user: this.users}).subscribe( res => {
+      console.log(res);
+     })
+  }
+
   edit(val) {
+    console.log(val)
     this.editUserId = val;
   }
 
