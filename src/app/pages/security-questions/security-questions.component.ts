@@ -21,12 +21,13 @@ import { HttpClient } from "@angular/common/http";
 export class SecurityQuestionsComponent implements OnInit {
   questions: any;
   errorMessage: string;
+  questionId: string;
 
   constructor(
     private http: HttpClient // private fb: FormBuilder,
-  ) // private cookie: CookieService,
+   // private cookie: CookieService,
   // private router: Router
-  {}
+  ) {}
 
   ngOnInit() {
     this.http.get("/questions/api/question").subscribe(res => {
@@ -37,5 +38,13 @@ export class SecurityQuestionsComponent implements OnInit {
         return (this.errorMessage = "No questions found");
       }
     });
+  }
+
+  deleteQuestion(question) {
+    this.questionId = question._id
+    console.log(this.questionId)
+    this.http.delete("/questions/api/question/" + this.questionId).subscribe(res => {
+      this.questions = res
+    })
   }
 }

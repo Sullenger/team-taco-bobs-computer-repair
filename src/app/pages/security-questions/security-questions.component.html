@@ -6,6 +6,7 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
+<div class="container">
 <small *ngIf="errorMessage">{{ errorMessage }} </small>
 <div class="questionListing">
   <div class="questionTitle">
@@ -14,7 +15,7 @@
   <button mat-raised-button color="primary">
     Add New Question
   </button>
-  <table class="tableQuestion">
+  <table class="tableQuestion table table-hover">
     <thead>
       <tr>
         <th scope="col">Question</th>
@@ -25,14 +26,15 @@
       <tr>
         <td scope="row">{{ question.question }}</td>
         <td scope="row">
-          <button mat-raised-button color="accent">
+          <button mat-raised-button color="accent" class="buttonStyle">
             Edit
           </button>
-          <button mat-raised-button color="warn">
+          <button mat-raised-button color="warn" class="buttonStyle" (click)="deleteQuestion(question)">
             Delete
           </button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
 </div>
