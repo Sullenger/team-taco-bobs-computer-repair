@@ -18,32 +18,27 @@ import { UserManagementComponent } from './pages/user-management/user-management
 import { Session } from 'protractor';
 
 export const AppRoutes: Routes = [
+  //removed empty paths
+  // modified line 25 to be empty path
   {
     path: '',
-    component: SessionLayoutComponent,
-    children: [
-      {
-        path: '',
-        component: LoginComponent
-      }
-    ]
-  },
-  {
-    path: 'home',
     component: BaseLayoutComponent,
     children: [
       {
-        path: '',
+        // changed path to home
+        path: 'home',
         component: HomeComponent,
         canActivate: [AuthGuardService]
       },
       {
-        path: 'security-questions/:id',
+        // changed path to not include id
+        path: 'security-questions',
         component: SecurityQuestionsComponent,
         canActivate: [AuthGuardService]
       },
       {
-        path: 'user-management/:id',
+        // changed path to not include id
+        path: 'user-management',
         component: UserManagementComponent,
         canActivate: [AuthGuardService]
       }
@@ -62,7 +57,7 @@ export const AppRoutes: Routes = [
         component: NotFoundComponent
       }
     ]
-  },
+  }, 
   {
     path: '**',
     redirectTo: 'session/404'

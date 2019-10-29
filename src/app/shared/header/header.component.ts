@@ -48,7 +48,8 @@ export class HeaderComponent implements OnInit {
 
   navManagement() {
     console.log("User Management")
-    // this.router.navigate(["/"]);
+    // modied route to ./user-management
+    this.router.navigate(["./user-management/"]);
   }
 
   navUserList() {
