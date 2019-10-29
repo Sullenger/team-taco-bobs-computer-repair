@@ -32,7 +32,7 @@ export class UserManagementComponent implements OnInit {
   ];
   users: any;
   errorMessage: string;
-  
+
   tableData: any = [];
   ShowEditedTable: boolean = false;
   editUserId: any = '';
@@ -52,4 +52,5 @@ export class UserManagementComponent implements OnInit {
   edit(val) {
     this.editUserId = val;
   }
+
 }
