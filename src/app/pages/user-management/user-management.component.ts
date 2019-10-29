@@ -32,6 +32,7 @@ export class UserManagementComponent implements OnInit {
   ];
   users: any;
   errorMessage: string;
+  
   tableData: any = [];
   ShowEditedTable: boolean = false;
   editUserId: any = '';
