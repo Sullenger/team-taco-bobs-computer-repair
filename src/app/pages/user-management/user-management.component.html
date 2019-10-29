@@ -6,9 +6,11 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
-<h1>IT WORKS AND SHOWS TEXT</h1>
+<!-- Added error message -->
+<small *ngIf="errorMessage">{{ errorMessage }} </small>
+<!-- changed dataSource to users-->
 <!--
-<table mat-table [dataSource]="myDataArray">
+<table mat-table [dataSource]="users">
 
     <ng-container matColumnDef="userName">
         <th mat-header-cell *matHeaderCellDef>Username</th>
