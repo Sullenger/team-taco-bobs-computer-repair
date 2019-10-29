@@ -6,35 +6,36 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
-<mat-card>
-  <h2>Please Fill Out Form</h2><br>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" #userForm="ngForm">
-    <mat-card-content>
-
-      <p>In what city or town did your mother and father meet?</p>
-      <mat-form-field>
-        <input matInput placeholder="Answer" type="text" [value]="_question_answer_1"
-          [formControl]="form.controls['_answer_1']" />
-      </mat-form-field><br>
-
-      <p>What was the name of your first stuffed animal?</p>
-      <mat-form-field>
-        <input matInput placeholder="Answer" type="text" [value]="_question_answer_2"
-          [formControl]="form.controls['_answer_2']" />
-      </mat-form-field><br>
-
-      <p>What's the name of your first pet?</p>
-      <mat-form-field>
-        <input matInput placeholder="Answer" type="text" [value]="_question_answer_3"
-          [formControl]="form.controls['_answer_3']" />
-      </mat-form-field><br>
-
-
-      <br />
-      <mat-card-actions>
-        <button mat-raised-button color="accent" type="submit">Submit</button>
-      </mat-card-actions>
-    </mat-card-content>
-  </form>
-</mat-card>
+<small *ngIf="errorMessage">{{ errorMessage }} </small>
+<div class="questionListing">
+  <div class="questionTitle">
+    <h2>Security Question Management</h2>
+  </div>
+  <table class="tableQuestion">
+    <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let question of questions">
+      <tr>
+        <td scope="row">{{ question.question }}</td>
+        <td scope="row">
+          <button
+            mat-raised-button
+            color="accent"
+          >
+            Edit
+          </button>
+          <button
+            mat-raised-button
+            color="danger"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
