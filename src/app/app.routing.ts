@@ -23,24 +23,22 @@ export const AppRoutes: Routes = [
   {
     path: '',
     component: BaseLayoutComponent,
+    canActivate: [AuthGuardService],
     children: [
       {
         // changed path to home
         path: 'home',
-        component: HomeComponent,
-        canActivate: [AuthGuardService]
+        component: HomeComponent
       },
       {
         // changed path to not include id
         path: 'security-questions',
-        component: SecurityQuestionsComponent,
-        canActivate: [AuthGuardService]
+        component: SecurityQuestionsComponent
       },
       {
         // changed path to not include id
         path: 'user-management',
-        component: UserManagementComponent,
-        canActivate: [AuthGuardService]
+        component: UserManagementComponent
       }
     ]
   },
