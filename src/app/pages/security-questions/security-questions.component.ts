@@ -9,9 +9,9 @@
 
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Router } from '@angular/router';
 // import { FormBuilder, Validators } from '@angular/forms';
 // import { CookieService } from 'ngx-cookie-service';
-// import { Router } from '@angular/router';
 
 @Component({
   selector: "app-security-questions",
@@ -24,9 +24,10 @@ export class SecurityQuestionsComponent implements OnInit {
   questionId: string;
 
   constructor(
-    private http: HttpClient // private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router,
+     // private fb: FormBuilder,
    // private cookie: CookieService,
-  // private router: Router
   ) {}
 
   ngOnInit() {
@@ -44,7 +45,8 @@ export class SecurityQuestionsComponent implements OnInit {
     this.questionId = question._id
     console.log(this.questionId)
     this.http.delete("/questions/api/question/" + this.questionId).subscribe(res => {
-      this.questions = res
+      this.questions = res;
+      document.location.reload(true);
     })
   }
 }

@@ -33,12 +33,25 @@ export class UserManagementComponent implements OnInit {
   users: any;
   errorMessage: string;
 
-  constructor(
-    private fb: FormBuilder,
-    private http: HttpClient,
-    private cookie: CookieService,
-    private router: Router
-  ) {}
+  tableData: any = [];
+  ShowEditedTable: boolean = false;
+  editUserId: any = '';
+
+  // updateForm = this.fb.group({
+  //   username: [''],
+  //   firstName: [''],
+  //   lastName: [''],
+  //   phone: [''],
+  //   email: [''],
+  //   address: this.fb.group({
+  //     street_address: [''],
+  //     city: [''],
+  //     state: [''],
+  //     zip: ['']
+  //   })
+  // })
+
+  constructor(private fb: FormBuilder, private http: HttpClient, private cookie: CookieService, private router: Router) { }
 
   ngOnInit() {
     this.http.get("/api/users/").subscribe(res => {
@@ -49,4 +62,25 @@ export class UserManagementComponent implements OnInit {
       }
     });
   }
+
+  edit(val) {
+    this.editUserId = val;
+  }
+
+  // loadData(){
+  //   this.updateForm.setValue({
+  //     username: this.users.username,
+  //     firstName: this.users.name_first,
+  //     lastName: this.users.name_last,
+  //     email: this.users.email,
+  //     phone: this.users.phone,
+  //     // address: {
+  //     //   street_address: this.users.address.street_address,
+  //     //   city: this.users.address.city,
+  //     //   state: this.users.address.state,
+  //     //   zip: this.users.address.zip
+  //     // }
+  //   })
+  // }
+
 }
