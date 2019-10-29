@@ -59,9 +59,10 @@
             <mat-icon>perm_contact_calendar</mat-icon>
             <span>User Management</span>
           </button>
-          <button mat-menu-item (click)="navUserList()">
+          <!-- Modied user list to be security questions -->
+          <button mat-menu-item (click)="navSecQ()">
             <mat-icon>list</mat-icon>
-            <span>User List</span>
+            <span>Security Questions</span>
           </button>
           <button (click)="logout()" mat-menu-item>
             <mat-icon>exit_to_app</mat-icon>
