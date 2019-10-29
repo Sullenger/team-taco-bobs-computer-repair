@@ -11,10 +11,13 @@
   <div class="questionTitle">
     <h2>Security Question Management</h2>
   </div>
+  <button mat-raised-button color="primary">
+    Add New Question
+  </button>
   <table class="tableQuestion">
     <thead>
       <tr>
-        <th scope="col">Username</th>
+        <th scope="col">Question</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -22,16 +25,10 @@
       <tr>
         <td scope="row">{{ question.question }}</td>
         <td scope="row">
-          <button
-            mat-raised-button
-            color="accent"
-          >
+          <button mat-raised-button color="accent">
             Edit
           </button>
-          <button
-            mat-raised-button
-            color="danger"
-          >
+          <button mat-raised-button color="warn">
             Delete
           </button>
         </td>
