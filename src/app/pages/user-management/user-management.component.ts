@@ -32,24 +32,13 @@ export class UserManagementComponent implements OnInit {
   ];
   users: any;
   errorMessage: string;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0426d053275d1b0fef10d89f4f543fc039f286b9
   tableData: any = [];
   ShowEditedTable: boolean = false;
   editUserId: any = '';
-
-  // updateForm = this.fb.group({
-  //   username: [''],
-  //   firstName: [''],
-  //   lastName: [''],
-  //   phone: [''],
-  //   email: [''],
-  //   address: this.fb.group({
-  //     street_address: [''],
-  //     city: [''],
-  //     state: [''],
-  //     zip: ['']
-  //   })
-  // })
 
   constructor(private fb: FormBuilder, private http: HttpClient, private cookie: CookieService, private router: Router) { }
 
@@ -66,6 +55,7 @@ export class UserManagementComponent implements OnInit {
   edit(val) {
     this.editUserId = val;
   }
+<<<<<<< HEAD
 
   // loadData(){
   //   this.updateForm.setValue({
@@ -83,4 +73,6 @@ export class UserManagementComponent implements OnInit {
   //   })
   // }
 
+=======
+>>>>>>> 0426d053275d1b0fef10d89f4f543fc039f286b9
 }
