@@ -28,3 +28,9 @@ input {
     margin: 0px;
     padding: 0px;
 }
+
+.tableCell {
+  display:table-cell;
+  width:80%;
+}
+

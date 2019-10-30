@@ -31,41 +31,40 @@
 
         <tbody *ngFor="let user of users">
                 <tr>
-                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.username'></td>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.username'></td>
                     <td scope="row" *ngIf='user._id !== editUserId' scope="row">{{ user.username }}</td>
 
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ user.name_first }}</td>
-                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.name_first'></td>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.name_first'></td>
 
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ user.name_last }}</td>
-                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.name_last'></td>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.name_last'></td>
 
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ user.phone_number }}</td>
-                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.phone_number'></td>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.phone_number'></td>
 
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ user.email }}</td>
-                    <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='user.email'></td>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.email'></td>
 
                     <div *ngFor='let address of user.address'>
                         <td scope="row" *ngIf='user._id !== editUserId'>{{ address.street_address }}</td>
-                        <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='address.street_address'></td>
+                        <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='address.street_address'></td>
 
                         <td scope="row" *ngIf='user._id !== editUserId'>{{ address.city }}</td>
-                        <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='address.city'></td>
+                        <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='address.city'></td>
 
                         <td scope="row" *ngIf='user._id !== editUserId'>{{ address.state }}</td>
-                        <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='address.state'></td>
+                        <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='address.state'></td>
 
-                        <td scope="row" *ngIf='user._id !== editUserId'>{{ address.zip }}</td>
-                        <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='address.zip'></td>
+                        <td scope="row" *ngIf='user._id !== editUserId' >{{ address.zip }}</td>
+                        <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='address.zip'></td>
                     </div>
 
                     <!-- Adding Role -->
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ user.roles[0].role }}</td>
                     <td *ngIf='user._id === editUserId'>
-                      <!-- <input style="display:table-cell; width:80%" matInput type='checkbox' [(ngModel)]='user.roles[0].role'> -->
-                      <button mat-button color='accent' (click)="user.roles[0].role = 'admin'"><mat-icon>check_circle</mat-icon></button>
-                      <button mat-button color='accent' (click)="user.roles[0].role = 'standard'"><mat-icon>cancel</mat-icon></button>
+                      <button mat-button color='warn' class="tableCell" *ngIf="user.roles[0].role === 'standard'" (click)="user.roles[0].role = 'admin'">Add Admin Role</button>
+                      <button mat-button color='warn' class="tableCell" *ngIf="user.roles[0].role === 'admin'" (click)="user.roles[0].role = 'standard'">Remove Admin Role</button>
                     </td>
 
                     <td>
