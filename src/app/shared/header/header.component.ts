@@ -47,7 +47,8 @@ export class HeaderComponent implements OnInit {
 
   navHome() {
     console.log("Home");
-    this.router.navigate(["/"]);
+    //modified route to take to home
+    this.router.navigate(["./home"]);
   }
 
   navOrder() {
