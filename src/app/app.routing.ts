@@ -16,6 +16,7 @@ import { AuthGuardService } from "../auth.guard";
 import { SecurityQuestionsComponent } from "./pages/security-questions/security-questions.component";
 import { UserManagementComponent } from "./pages/user-management/user-management.component";
 import { Session } from "protractor";
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 export const AppRoutes: Routes = [
   //removed empty paths
@@ -53,6 +54,10 @@ export const AppRoutes: Routes = [
       {
         path: "404",
         component: NotFoundComponent
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
       }
     ]
   },

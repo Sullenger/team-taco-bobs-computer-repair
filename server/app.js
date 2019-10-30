@@ -17,6 +17,7 @@ const mongoose = require("mongoose");
 const crudApi = require("./routes/crud-api");
 const authApi = require("./routes/auth-api");
 const questionApi = require("./routes/question-crud-api");
+const recoverApi = require('./routes/acc-recovery')
 
 let app = express();
 
@@ -30,6 +31,7 @@ app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
 app.use("/api", crudApi);
 app.use("/auth/api", authApi);
 app.use("/questions/api", questionApi);
+app.use("/recovery/api", recoverApi)
 
 // Global variables
 const serverPort = 3000;

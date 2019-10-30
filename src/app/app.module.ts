@@ -36,6 +36,7 @@ import { MatInputModule } from "@angular/material/input";
 import { HeaderComponent } from "./shared/header/header.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule } from "@angular/common/http";
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { HttpClientModule } from "@angular/common/http";
     NotFoundComponent,
     UserManagementComponent,
     SecurityQuestionsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
