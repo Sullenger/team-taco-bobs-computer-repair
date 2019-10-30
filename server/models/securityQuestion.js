@@ -7,12 +7,10 @@
 ;===========================================
 */
 
-import { Component } from "@angular/core";
+const mongoose = require("mongoose");
 
-@Component({
-  selector: "app-root",
-  template: "<router-outlet></router-outlet>"
-})
-export class AppComponent {
-  title = `Bob's Computer Repair Shop`;
-}
+let securityQuestionSchema = mongoose.Schema({
+  question: { type: String }
+});
+
+module.exports = mongoose.model("SecurityQuestion", securityQuestionSchema);

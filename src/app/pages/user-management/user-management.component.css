@@ -7,12 +7,30 @@
 ;===========================================
 */
 
-import { Component } from "@angular/core";
-
-@Component({
-  selector: "app-root",
-  template: "<router-outlet></router-outlet>"
-})
-export class AppComponent {
-  title = `Bob's Computer Repair Shop`;
+mat-card{
+    width: 95%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: accent
 }
+
+table{
+    margin: auto;
+    max-width: 95%;
+    position: relative;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    margin: 0px;
+    padding: 0px;
+}
+
+.tableCell {
+  display:table-cell;
+  width:80%;
+}
+

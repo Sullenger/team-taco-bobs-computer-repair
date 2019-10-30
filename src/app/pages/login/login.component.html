@@ -6,5 +6,50 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
+<h1>Welcome to Bob's Computer Repair Shop</h1>
+<br>
+<div fxLayoutAlign="center">
+  <mat-card class="login-container">
+    <mat-card-title>Please Sign In</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="loginForm" #loginform="ngForm" (ngSubmit)="onSubmit(loginForm.value); loginForm.reset()">
+        <small *ngIf="error">{{ error }}</small>
 
-<h1>The Login Page works!</h1>
+        <mat-card-content>
+          <mat-form-field class="username">
+            <input type="text" matInput formControlName="username" placeholder="username" />
+          </mat-form-field>
+          <div class="error" *ngIf="
+              loginForm.get('username').invalid &&
+              (loginForm.get('username').touched ||
+                loginForm.get('username').dirty)
+            ">
+            <div *ngIf="loginForm.get('username').hasError('required')">
+              Username is required.
+            </div>
+          </div>
+          <br />
+          <mat-form-field class="password">
+            <input type="password" matInput formControlName="password" placeholder="password" />
+          </mat-form-field>
+          <div class="error" *ngIf="
+              loginForm.get('password').invalid &&
+              (loginForm.get('password').touched ||
+                loginForm.get('password').dirty)
+            ">
+            <div *ngIf="loginForm.get('password').hasError('required')">
+              Password is required.
+            </div>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-raised-button color="warn" [disabled]="!loginform.valid" type="submit">
+            Log In
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <div></div>
+</div>

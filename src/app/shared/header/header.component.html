@@ -1,0 +1,88 @@
+<!--
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+-->
+
+<div>
+  <!-- Page header -->
+  <header>
+    <!-- Navbar -->
+    <mat-toolbar class="menu" role="header" color="primary">
+      <mat-toolbar-row>
+        <!-- Home -->
+        <button
+          mat-button
+          class="toolbar__icon-button mat-button"
+          (click)="navHome()"
+        >
+          <mat-icon>computer</mat-icon>
+          <span style="margin-left: 5px !important"
+            >Bob's Computer Repair Shop</span
+          >
+        </button>
+        <!-- Service Repair -->
+        <button
+          mat-button
+          class="toolbar__icon-button mat-button"
+          (click)="navOrder()"
+        >
+          <mat-icon>build</mat-icon>
+          <span style="margin-left: 5px !important">Service Repair</span>
+        </button>
+        <!-- About Us -->
+        <button
+          mat-button
+          class="toolbar__icon-button mat-button"
+          (click)="navAbout()"
+        >
+          <mat-icon>class</mat-icon>
+          <span style="margin-left: 5px !important">About Us</span>
+        </button>
+        <!-- Contact Us -->
+        <button
+          mat-button
+          class="toolbar__icon-button mat-button"
+          (click)="navContact()"
+        >
+          <mat-icon>email</mat-icon>
+          <span style="margin-left: 5px !important">Contact Us</span>
+        </button>
+
+
+        <div fxFlex></div>
+
+        <button
+          mat-icon-button
+          class="toolbar__icon-button"
+          [matMenuTriggerFor]="menu"
+        >
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="userProfile()">
+            <mat-icon>account_circle</mat-icon>
+            <span>My Profile</span>
+          </button>
+          <button *ngIf='isAdmin == true' mat-menu-item (click)="navManagement()">
+            <mat-icon>perm_contact_calendar</mat-icon>
+            <span>User Management</span>
+          </button>
+          <!-- Modied user list to be security questions -->
+          <button *ngIf='isAdmin == true' mat-menu-item (click)="navSecQ()">
+            <mat-icon>list</mat-icon>
+            <span>Security Questions</span>
+          </button>
+          <button (click)="logout()" mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!-- endNavbar -->
+  </header>
+</div>

@@ -1,0 +1,81 @@
+<!--
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+-->
+
+<!-- Added error message -->
+<small *ngIf="errorMessage">{{ errorMessage }} </small>
+
+<mat-card>
+    <div class="userTitle">
+        <h2>Manage Users</h2>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Role</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+
+        <tbody *ngFor="let user of users">
+                <tr>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.username'></td>
+                    <td scope="row" *ngIf='user._id !== editUserId' scope="row">{{ user.username }}</td>
+
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.name_first }}</td>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.name_first'></td>
+
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.name_last }}</td>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.name_last'></td>
+
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.phone_number }}</td>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.phone_number'></td>
+
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.email }}</td>
+                    <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='user.email'></td>
+
+                    <div *ngFor='let address of user.address'>
+                        <td scope="row" *ngIf='user._id !== editUserId'>{{ address.street_address }}</td>
+                        <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='address.street_address'></td>
+
+                        <td scope="row" *ngIf='user._id !== editUserId'>{{ address.city }}</td>
+                        <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='address.city'></td>
+
+                        <td scope="row" *ngIf='user._id !== editUserId'>{{ address.state }}</td>
+                        <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='address.state'></td>
+
+                        <td scope="row" *ngIf='user._id !== editUserId' >{{ address.zip }}</td>
+                        <td *ngIf='user._id === editUserId'><input class="tableCell" matInput type='text' [(ngModel)]='address.zip'></td>
+                    </div>
+
+                    <!-- Adding Role -->
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.roles[0].role }}</td>
+                    <td *ngIf='user._id === editUserId'>
+                      <button mat-button color='warn' class="tableCell" *ngIf="user.roles[0].role === 'standard'" (click)="user.roles[0].role = 'admin'">Add Admin Role</button>
+                      <button mat-button color='warn' class="tableCell" *ngIf="user.roles[0].role === 'admin'" (click)="user.roles[0].role = 'standard'">Remove Admin Role</button>
+                    </td>
+
+                    <td>
+                        <button mat-button color='accent' *ngIf='isEdit === true' (click)='onUpdate(user)'><mat-icon>check_circle_outline</mat-icon></button>
+                        <button mat-button color='accent' *ngIf='isEdit !== true' (click)='edit(user._id)'><mat-icon>edit</mat-icon></button>
+                    </td>
+                    <td>
+                        <button mat-button color='warn' (click)='onDelete(user, user._id)'><mat-icon>delete</mat-icon></button>
+                    </td>
+
+                </tr>
+            </tbody>
+    </table>
+</mat-card>

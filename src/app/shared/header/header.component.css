@@ -6,13 +6,3 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 */
-
-import { Component } from "@angular/core";
-
-@Component({
-  selector: "app-root",
-  template: "<router-outlet></router-outlet>"
-})
-export class AppComponent {
-  title = `Bob's Computer Repair Shop`;
-}
