@@ -97,6 +97,7 @@ router.put("/users/:id", function(req, res, next) {
         name_last: req.body.name_last,
         phone_number: req.body.phone_number,
         address: req.body.address,
+        roles: req.body.roles,
         date_updated: new Date()
       });
       user.save(function(err, updatedUser) {

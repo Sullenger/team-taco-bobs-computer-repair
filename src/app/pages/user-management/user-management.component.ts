@@ -52,7 +52,6 @@ export class UserManagementComponent implements OnInit {
 
     onUpdate(val1) {
     console.log(val1)
-
     this.http.put('/api/users/' + this.editUserId, val1 ).subscribe( res => {
       this.tableData = res;
       document.location.reload(true)

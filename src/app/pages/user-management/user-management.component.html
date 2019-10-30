@@ -64,6 +64,8 @@
                     <td scope="row" *ngIf='user._id !== editUserId'>{{ user.roles[0].role }}</td>
                     <td *ngIf='user._id === editUserId'>
                       <!-- <input style="display:table-cell; width:80%" matInput type='checkbox' [(ngModel)]='user.roles[0].role'> -->
+                      <button mat-button color='accent' (click)="user.roles[0].role = 'admin'"><mat-icon>check_circle</mat-icon></button>
+                      <button mat-button color='accent' (click)="user.roles[0].role = 'standard'"><mat-icon>cancel</mat-icon></button>
                     </td>
 
                     <td>
