@@ -14,7 +14,7 @@
     <div class="userTitle">
         <h2>Manage Users</h2>
     </div>
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th scope="col">Username</th>
@@ -23,6 +23,7 @@
                 <th scope="col">Phone Number</th>
                 <th scope="col">Email</th>
                 <th scope="col">Address</th>
+                <th scope="col">Role</th>
                 <th scope="col">Update</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -58,14 +59,21 @@
                         <td scope="row" *ngIf='user._id !== editUserId'>{{ address.zip }}</td>
                         <td *ngIf='user._id === editUserId'><input style="display:table-cell; width:80%" matInput type='text' [(ngModel)]='address.zip'></td>
                     </div>
+
+                    <!-- Adding Role -->
+                    <td scope="row" *ngIf='user._id !== editUserId'>{{ user.roles[0].role }}</td>
+                    <td *ngIf='user._id === editUserId'>
+                      <!-- <input style="display:table-cell; width:80%" matInput type='checkbox' [(ngModel)]='user.roles[0].role'> -->
+                    </td>
+
                     <td>
                         <button mat-button color='accent' *ngIf='isEdit === true' (click)='onUpdate(user)'><mat-icon>check_circle_outline</mat-icon></button>
                         <button mat-button color='accent' *ngIf='isEdit !== true' (click)='edit(user._id)'><mat-icon>edit</mat-icon></button>
                     </td>
                     <td>
-                        <button mat-button color='warn' (click)='onDelete(user, user._id)'><mat-icon>delete</mat-icon></button> 
+                        <button mat-button color='warn' (click)='onDelete(user, user._id)'><mat-icon>delete</mat-icon></button>
                     </td>
-                
+
                 </tr>
             </tbody>
     </table>
