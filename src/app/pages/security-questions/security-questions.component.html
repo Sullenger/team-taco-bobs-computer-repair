@@ -14,12 +14,12 @@
         <h2>Security Question Management</h2>
       </div>
       <div *ngIf="newQuestion">
-        <input type="text" [(ngModel)]="addingQuestion" />
+        <input type="text" [(ngModel)]="addingQuestion" placeholder="Enter new question"/>
         <button mat-raised-button color="accent" class="buttonStyle" (click)="addQuestion(addingQuestion)">
           Submit Question
         </button>
       </div>
-      <button mat-raised-button color="primary" class="buttonStyle" *ngIf="!newQuestion" (click)="addNewQuestion()">
+      <button mat-raised-button color="accent" class="buttonStyle" *ngIf="!newQuestion" (click)="addNewQuestion()">
         New Question
       </button>
       <table class="tableQuestion table table-hover">
