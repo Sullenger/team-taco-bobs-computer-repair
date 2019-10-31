@@ -22,6 +22,7 @@ router.post('/questions', (req, res, next) => {
         });
       }
       res.status(201).json({
+        username: result.username,
         questions: result.security_questions
       });
     }).catch( err => {
@@ -30,6 +31,8 @@ router.post('/questions', (req, res, next) => {
       })
     })
   })
+
+
 
   module.exports = router;
 
