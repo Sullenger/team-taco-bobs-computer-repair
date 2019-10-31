@@ -38,6 +38,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule } from "@angular/common/http";
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { UserRegistrationComponent } from './pages/user-registration/user-regist
     SecurityQuestionsComponent,
     HeaderComponent,
     ForgotPasswordComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
