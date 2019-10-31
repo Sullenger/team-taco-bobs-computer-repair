@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit {
 
   navAbout() {
     console.log("About Us");
-    // this.router.navigate(["/"]);
+    this.router.navigate(["/about-us"]);
   }
 
   navContact() {

@@ -18,6 +18,7 @@ import { UserManagementComponent } from "./pages/user-management/user-management
 import { Session } from "protractor";
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 export const AppRoutes: Routes = [
   //removed empty paths
@@ -41,6 +42,11 @@ export const AppRoutes: Routes = [
         // changed path to not include id
         path: "user-management",
         component: UserManagementComponent
+      },
+      {
+        // changed path to not include id
+        path: "about-us",
+        component: AboutUsComponent
       }
     ]
   },
