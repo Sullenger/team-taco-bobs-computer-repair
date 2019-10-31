@@ -39,6 +39,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     HeaderComponent,
     ForgotPasswordComponent,
     UserRegistrationComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

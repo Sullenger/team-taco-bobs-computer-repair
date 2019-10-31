@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
 
   navContact() {
     console.log("Contact Us");
-    // this.router.navigate(["/"]);
+    this.router.navigate(["/contact-us"]);
   }
 
   userProfile() {

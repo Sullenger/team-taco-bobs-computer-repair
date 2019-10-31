@@ -19,6 +19,7 @@ import { Session } from "protractor";
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component'
 
 export const AppRoutes: Routes = [
   //removed empty paths
@@ -44,9 +45,13 @@ export const AppRoutes: Routes = [
         component: UserManagementComponent
       },
       {
-        // changed path to not include id
+        // about the company
         path: "about-us",
         component: AboutUsComponent
+      },
+      {
+        path: "contact-us",
+        component: ContactUsComponent
       }
     ]
   },
