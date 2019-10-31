@@ -17,6 +17,7 @@ import { SecurityQuestionsComponent } from "./pages/security-questions/security-
 import { UserManagementComponent } from "./pages/user-management/user-management.component";
 import { Session } from "protractor";
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 
 export const AppRoutes: Routes = [
   //removed empty paths
@@ -58,6 +59,10 @@ export const AppRoutes: Routes = [
       {
         path: 'forgot-password',
         component: ForgotPasswordComponent
+      },
+      {
+        path: 'user-registration',
+        component: UserRegistrationComponent
       }
     ]
   },
