@@ -42,7 +42,7 @@ export class ForgotPasswordComponent implements OnInit {
       confirmPassword: ['', [Validators.required, Validators.minLength(7), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]]
   });
 
-  constructor(private router: Router, private http: HttpClient, private fb: FormBuilder) { }
+  constructor(private router: Router,private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit() {
   }
@@ -114,6 +114,8 @@ export class ForgotPasswordComponent implements OnInit {
         console.log(res);
       })
     }
+  
+    alert("Password updated Successfully.")
 
     this.router.navigate(["/session/login"]);
 
