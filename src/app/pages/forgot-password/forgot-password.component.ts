@@ -51,13 +51,8 @@ export class ForgotPasswordComponent implements OnInit {
 
     this.username = val;
     
-    console.log(val.username)
-
     this.http.post('/recovery/api/questions', val).subscribe( res => {
       this.securityQuestions = res;
-      console.log(this.securityQuestions.result)
-      
-
 
       if(this.securityQuestions.result.username == val.username){
         this.hasSubmitted = true;
@@ -66,9 +61,6 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   checkAnswers(){
-    // let answer1 = this.user_answer;
-    // let answer2 = this.user_answer1;
-    // let answer3 = this.user_answer2
     let answered = false
     let correctAnswer = 0;
     let error = false;
@@ -92,16 +84,12 @@ export class ForgotPasswordComponent implements OnInit {
         error = true;
       }
     }
-
     this.hasAnswered = answered
     this.errorMessage = error;
     console.log(answered)
   }
 
   onReset(val) {
-
-    console.log(this.updatePassword);
-    console.log(this.confirmNewPassword)
 
     if( this.updatePassword !== this.confirmNewPassword) {
       this.noPasswordMatch = true
@@ -112,10 +100,9 @@ export class ForgotPasswordComponent implements OnInit {
       console.log(this.securityQuestions.result)
       this.http.put('/recovery/api/update/' + this.username.username, this.securityQuestions.result).subscribe( res => {
         console.log(res);
+        alert("Password updated Successfully.")
       })
     }
-  
-    alert("Password updated Successfully.")
 
     this.router.navigate(["/session/login"]);
 
