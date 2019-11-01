@@ -10,6 +10,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -41,7 +42,7 @@ export class ForgotPasswordComponent implements OnInit {
       confirmPassword: ['', [Validators.required, Validators.minLength(7), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]]
   });
 
-  constructor(private http: HttpClient, private fb: FormBuilder) { }
+  constructor(private router: Router, private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit() {
   }
@@ -113,6 +114,8 @@ export class ForgotPasswordComponent implements OnInit {
         console.log(res);
       })
     }
+
+    this.router.navigate(["/session/login"]);
 
     this.updatePassword = null;
     this.confirmNewPassword = null;
