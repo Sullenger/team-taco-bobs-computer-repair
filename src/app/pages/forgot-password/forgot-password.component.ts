@@ -28,6 +28,9 @@ export class ForgotPasswordComponent implements OnInit {
   errorMessage: boolean = false;
   displayError: string = '*One or more of your answers were incorrect.'
   userError: boolean = false;
+  noPasswordMatch: boolean = false;
+  updatePassword: string = '';
+  confirmNewPassword: string = '';
 
   forgotPassword = this.fb.group({
     username: ['', Validators.required ]
@@ -51,8 +54,11 @@ export class ForgotPasswordComponent implements OnInit {
 
     this.http.post('/recovery/api/questions', val).subscribe( res => {
       this.securityQuestions = res;
+      console.log(this.securityQuestions.result)
       
-      if(this.securityQuestions.username == val.username){
+
+
+      if(this.securityQuestions.result.username == val.username){
         this.hasSubmitted = true;
       }
     })
@@ -66,7 +72,7 @@ export class ForgotPasswordComponent implements OnInit {
     let correctAnswer = 0;
     let error = false;
 
-    let answers = this.securityQuestions.questions
+    let answers = this.securityQuestions.result.security_questions
     let newAnswers = JSON.stringify(answers)
     let newData = newAnswers.split(/[{};:"",]+/, 75)
 
@@ -89,5 +95,26 @@ export class ForgotPasswordComponent implements OnInit {
     this.hasAnswered = answered
     this.errorMessage = error;
     console.log(answered)
+  }
+
+  onReset(val) {
+
+    console.log(this.updatePassword);
+    console.log(this.confirmNewPassword)
+
+    if( this.updatePassword !== this.confirmNewPassword) {
+      this.noPasswordMatch = true
+      console.log('fail')
+      return
+    } else{
+      this.securityQuestions.result.password = this.updatePassword
+      console.log(this.securityQuestions.result)
+      this.http.put('/recovery/api/update/' + this.username.username, this.securityQuestions.result).subscribe( res => {
+        console.log(res);
+      })
+    }
+
+    this.updatePassword = null;
+    this.confirmNewPassword = null;
   }
 }

@@ -8,6 +8,7 @@
 */
 const express = require("express");
 const router = express.Router();
+const bcrypt = require('bcrypt');
 
 const User = require('../models/user')
 
@@ -22,8 +23,7 @@ router.post('/questions', (req, res, next) => {
         });
       }
       res.status(201).json({
-        username: result.username,
-        questions: result.security_questions
+          result
       });
     }).catch( err => {
       return res.status(401).json({
@@ -31,6 +31,63 @@ router.post('/questions', (req, res, next) => {
       })
     })
   })
+
+  router.put("/update/:id", function(req, res, next) {
+    User.findOne({ username: req.params.id }, function(err, user) {
+      if (err) {
+        console.log(err);
+        return next(err);
+      } else {
+        console.log(user);
+        bcrypt.hash(req.body.password, 10).then(hash => {
+        user.set({
+          password: hash,
+          });
+          user.save(function(err, updatedUser) {
+            if (err) {
+              console.log(err);
+              return next(err);
+            } else {
+              console.log(updatedUser);
+              res.json(updatedUser);
+            }
+          });
+        });
+      }
+    });
+  });
+
+  // router.put('/update/:username', (req, res, next) => {
+  //   User.findOne({ username: req.params.username }), (err, newPass) => {
+  //     if(err){
+  //       console.log(err);
+  //       return next(err);
+  //     } else {
+  //       console.log(newPass)
+  //       // bcrypt.hash(req.body.password, 10).then(hash => {
+  //         newPass.set({
+  //           username: req.body.username,
+  //           email: req.body.email,
+  //           password: req.body.password,
+  //           name_first: req.body.name_first,
+  //           name_last: req.body.name_last,
+  //           phone_number: req.body.phone_number,
+  //           address: req.body.address,
+  //           roles: req.body.roles,
+  //           date_updated: new Date()
+  //         });
+  //       // });
+  //       user.save((err, updatedPassword) => {
+  //         if(err){
+  //           console.log(error)
+  //         } else {
+  //           console.log(updatedPassword)
+  //           res.json(updatedPassword)
+  //         }
+  //       })
+  //     }
+  //   }
+  // })
 
 
 

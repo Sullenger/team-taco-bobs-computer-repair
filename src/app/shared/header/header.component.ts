@@ -81,6 +81,6 @@ export class HeaderComponent implements OnInit {
   navSecQ() {
     console.log("Security Questions");
     //changed route to ./security-questions
-    this.router.navigate(["/session/security-questions"]);
+    this.router.navigate(["./security-questions"]);
   }
 }
