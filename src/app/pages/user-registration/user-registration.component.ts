@@ -27,7 +27,7 @@ export class UserRegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
-  registerUser(userData) {
+  onSubmit(userData) {
     console.log(userData)
     // this.http.post('/api/users/registration', userData).subscribe( res => {
     // })

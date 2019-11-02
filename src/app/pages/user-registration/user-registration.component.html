@@ -6,37 +6,143 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
+<div class="container">
+  <div class="accordion" id="accordionUserReg">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value); f.reset()">
+      <div ngModelGroup="registrationForm">
+        <div class="card">
+          <div class="card-header" id="headingCredentials">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Credentials
+              </button>
+            </h2>
+          </div>
 
-<p>user-registration works!</p>
-
-<div class="accordion" id="accordionUserReg">
-  <div class="card">
-    <div class="card-header" id="headingCredentials">
-      <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Credentials
-        </button>
-      </h2>
-    </div>
-
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingCredentials" data-parent="#accordionUserReg">
-      <div class="card-body">
-        Form for credentials - Email, Username, Password, Confirm Password
+          <div
+            id="collapseOne"
+            class="collapse show"
+            aria-labelledby="headingCredentials"
+            data-parent="#accordionUserReg"
+          >
+            <div class="card-body">
+              <p>Email:</p>
+              <input
+                ngModel
+                required
+                matInput
+                placeholder="example@email.com"
+                name="email"
+              />
+              <p>Username:</p>
+              <input
+                ngModel
+                required
+                matInput
+                placeholder="JohnDoe1967"
+                name="username"
+              />
+              <p>Password</p>
+              <input ngModel required matInput name="password" />
+              <p>Confirm Password</p>
+              <input ngModel required matInput name="passwordCheck" />
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingPersonalInfo">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link collapsed"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Personal Information
+              </button>
+            </h2>
+          </div>
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingPersonalInfo"
+            data-parent="#accordionUserReg"
+          >
+            <div class="card-body">
+              <p>First Name</p>
+              <input
+                ngModel
+                required
+                matInput
+                placeholder="John"
+                name="name_first"
+              />
+              <p>Last Name</p>
+              <input
+                ngModel
+                required
+                matInput
+                placeholder="Doe"
+                name="name_last"
+              />
+              <p>Phone Number</p>
+              <input
+                ngModel
+                required
+                matInput
+                placeholder="John"
+                name="name_first"
+              />
+              <p>Address</p>
+              <input
+                ngModel
+                required
+                matInput
+                placeholder="Street Address"
+                name="address.street_address"
+              />
+              <input
+                ngModel
+                required
+                matInput
+                placeholder="City"
+                name="address.city"
+              />
+              <input
+                ngModel
+                required
+                matInput
+                placeholder="State"
+                name="address.state"
+              />
+              <input
+                ngModel
+                required
+                matInput
+                placeholder="Zip"
+                name="address.zip"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingPersonalInfo">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Personal Information
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingPersonalInfo" data-parent="#accordionUserReg">
-      <div class="card-body">
-         Continued form - Personal Info: First name, Last name, Phone, Address (Street, City, State, Zip)
-      </div>
-    </div>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="!f.form.valid"
+      >
+        Register
+      </button>
+    </form>
   </div>
 </div>
