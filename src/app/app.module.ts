@@ -40,6 +40,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
     ForgotPasswordComponent,
     UserRegistrationComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    InternalServerErrorComponent
   ],
   imports: [
     BrowserModule,
