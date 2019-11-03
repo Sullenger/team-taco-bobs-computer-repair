@@ -22,36 +22,22 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component'
 
 export const AppRoutes: Routes = [
-  //removed empty paths
-  // modified line 25 to be empty path
   {
     path: "",
     component: BaseLayoutComponent,
     canActivate: [AuthGuardService],
     children: [
       {
-        // changed path to home
         path: "home",
         component: HomeComponent
       },
       {
-        // changed path to not include id
         path: "security-questions",
         component: SecurityQuestionsComponent
       },
       {
-        // changed path to not include id
         path: "user-management",
         component: UserManagementComponent
-      },
-      {
-        // about the company
-        path: "about-us",
-        component: AboutUsComponent
-      },
-      {
-        path: "contact-us",
-        component: ContactUsComponent
       }
     ]
   },
@@ -74,6 +60,14 @@ export const AppRoutes: Routes = [
       {
         path: 'user-registration',
         component: UserRegistrationComponent
+      },
+      {
+        path: "about-us",
+        component: AboutUsComponent
+      },
+      {
+        path: "contact-us",
+        component: ContactUsComponent
       }
     ]
   },
