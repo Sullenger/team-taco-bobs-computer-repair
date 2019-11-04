@@ -20,6 +20,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component'
+import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
 
 export const AppRoutes: Routes = [
   {
@@ -38,6 +39,10 @@ export const AppRoutes: Routes = [
       {
         path: "user-management",
         component: UserManagementComponent
+      },
+      {
+        path: "500",
+        component: InternalServerErrorComponent
       }
     ]
   },
@@ -52,6 +57,10 @@ export const AppRoutes: Routes = [
       {
         path: "404",
         component: NotFoundComponent
+      },
+      {
+        path: "500",
+        component: InternalServerErrorComponent
       },
       {
         path: 'forgot-password',
