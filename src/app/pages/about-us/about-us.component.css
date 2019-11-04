@@ -84,17 +84,25 @@ ol {
   }
 
 #about{
-    padding: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-}
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+      }
 
 mat-card {
-font-size:15px;
-font-weight:400;
-text-align: center;
-display: block;
 line-height:22.5px;
 width:85%;
+display: block;
+flex-direction: column;
+align-content: center;
 }
+
+mat-card-content{
+  font-family: cursive;
+  font-size: 22px;
+  line-height:22.5px;
+  }
+  
