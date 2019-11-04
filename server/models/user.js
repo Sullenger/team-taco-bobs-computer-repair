@@ -41,7 +41,7 @@ let userSchema = mongoose.Schema(
     address: [userAddress],
     security_questions: [securityQuestions],
     date_created: { type: Date, default: new Date() },
-    date_updated: { type: Date }
+    date_updated: { type: Date, default: new Date() }
   },
   { collection: "users" }
 );
