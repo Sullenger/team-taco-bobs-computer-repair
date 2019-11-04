@@ -24,6 +24,7 @@ export class UserRegistrationComponent implements OnInit {
   newUser: any;
   securityQuestions: any;
   form: FormGroup;
+  resSuccess: any;
 
   constructor(
     private http: HttpClient,
@@ -80,6 +81,9 @@ export class UserRegistrationComponent implements OnInit {
       question_id2: userData.securityQuestionThree,
       user_answer2: userData.securityAnswerThree
     };
+    let formRole = {
+      role: "standard"
+    };
     this.http
       .post("/api/users/registration", {
         username: userData.username,
@@ -88,19 +92,25 @@ export class UserRegistrationComponent implements OnInit {
         name_first: userData.name_first,
         name_last: userData.name_last,
         phone_number: userData.phone_number,
+        roles: formRole,
         address: formAddress,
         security_questions: formSecurityQuestion,
         date_updated: new Date()
       })
       .subscribe(
-        res => {},
+        res => {
+          console.log(res)
+          this.resSuccess = res;
+        },
         err => {
           console.log(err);
           // Route to 500
           // this.router.navigate(["/"]);
         },
         () => {
-          // this.cookie.set("isAuthenticated", "true", 10);
+          this.cookie.set("isAuthenticated", "true", 10);
+          this.cookie.set("user", this.resSuccess.result._id);
+          this.cookie.set("role", "standard");
           this.router.navigate(["/home"]);
         }
       );
