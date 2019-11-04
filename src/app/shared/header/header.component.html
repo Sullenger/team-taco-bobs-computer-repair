@@ -14,53 +14,28 @@
     <mat-toolbar class="menu" role="header" color="primary">
       <mat-toolbar-row>
         <!-- Home -->
-        <button
-          mat-button
-          class="toolbar__icon-button mat-button"
-          (click)="navHome()"
-        >
-          <mat-icon>computer</mat-icon>
-          <span style="margin-left: 5px !important"
-            >Bob's Computer Repair Shop</span
-          >
+        <button mat-button class="toolbar__icon-button mat-button" (click)="navHome()">
+          <mat-icon>signal_cellular_alt</mat-icon>
+          <span style="margin-left: 5px !important"> <img src="/assets/images/bob-small.png"></span>
         </button>
         <!-- Service Repair -->
-        <button
-          mat-button
-          class="toolbar__icon-button mat-button"
-          (click)="navOrder()"
-        >
+        <button mat-button class="toolbar__icon-button mat-button" (click)="navOrder()">
           <mat-icon>build</mat-icon>
-          <span style="margin-left: 5px !important">Service Repair</span>
         </button>
         <!-- About Us -->
-        <button
-          mat-button
-          class="toolbar__icon-button mat-button"
-          (click)="navAbout()"
-        >
-          <mat-icon>class</mat-icon>
-          <span style="margin-left: 5px !important">About Us</span>
+        <button mat-button class="toolbar__icon-button mat-button" (click)="navAbout()">
+          <mat-icon>face</mat-icon>
         </button>
         <!-- Contact Us -->
-        <button
-          mat-button
-          class="toolbar__icon-button mat-button"
-          (click)="navContact()"
-        >
+        <button mat-button class="toolbar__icon-button mat-button" (click)="navContact()">
           <mat-icon>email</mat-icon>
-          <span style="margin-left: 5px !important">Contact Us</span>
         </button>
 
 
         <div fxFlex></div>
 
-        <button
-          mat-icon-button
-          class="toolbar__icon-button"
-          [matMenuTriggerFor]="menu"
-        >
-          <mat-icon>account_circle</mat-icon>
+        <button mat-icon-button class="toolbar__icon-button" [matMenuTriggerFor]="menu">
+          <mat-icon>view_stream</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="userProfile()">
@@ -73,7 +48,7 @@
           </button>
           <!-- Modied user list to be security questions -->
           <button *ngIf='isAdmin == true' mat-menu-item (click)="navSecQ()">
-            <mat-icon>list</mat-icon>
+            <mat-icon>lock</mat-icon>
             <span>Security Questions</span>
           </button>
           <button (click)="logout()" mat-menu-item>
