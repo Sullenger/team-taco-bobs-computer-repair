@@ -33,6 +33,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import {MatSelectModule} from '@angular/material/select';
 import { HeaderComponent } from "./shared/header/header.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule } from "@angular/common/http";
@@ -71,6 +72,7 @@ import { InternalServerErrorComponent } from './pages/internal-server-error/inte
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule,

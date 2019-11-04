@@ -6,3 +6,25 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 */
+small {
+  color: red;
+  display: block;
+  width: 100%;
+  min-width: 100% !important;
+  margin-top: 10px;
+}
+
+.credentialsRow {
+  width: 100%;
+  margin: 4px auto;
+  display: block;
+}
+
+.formInput {
+  width: 40%;
+  padding: 0px 10px;
+}
+
+.addressInput {
+  width: 100%;
+ }
