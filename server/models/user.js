@@ -21,11 +21,11 @@ let userAddress = mongoose.Schema({
 });
 
 let securityQuestions = mongoose.Schema({
-  question_id: { type: String },
+  question_text: { type: String },
   user_answer: { type: String },
-  question_id1: { type: String },
+  question_text1: { type: String },
   user_answer1: { type: String },
-  question_id2: { type: String },
+  question_text2: { type: String },
   user_answer2: { type: String }
 });
 
