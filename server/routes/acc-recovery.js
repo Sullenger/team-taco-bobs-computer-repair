@@ -19,7 +19,7 @@ router.post('/questions', (req, res, next) => {
     User.findOne({ username: req.body.username }).then(result => {
       if(!result){
         return res.status(401).json({
-          message: "No questions found",
+          message: "No user with that username found in our system.",
         });
       }
       res.status(201).json({

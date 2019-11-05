@@ -45,6 +45,7 @@ router.post("/users/registration", function(req, res, next) {
             });
           });
         });
+        
       } else {
         console.log("Username Unavailable");
         res.status(500).send({

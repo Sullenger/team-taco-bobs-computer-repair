@@ -23,7 +23,7 @@ router.post("/login", (req, res, next) => {
     .then(user => {
       if (!user) {
         return res.status(401).json({
-          message: "Authentication failed"
+          message: "Username or password are incorrect."
         });
       }
       fetchedUser = user;
@@ -33,7 +33,7 @@ router.post("/login", (req, res, next) => {
     .then(result => {
       if (!result) {
         return res.status(401).json({
-          message: "Authentication failed"
+          message: "No users found"
         });
       }
       // send generated web token to front-end
