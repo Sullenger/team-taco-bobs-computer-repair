@@ -7,15 +7,24 @@
 ;===========================================
 */
 
-.nfBox {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    width: 25%;
-    border: 0.5em black;
-    text-align: center;
-    margin-top: 100px;
+small {
+  color: red;
+  display: block;
+  width: 100%;
+  min-width: 100% !important;
+  margin-top: 10px;
 }
-body {
-    text-align: center;
+
+.formInput {
+  width: 100%;
+  /* padding: 0px 10px; */
+
 }
+
+.autoMargin {
+  margin: 0 auto;
+}
+
+.addressInput {
+  width: 100%;
+ }

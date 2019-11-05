@@ -1,0 +1,337 @@
+<!--
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+-->
+
+<div class="container">
+  <mat-card class="form">
+    <mat-card-content>
+      <div class="accordion" id="accordionUserReg">
+        <form #f="ngForm" [formGroup]="form" (ngSubmit)="onSubmit(f.value)">
+          <div class="card">
+            <div class="card-header" id="headingCredentials">
+              <h2 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Credentials
+                </button>
+              </h2>
+            </div>
+
+            <div
+              id="collapseOne"
+              class="collapse show autoMargin"
+              aria-labelledby="headingCredentials"
+              data-parent="#accordionUserReg"
+            >
+              <div class="card-body">
+                <small *ngIf="errorMessage">{{ errorMessage }}</small>
+                <mat-form-field class="formInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Email"
+                    [formControl]="form.controls['email']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['email'].hasError('required') &&
+                    form.controls['email'].touched
+                  "
+                  >Email Required</small
+                >
+                <mat-form-field class="formInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Username"
+                    [formControl]="form.controls['username']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['username'].hasError('required') &&
+                    form.controls['username'].touched
+                  "
+                  >Username required</small
+                >
+                <mat-form-field class="formInput">
+                  <input
+                    type="password"
+                    matInput
+                    placeholder="Password"
+                    [formControl]="form.controls['password']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['password'].hasError('required') &&
+                    form.controls['password'].touched
+                  "
+                  >Password Required</small
+                >
+                <small
+                  *ngIf="
+                    form.controls['password'].hasError('required') &&
+                    form.controls['password'].pattern
+                  "
+                  >Password Does Not Meet Requirements</small
+                >
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingPersonalInfo">
+              <h2 class="mb-0">
+                <button
+                  class="btn btn-link collapsed"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Personal Information
+                </button>
+              </h2>
+            </div>
+            <div
+              id="collapseTwo"
+              class="collapse autoMargin"
+              aria-labelledby="headingPersonalInfo"
+              data-parent="#accordionUserReg"
+            >
+              <div class="card-body">
+                <small *ngIf="errorMessage">{{ errorMessage }}</small>
+                <mat-form-field class="formInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="First Name"
+                    [formControl]="form.controls['name_first']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['name_first'].hasError('required') &&
+                    form.controls['name_first'].touched
+                  "
+                  >First Name Required</small
+                >
+                <mat-form-field class="formInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Last Name"
+                    [formControl]="form.controls['name_last']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['name_last'].hasError('required') &&
+                    form.controls['name_last'].touched
+                  "
+                  >Last Name Required</small
+                >
+                <mat-form-field class="formInput">
+                  <input
+                    type="tel"
+                    matInput
+                    placeholder="Phone Number"
+                    [formControl]="form.controls['phone_number']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['phone_number'].hasError('required') &&
+                    form.controls['phone_number'].touched
+                  "
+                  >Phone Number Required</small
+                >
+              </div>
+              <address class="formInput">
+                <mat-form-field class="addressInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Street Address"
+                    [formControl]="form.controls['street']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['street'].hasError('required') &&
+                    form.controls['street'].touched
+                  "
+                  >Street Address Required</small
+                >
+                <mat-form-field class="addressInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="City"
+                    [formControl]="form.controls['city']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['city'].hasError('required') &&
+                    form.controls['city'].touched
+                  "
+                  >City Required</small
+                >
+                <mat-form-field class="addressInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="State"
+                    [formControl]="form.controls['state']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['state'].hasError('required') &&
+                    form.controls['state'].touched
+                  "
+                  >State Required</small
+                >
+                <mat-form-field class="addressInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Zip"
+                    [formControl]="form.controls['zip']"
+                  />
+                </mat-form-field>
+                <small
+                  *ngIf="
+                    form.controls['zip'].hasError('required') &&
+                    form.controls['zip'].touched
+                  "
+                  >Zip Code Required</small
+                >
+              </address>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingSecurityQuestions">
+              <h2 class="mb-0">
+                <button
+                  class="btn btn-link collapsed"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Security Questions
+                </button>
+              </h2>
+            </div>
+
+            <div
+              id="collapseThree"
+              class="collapse autoMargin"
+              aria-labelledby="headingSecurityQuestions"
+              data-parent="#accordionUserReg"
+            >
+              <div class="card-body">
+                <!-- security question 1 -->
+                <mat-form-field class="formInput">
+                  <mat-label>First Security Question</mat-label>
+                  <mat-select
+                    [formControl]="form.controls['securityQuestionOne']"
+                    name="securityQuestionOne"
+                  >
+                    <mat-option
+                      *ngFor="let question of securityQuestions"
+                      [value]="question.question"
+                    >
+                      {{ question.question }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="formInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="First Security Question Answer"
+                    [formControl]="form.controls['securityAnswerOne']"
+                  />
+                </mat-form-field>
+
+                <!-- security question 2 -->
+                <mat-form-field class="formInput">
+                  <mat-label>Second Security Question</mat-label>
+                  <mat-select
+                    [formControl]="form.controls['securityQuestionTwo']"
+                    name="securityQuestionTwo"
+                  >
+                    <mat-option
+                      *ngFor="let question of securityQuestions"
+                      [value]="question.question"
+                    >
+                      {{ question.question }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="formInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Second Security Question Answer"
+                    [formControl]="form.controls['securityAnswerTwo']"
+                  />
+                </mat-form-field>
+
+                <!-- security question 3 -->
+                <mat-form-field class="formInput">
+                  <mat-label>Third Security Question</mat-label>
+                  <mat-select
+                    [formControl]="form.controls['securityQuestionThree']"
+                    name="securityQuestionThree"
+                  >
+                    <mat-option
+                      *ngFor="let question of securityQuestions"
+                      [value]="question.question"
+                    >
+                      {{ question.question }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="formInput">
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="Third Security Question Answer"
+                    [formControl]="form.controls['securityAnswerThree']"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <button
+            mat-raised-button
+            color="accent"
+            type="submit"
+            [disabled]="!form.valid"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

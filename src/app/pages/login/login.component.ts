@@ -71,4 +71,11 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
+  navRecovery() {
+    this.router.navigate(["/session/forgot-password"]);
+  }
+  navRegister() {
+    this.router.navigate(["/session/user-registration"]);
+  }
 }

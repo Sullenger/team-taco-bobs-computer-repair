@@ -7,15 +7,25 @@
 ;===========================================
 */
 
-.nfBox {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    width: 25%;
-    border: 0.5em black;
-    text-align: center;
-    margin-top: 100px;
+.row{
+    padding-top: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
-body {
-    text-align: center;
+
+mat-card {
+text-align: center;
+display: block;
+line-height:22.5px;
+width:89%;
+float: left;
+}
+
+ul, li{
+    list-style-type: none;
+}
+
+li{
+    color : #e7c661;
+
 }

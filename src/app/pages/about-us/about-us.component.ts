@@ -7,15 +7,18 @@
 ;===========================================
 */
 
-.nfBox {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    width: 25%;
-    border: 0.5em black;
-    text-align: center;
-    margin-top: 100px;
-}
-body {
-    text-align: center;
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-about-us',
+  templateUrl: './about-us.component.html',
+  styleUrls: ['./about-us.component.css']
+})
+export class AboutUsComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }

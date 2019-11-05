@@ -6,52 +6,61 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
-<mat-card>
-  <div class="container">
-    <small *ngIf="errorMessage">{{ errorMessage }} </small>
-    <div class="questionListing">
-      <div class="questionTitle">
-        <h2>Security Question Management</h2>
-      </div>
-      <div *ngIf="newQuestion">
-        <input type="text" [(ngModel)]="addingQuestion" placeholder="Enter new question"/>
-        <button mat-raised-button color="accent" class="buttonStyle" (click)="addQuestion(addingQuestion)">
-          Submit Question
+<div *ngIf='hideUsers === false'>
+  <mat-card>
+    <div class="container">
+      <small *ngIf="errorMessage">{{ errorMessage }} </small>
+      <div class="questionListing">
+        <div class="questionTitle">
+          <h2>Security Question Management</h2>
+        </div>
+        <div *ngIf="newQuestion">
+          <input type="text" [(ngModel)]="addingQuestion" placeholder="Enter new question"/>
+          <button mat-raised-button color="accent" class="buttonStyle" (click)="addQuestion(addingQuestion)">
+            Submit Question
+          </button>
+        </div>
+        <button mat-raised-button color="accent" class="buttonStyle" *ngIf="!newQuestion" (click)="addNewQuestion()">
+          New Question
         </button>
-      </div>
-      <button mat-raised-button color="accent" class="buttonStyle" *ngIf="!newQuestion" (click)="addNewQuestion()">
-        New Question
-      </button>
-      <table class="tableQuestion table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Question</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let question of questions">
-          <tr>
-            <td *ngIf="question._id === editQuestionId">
-              <input type="text" [(ngModel)]="question.question" />
-              <button mat-raised-button color="accent" class="buttonStyle" (click)="update(question)">
-                Update
-              </button>
-            </td>
-            <td *ngIf="question._id !== editQuestionId" scope="row">
-              {{ question.question }}
-            </td>
+        <table class="tableQuestion table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Question</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let question of questions">
+            <tr>
+              <td *ngIf="question._id === editQuestionId">
+                <input type="text" [(ngModel)]="question.question" />
+                <button mat-raised-button color="accent" class="buttonStyle" (click)="update(question)">
+                  Update
+                </button>
+              </td>
+              <td *ngIf="question._id !== editQuestionId" scope="row">
+                {{ question.question }}
+              </td>
 
-            <td scope="row">
-              <button mat-button color="accent" class="buttonStyle" (click)="edit(question._id)">
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button mat-button color="warn" class="buttonStyle" (click)="deleteQuestion(question)">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              <td scope="row">
+                <button mat-button color="accent" class="buttonStyle" (click)="edit(question._id)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button color="warn" class="buttonStyle" (click)="deleteQuestion(question)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-</mat-card>
+  </mat-card>
+</div>
+<div *ngIf='hideUsers === true'>
+    <mat-card>
+        <mat-card-title>
+            You're not authorized to access this page.
+        </mat-card-title>
+    </mat-card>
+</div>

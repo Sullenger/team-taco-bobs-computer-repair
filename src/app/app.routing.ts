@@ -16,27 +16,27 @@ import { AuthGuardService } from "../auth.guard";
 import { SecurityQuestionsComponent } from "./pages/security-questions/security-questions.component";
 import { UserManagementComponent } from "./pages/user-management/user-management.component";
 import { Session } from "protractor";
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component'
+import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
 
 export const AppRoutes: Routes = [
-  //removed empty paths
-  // modified line 25 to be empty path
   {
     path: "",
     component: BaseLayoutComponent,
     canActivate: [AuthGuardService],
     children: [
       {
-        // changed path to home
         path: "home",
         component: HomeComponent
       },
       {
-        // changed path to not include id
         path: "security-questions",
         component: SecurityQuestionsComponent
       },
       {
-        // changed path to not include id
         path: "user-management",
         component: UserManagementComponent
       }
@@ -53,6 +53,26 @@ export const AppRoutes: Routes = [
       {
         path: "404",
         component: NotFoundComponent
+      },
+      {
+        path: "500",
+        component: InternalServerErrorComponent
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
+      },
+      {
+        path: 'user-registration',
+        component: UserRegistrationComponent
+      },
+      {
+        path: "about-us",
+        component: AboutUsComponent
+      },
+      {
+        path: "contact-us",
+        component: ContactUsComponent
       }
     ]
   },

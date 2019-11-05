@@ -32,6 +32,9 @@ export class UserManagementComponent implements OnInit {
   ];
   users: any;
   errorMessage: string;
+  role: any;
+  isAdmin: boolean = false;
+  hideUsers: boolean = false;
 
   tableData: any;
   ShowEditedTable: boolean = false;
@@ -43,11 +46,28 @@ export class UserManagementComponent implements OnInit {
   ngOnInit() {
     this.http.get("/api/users/").subscribe(res => {
       if (res) {
+        console.log(res)
         return (this.users = res);
       } else {
         return (this.errorMessage = "Welcome to the land of no users :D");
       }
     });
+
+    this.userAdmin()
+  }
+
+  userAdmin() {
+    this.role = this.cookie.get('role')
+    console.log(this.role);
+    if(this.role == "admin") {
+      this.isAdmin = true;
+      this.hideUsers = false;
+      console.log(this.isAdmin)
+    }
+    else {
+      this.isAdmin = false;
+      this.hideUsers = true;
+    }
   }
 
     onUpdate(val1) {

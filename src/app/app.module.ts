@@ -21,11 +21,12 @@ import { LoginComponent } from "./pages/login/login.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
 import { UserManagementComponent } from "./pages/user-management/user-management.component";
 import { SecurityQuestionsComponent } from "./pages/security-questions/security-questions.component";
+import { ErrorInterceptorComponent } from './pages/error-interceptor/error-interceptor.component';
 import { AuthGuardService } from "./../auth.guard";
 
 import { CookieService } from "ngx-cookie-service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatTableModule } from "@angular/material";
+import { MatTableModule, MatDialog, MatDialogModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule, matMenuAnimations } from "@angular/material/menu";
@@ -33,9 +34,16 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import {MatSelectModule} from '@angular/material/select';
 import { HeaderComponent } from "./shared/header/header.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
+import { ErrorInterceptor } from './error-interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +55,13 @@ import { HttpClientModule } from "@angular/common/http";
     NotFoundComponent,
     UserManagementComponent,
     SecurityQuestionsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ForgotPasswordComponent,
+    UserRegistrationComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    InternalServerErrorComponent,
+    ErrorInterceptorComponent
   ],
   imports: [
     BrowserModule,
@@ -61,12 +75,17 @@ import { HttpClientModule } from "@angular/common/http";
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule,
+    MatDialogModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false })
   ],
-  providers: [CookieService, AuthGuardService],
-  bootstrap: [AppComponent]
+  providers: [CookieService, AuthGuardService,
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorInterceptorComponent]
 })
 export class AppModule {}
