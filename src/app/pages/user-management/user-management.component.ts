@@ -46,6 +46,7 @@ export class UserManagementComponent implements OnInit {
   ngOnInit() {
     this.http.get("/api/users/").subscribe(res => {
       if (res) {
+        console.log(res)
         return (this.users = res);
       } else {
         return (this.errorMessage = "Welcome to the land of no users :D");

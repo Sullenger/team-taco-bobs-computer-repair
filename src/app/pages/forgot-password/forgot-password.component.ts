@@ -33,6 +33,8 @@ export class ForgotPasswordComponent implements OnInit {
   updatePassword: string = '';
   confirmNewPassword: string = '';
 
+  secQuestions: any;
+
   forgotPassword = this.fb.group({
     username: ['', Validators.required ]
   })
@@ -45,6 +47,17 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(private router: Router,private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit() {
+
+    this.http.get('/questions/api/question').subscribe( res => {
+      if(res) {
+        this.secQuestions = res;
+        console.log(this.secQuestions)
+        return;
+      } else {
+        console.log('fail');
+      }
+    })
+
   }
 
   onSubmit(val) {
