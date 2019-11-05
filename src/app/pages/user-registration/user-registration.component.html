@@ -35,8 +35,8 @@
                 data-parent="#accordionUserReg"
               >
                 <div class="card-body">
+                  <div class="autoMargin">
                   <small *ngIf="errorMessage">{{ errorMessage }}</small>
-                  <div class="credentialsRow">
                     <mat-form-field class="formInput">
                       <input
                         type="text"
@@ -67,8 +67,6 @@
                       "
                       >Username required</small
                     >
-                  </div>
-                  <div class="credentialsRow">
                     <mat-form-field class="formInput">
                       <input
                         type="password"
@@ -91,7 +89,7 @@
                       "
                       >Password Does Not Meet Requirements</small
                     >
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -118,7 +116,7 @@
               >
                 <div class="card-body">
                   <small *ngIf="errorMessage">{{ errorMessage }}</small>
-                  <div class="credentialsRow">
+                  <div class="autoMargin">
                     <mat-form-field class="formInput">
                       <input
                         type="text"
@@ -150,7 +148,6 @@
                       >Last Name Required</small
                     >
                   </div>
-                  <div class="credentialsRow">
                     <mat-form-field class="formInput">
                       <input
                         type="tel"
@@ -166,6 +163,7 @@
                       "
                       >Phone Number Required</small
                     >
+                </div>
                     <address class="formInput">
                       <mat-form-field class="addressInput">
                         <input
@@ -228,7 +226,6 @@
                         >Zip Code Required</small
                       >
                     </address>
-                  </div>
                 </div>
               </div>
             </div>
@@ -256,15 +253,17 @@
                 data-parent="#accordionUserReg"
               >
                 <div class="card-body">
+                    <div class="autoMargin">
                   <!-- security question 1 -->
                   <mat-form-field class="formInput">
+                      <mat-label>First Security Question</mat-label>
                     <mat-select
                       [formControl]="form.controls['securityQuestionOne']"
                       name="securityQuestionOne"
                     >
                       <mat-option
                         *ngFor="let question of securityQuestions"
-                        [value]="question._id"
+                        [value]="question.question"
                       >
                         {{ question.question }}
                       </mat-option>
@@ -281,13 +280,14 @@
 
                   <!-- security question 2 -->
                   <mat-form-field class="formInput">
+                      <mat-label>Second Security Question</mat-label>
                     <mat-select
                       [formControl]="form.controls['securityQuestionTwo']"
                       name="securityQuestionTwo"
                     >
                       <mat-option
                         *ngFor="let question of securityQuestions"
-                        [value]="question._id"
+                        [value]="question.question"
                       >
                         {{ question.question }}
                       </mat-option>
@@ -304,13 +304,14 @@
 
                   <!-- security question 3 -->
                   <mat-form-field class="formInput">
+                      <mat-label>Third Security Question</mat-label>
                     <mat-select
                       [formControl]="form.controls['securityQuestionThree']"
                       name="securityQuestionThree"
                     >
                       <mat-option
                         *ngFor="let question of securityQuestions"
-                        [value]="question._id"
+                        [value]="question.question"
                       >
                         {{ question.question }}
                       </mat-option>

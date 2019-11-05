@@ -74,11 +74,11 @@ export class UserRegistrationComponent implements OnInit {
       zip: userData.zip
     };
     let formSecurityQuestion = {
-      question_id: userData.securityQuestionOne,
+      question_text: userData.securityQuestionOne,
       user_answer: userData.securityAnswerOne,
-      question_id1: userData.securityQuestionTwo,
+      question_text1: userData.securityQuestionTwo,
       user_answer1: userData.securityAnswerTwo,
-      question_id2: userData.securityQuestionThree,
+      question_text2: userData.securityQuestionThree,
       user_answer2: userData.securityAnswerThree
     };
     let formRole = {
