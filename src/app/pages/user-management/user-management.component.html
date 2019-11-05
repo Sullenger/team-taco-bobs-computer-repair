@@ -68,6 +68,7 @@
                         <button mat-button color='warn' class="tableCell" *ngIf="user.roles[0].role === 'admin'" (click)="user.roles[0].role = 'standard'">Remove Admin Role</button>
                         </td>
 
+
                         <td>
                             <button mat-button color='accent' *ngIf='isEdit === true' (click)='onUpdate(user)'><mat-icon>check_circle_outline</mat-icon></button>
                             <button mat-button color='accent' *ngIf='isEdit !== true' (click)='edit(user._id)'><mat-icon>edit</mat-icon></button>

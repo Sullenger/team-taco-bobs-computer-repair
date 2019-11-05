@@ -1,4 +1,4 @@
-/*
+ /*
 ============================================
 ; Title: WEB	450	Bob’s	Computer	Repair	Shop
 ; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
@@ -47,3 +47,4 @@ let userSchema = mongoose.Schema(
 );
 
 module.exports = mongoose.model("User", userSchema);
+
