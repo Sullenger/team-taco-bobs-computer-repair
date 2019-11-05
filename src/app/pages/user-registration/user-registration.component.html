@@ -6,6 +6,7 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
+
 <div class="container">
   <mat-card class="form">
     <mat-card-content>
@@ -34,7 +35,7 @@
                 aria-labelledby="headingCredentials"
                 data-parent="#accordionUserReg"
               >
-                <div class="card-body">
+                <div class="card-body autoMargin">
                   <div class="autoMargin">
                   <small *ngIf="errorMessage">{{ errorMessage }}</small>
                     <mat-form-field class="formInput">
@@ -114,7 +115,7 @@
                 aria-labelledby="headingPersonalInfo"
                 data-parent="#accordionUserReg"
               >
-                <div class="card-body">
+                <div class="card-body autoMargin">
                   <small *ngIf="errorMessage">{{ errorMessage }}</small>
                   <div class="autoMargin">
                     <mat-form-field class="formInput">
@@ -252,7 +253,7 @@
                 aria-labelledby="headingSecurityQuestions"
                 data-parent="#accordionUserReg"
               >
-                <div class="card-body">
+                <div class="card-body autoMargin">
                     <div class="autoMargin">
                   <!-- security question 1 -->
                   <mat-form-field class="formInput">
