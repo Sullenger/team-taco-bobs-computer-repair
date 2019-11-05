@@ -39,10 +39,6 @@ export const AppRoutes: Routes = [
       {
         path: "user-management",
         component: UserManagementComponent
-      },
-      {
-        path: "500",
-        component: InternalServerErrorComponent
       }
     ]
   },
