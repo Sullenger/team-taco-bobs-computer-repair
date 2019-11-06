@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 
 let invoiceSchema = mongoose.Schema({
   date: { type: Date, default: new Date() },
-  user_id: { type: String },
+  username: { type: String },
   services_ordered: { type: String },
   total: { type: String }
 });
