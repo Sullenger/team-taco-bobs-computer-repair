@@ -1,0 +1,82 @@
+<!-- /*
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+*/ -->
+
+<div id='main'>
+    <mat-card>
+        <div class='in-shop-card'>
+            <h1>Repair Services</h1>
+        </div>
+
+        <div class='parent' fxLayout='row' fxLayout.xs="column" fxLayoutAlign="center center">
+            <mat-card class='left' fxFlex="90%">
+                <h2>Our Services</h2>
+                <hr>
+                <ul>
+                    <li *ngFor='let service of services.services'><strong>{{ service.service }}</strong>:
+                        ${{ service.service_price }}
+                        <button mat-button (click)='addToCart(service)'>
+                            <mat-icon>add_circle</mat-icon>
+                        </button>
+                    </li>
+                    <p><strong>Add Work Hours: </strong></p>
+                    <mat-form-field>
+                        <input placeholder='Charge is $50/hour' type='number' [(ngModel)]='workHours' matInput>
+                    </mat-form-field>
+                    <button *ngIf='addHour === 0' mat-button (click)='addHours()'>
+                        <mat-icon>add_circle</mat-icon>
+                    </button>
+                    <br />
+                    <p><strong>Add Cost of Parts: </strong></p>
+                    <mat-form-field>
+                        <input matInput type='number' [(ngModel)]='parts' placeholder='Enter dollar amount for parts.'>
+                    </mat-form-field>
+                    <button mat-button (click)='addParts()' *ngIf='addPart === 0'>
+                        <mat-icon>add_circle</mat-icon>
+                    </button>
+                </ul>
+
+            </mat-card>
+            <div fxFlex='90%'>
+                <mat-card class='right'>
+                    <div class='cart-head'>
+                        <h2>Your Cart</h2> 
+                        <button class='cart-head-btn' color='accent' mat-raised-button (click)='clearCart()'>Clear Cart</button>
+                    </div>
+
+                    <hr>
+                    <ul>
+                        <li *ngFor='let service of cart'><strong>{{ service.service}}</strong>: ${{ service.service_price }}
+                            <button mat-button class='btn-remove' (click)='removeFromCart(service.service_number)'>
+                                <mat-icon>remove_circle</mat-icon>
+                            </button></li>
+
+                        <li *ngIf='addedHours === true'><strong>Work Hours: </strong>{{ workHours }} hrs.
+                            <button mat-button class='btn-remove' (click)='removeHours()'>
+                            <mat-icon>remove_circle</mat-icon>
+                            </button>
+                        </li>
+                        <li *ngIf='addedParts === true'><strong>Parts: $</strong>{{ parts }}
+                            <button mat-button class='btn-remove' (click)='removeParts()'>
+                                <mat-icon>remove_circle</mat-icon>
+                            </button></li>
+                    </ul>
+                </mat-card>
+                <div class='total-container'>
+                    <mat-card>
+                        <mat-card-title>
+                            <h6>Your Total is: ${{ cartTotal }}.00
+                                <button color='accent' mat-raised-button>Submit</button>
+                            </h6>
+                        </mat-card-title>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
