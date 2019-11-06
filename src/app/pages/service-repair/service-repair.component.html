@@ -25,7 +25,7 @@
                         </button>
                     </li>
                     <p><strong>Add Work Hours: </strong></p>
-                    <mat-form-field>
+                    <mat-form-field *ngIf='addHour === 0'>
                         <input placeholder='Charge is $50/hour' type='number' [(ngModel)]='workHours' matInput>
                     </mat-form-field>
                     <button *ngIf='addHour === 0' mat-button (click)='addHours()'>
@@ -33,7 +33,7 @@
                     </button>
                     <br />
                     <p><strong>Add Cost of Parts: </strong></p>
-                    <mat-form-field>
+                    <mat-form-field *ngIf='addPart === 0'>
                         <input matInput type='number' [(ngModel)]='parts' placeholder='Enter dollar amount for parts.'>
                     </mat-form-field>
                     <button mat-button (click)='addParts()' *ngIf='addPart === 0'>
