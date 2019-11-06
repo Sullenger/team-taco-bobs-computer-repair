@@ -46,7 +46,6 @@ export class HeaderComponent implements OnInit {
   }
 
   navHome() {
-    console.log("Home");
     //modified route to take to home
     this.router.navigate(["./home"]);
   }
@@ -57,12 +56,10 @@ export class HeaderComponent implements OnInit {
   }
 
   navAbout() {
-    console.log("About Us");
     this.router.navigate(["./session/about-us"]);
   }
 
   navContact() {
-    console.log("Contact Us");
     this.router.navigate(["./session/contact-us"]);
   }
 
@@ -72,14 +69,12 @@ export class HeaderComponent implements OnInit {
   }
 
   navManagement() {
-    console.log("User Management");
     // modified route to ./user-management
     this.router.navigate(["./user-management/"]);
   }
 
   // modified to security questions route
   navSecQ() {
-    console.log("Security Questions");
     //changed route to ./security-questions
     this.router.navigate(["./security-questions"]);
   }

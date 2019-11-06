@@ -8,6 +8,7 @@
 */
 
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-purchase-graph',
@@ -15,10 +16,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./purchase-graph.component.css']
 })
 export class PurchaseGraphComponent implements OnInit {
+  errorMessage: string;
+  servicesPurchased: any;
 
-  constructor() { }
+  constructor(private http: HttpClient,) { }
 
   ngOnInit() {
+    this.http.get("/purchase-history/api/records").subscribe(res => {
+      if (res) {
+        this.servicesPurchased = res;
+        console.log(this.servicesPurchased)
+      } else {
+        this.errorMessage = "Error collecting purchase data";
+      }
+    });
   }
 
 }

@@ -47,6 +47,19 @@ router.get("/records", function(req, res, next) {
   });
 });
 
+// Find purchase history records by id - Remove if not needed
+// router.get("/records/:id", function(req, res, next) {
+//   purchaseHistory.findOne({}, function(err, records) {
+//     if (err) {
+//       console.log(err);
+//       return next(err);
+//     } else {
+//       console.log(records);
+//       res.json(records);
+//     }
+//   });
+// });
+
 // Update purchase history records
 router.put("/records/:id", function(req, res, next) {
   purchaseHistory.findOne({ _id: req.params.id }, function(err, records) {
