@@ -44,6 +44,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
 import { ErrorInterceptor } from './error-interceptor';
+import { PurchaseGraphComponent } from './purchase-graph/purchase-graph.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ErrorInterceptor } from './error-interceptor';
     AboutUsComponent,
     ContactUsComponent,
     InternalServerErrorComponent,
-    ErrorInterceptorComponent
+    ErrorInterceptorComponent,
+    PurchaseGraphComponent
   ],
   imports: [
     BrowserModule,
