@@ -51,7 +51,7 @@ export class HeaderComponent implements OnInit {
 
   navOrder() {
     console.log("Service Repair");
-    // this.router.navigate(["/"]);
+    this.router.navigate(["./session/service-repair/"]);
   }
 
   navAbout() {
