@@ -23,6 +23,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component'
 import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
 import { PurchaseGraphComponent } from './pages/purchase-graph/purchase-graph.component';
 import { ServiceRepairComponent } from './pages/service-repair/service-repair.component';
+import { InvoiceSummaryComponent } from './pages/invoice-summary/invoice-summary.component';
 
 export const AppRoutes: Routes = [
   {
@@ -49,6 +50,10 @@ export const AppRoutes: Routes = [
       {
         path: 'service-repair', 
         component: ServiceRepairComponent
+      },
+      {
+        path: 'invoice-summary',
+        component: InvoiceSummaryComponent
       }
     ]
   },
