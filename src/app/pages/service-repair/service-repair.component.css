@@ -7,16 +7,8 @@
 ;===========================================
 */
 
-#main {
-    width: 80%;
-    margin: 0px auto;
-}
-
-.in-shop-card {
-    margin: 0px auto;
-    height: 100%;
-    width: 80%;
-    margin-top: 35px;
+.custom {
+    min-width: 70%;
 }
 
 h1 {
@@ -31,25 +23,17 @@ h2 {
     display: inline-block;
 }
 
-
-.cart-head-btn {
-    display: inline-block;
-}
-
 .parent {
     width: 80%;
     height: 100%;
     margin: auto;
 }
 
-.total-container {
-    width: 80%;
-    height: 100%;
-    margin: auto;
-}
 
 mat-card {
-    margin: 20px;
+    display: inline-block;
+    min-width: 40%;
+    margin: 5px;
     border: 2px solid black; 
 }
 
@@ -70,22 +54,9 @@ button {
     color: red;
 }
 
-.remove-hours {
-    margin: 10px;
-    padding: 10px;
-}
-
-.right {
-    min-height: 525px;
-    box-shadow: 2px 2px 10px 10px rgb(158, 158, 158);
-}
-
 .left {
-    min-height: 550px;
-    box-shadow: 2px 2px 10px 10px rgb(158, 158, 158);
-}
-
-.cart-head {
+    margin-top: 50px;
+    max-width: 75;
     text-align: center;
 }
 

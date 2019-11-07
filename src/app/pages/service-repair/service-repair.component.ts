@@ -29,9 +29,8 @@ export class ServiceRepairComponent implements OnInit {
   addedHours: boolean = false;
   addedParts: boolean = false;
 
-
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
 
   ngOnInit() {
 
@@ -44,6 +43,28 @@ export class ServiceRepairComponent implements OnInit {
       }
     })
   }
+
+  slideToggle(event, service, service_price) {
+
+    if(event.checked == true){
+      console.log(event.checked)
+      this.addToCart(service)
+      return
+    } 
+
+    for (let i = 0; i < this.cart.length; i++) {
+      if (this.cart[i]['service_price'] == service_price) {
+        this.cart.splice(i,1);
+        this.total.splice(i,1);
+        this.calcTotal();
+        console.log(this.cart)
+        console.log(this.total)
+      } else{
+        console.log('rip.. ayyyut')
+      }
+    }
+  }
+
 
   addHours(){
     this.addHour = this.workHours * 50;
@@ -89,31 +110,9 @@ export class ServiceRepairComponent implements OnInit {
     this.calcTotal()
   }
 
-  removeFromCart(service) {
-    for (let i = 0; i < this.cart.length; i++) {
-      if (this.cart[i]['service_number'] == service) {
-        this.cart.splice(i,1);
-        this.total.splice(i,1);
-        this.calcTotal();
-        console.log(this.cart)
-        console.log(this.total)
-      }
-    }
-  }
-
   calcTotal(){
     this.cartTotal = this.total.reduce((x, y) => x + parseInt(y), 0)
     console.log(this.cartTotal)
-  }
-
-  clearCart(){
-    this.cart = [];
-    this.total = []
-    this.addHour = 0;
-    this.addPart = 0;
-    this.addedParts = false;
-    this.addedHours = false;
-    this.calcTotal()
   }
 
 }

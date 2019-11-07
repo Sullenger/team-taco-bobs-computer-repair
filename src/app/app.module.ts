@@ -26,6 +26,7 @@ import { AuthGuardService } from "./../auth.guard";
 
 import { CookieService } from "ngx-cookie-service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatSlideToggleModule } from '@angular/material'
 import { MatTableModule, MatDialog, MatDialogModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
@@ -88,6 +89,7 @@ import { RoleConfigurationComponent } from './pages/role-configuration/role-conf
     FlexLayoutModule,
     HttpClientModule,
     MatDialogModule,
+    MatSlideToggleModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false })
   ],
   providers: [CookieService, AuthGuardService,
