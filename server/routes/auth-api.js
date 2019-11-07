@@ -50,4 +50,16 @@ router.post("/login", (req, res, next) => {
     });
 });
 
+router.get("/roles/:id", function(req, res, next) {
+  User.findOne({ _id: req.params.id }, (err, role) => {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(role);
+      res.json(role.roles);
+    }
+  });
+});
+
 module.exports = router;

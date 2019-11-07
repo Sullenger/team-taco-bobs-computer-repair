@@ -32,7 +32,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
 
-import { AuthGuardService } from "./../auth.guard";
+import { AuthGuardService } from "./guards/auth.guard";
+import { RoleGuardService } from './guards/role.guard';
 import { ErrorInterceptor } from './error-interceptor';
 
 import { CookieService } from "ngx-cookie-service";
@@ -98,7 +99,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false }),
     // ChartModule
   ],
-  providers: [CookieService, AuthGuardService,
+  providers: [CookieService, AuthGuardService, RoleGuardService,
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],

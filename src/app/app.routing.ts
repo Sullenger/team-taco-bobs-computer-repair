@@ -12,7 +12,8 @@ import { BaseLayoutComponent, SessionLayoutComponent } from "./shared";
 import { LoginComponent } from "./pages/login/login.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
-import { AuthGuardService } from "../auth.guard";
+import { AuthGuardService } from "./guards/auth.guard";
+import { RoleGuardService } from './guards/role.guard';
 import { SecurityQuestionsComponent } from "./pages/security-questions/security-questions.component";
 import { UserManagementComponent } from "./pages/user-management/user-management.component";
 import { Session } from "protractor";
@@ -38,15 +39,18 @@ export const AppRoutes: Routes = [
       },
       {
         path: "security-questions",
-        component: SecurityQuestionsComponent
+        component: SecurityQuestionsComponent,
+        canActivate: [RoleGuardService]
       },
       {
         path: "user-management",
-        component: UserManagementComponent
+        component: UserManagementComponent,
+        canActivate: [RoleGuardService]
       },
       {
         path: "purchase-graph",
-        component: PurchaseGraphComponent
+        component: PurchaseGraphComponent,
+        canActivate: [RoleGuardService]
       },
       {
         path: 'service-repair', 
@@ -58,7 +62,8 @@ export const AppRoutes: Routes = [
       },
       {
         path: 'role-configuration',
-        component: RoleConfigurationComponent
+        component: RoleConfigurationComponent,
+        canActivate: [RoleGuardService]
       }
     ]
   },

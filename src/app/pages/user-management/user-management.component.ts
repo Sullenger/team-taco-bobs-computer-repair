@@ -32,9 +32,6 @@ export class UserManagementComponent implements OnInit {
   ];
   users: any;
   errorMessage: string;
-  role: any;
-  isAdmin: boolean = false;
-  hideUsers: boolean = false;
 
   tableData: any;
   ShowEditedTable: boolean = false;
@@ -53,21 +50,6 @@ export class UserManagementComponent implements OnInit {
       }
     });
 
-    this.userAdmin()
-  }
-
-  userAdmin() {
-    this.role = this.cookie.get('role')
-    console.log(this.role);
-    if(this.role == "admin") {
-      this.isAdmin = true;
-      this.hideUsers = false;
-      console.log(this.isAdmin)
-    }
-    else {
-      this.isAdmin = false;
-      this.hideUsers = true;
-    }
   }
 
     onUpdate(val1) {
