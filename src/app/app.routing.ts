@@ -24,6 +24,7 @@ import { InternalServerErrorComponent } from './pages/internal-server-error/inte
 import { PurchaseGraphComponent } from './pages/purchase-graph/purchase-graph.component';
 import { ServiceRepairComponent } from './pages/service-repair/service-repair.component';
 import { InvoiceSummaryComponent } from './pages/invoice-summary/invoice-summary.component';
+import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
 
 export const AppRoutes: Routes = [
   {
@@ -54,6 +55,10 @@ export const AppRoutes: Routes = [
       {
         path: 'invoice-summary',
         component: InvoiceSummaryComponent
+      },
+      {
+        path: 'role-configuration',
+        component: RoleConfigurationComponent
       }
     ]
   },

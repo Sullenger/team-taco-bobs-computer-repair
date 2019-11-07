@@ -47,6 +47,7 @@ import { ErrorInterceptor } from './error-interceptor';
 import { PurchaseGraphComponent } from './pages/purchase-graph/purchase-graph.component';
 import { ServiceRepairComponent } from './pages/service-repair/service-repair.component';
 import { InvoiceSummaryComponent } from './pages/invoice-summary/invoice-summary.component';
+import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { InvoiceSummaryComponent } from './pages/invoice-summary/invoice-summary
     ErrorInterceptorComponent,
     PurchaseGraphComponent,
     ServiceRepairComponent,
-    InvoiceSummaryComponent
+    InvoiceSummaryComponent,
+    RoleConfigurationComponent
   ],
   imports: [
     BrowserModule,
