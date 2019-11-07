@@ -7,18 +7,32 @@
 ;===========================================
 */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
+import { MatDialogRef } from "@angular/material";
+import { ServiceRepairComponent } from "../service-repair/service-repair.component";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-invoice-summary',
-  templateUrl: './invoice-summary.component.html',
-  styleUrls: ['./invoice-summary.component.css']
+  selector: "app-invoice-summary",
+  templateUrl: "./invoice-summary.component.html",
+  styleUrls: ["./invoice-summary.component.css"]
 })
 export class InvoiceSummaryComponent implements OnInit {
+  // change later
+  @Input() public NameOfServiceOrder;
 
-  constructor() { }
+  constructor(
+    private dialogRef: MatDialogRef<ServiceRepairComponent>,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    // change later
+    console.log(this.NameOfServiceOrder);
   }
 
+  close() {
+    this.dialogRef.close();
+    this.router.navigate(["/home"]);
+  }
 }

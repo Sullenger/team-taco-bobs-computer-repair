@@ -6,4 +6,27 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
-<p>invoice-summary works!</p>
+
+<div class="container">
+  <h1 mat-dialog-title>Service Repair Invoice</h1>
+  <p>invoice-summary works!</p>
+  <!-- dialog content -->
+  <mat-dialog-content>
+    <!-- <div *ngFor="let TBD of TBD; index as i"> -->
+    <div>
+      <!-- ^ Remove after ngFor has been sorted ^ -->
+      <h1>Order Details here</h1>
+    </div>
+  </mat-dialog-content>
+  <!-- dialog button -->
+  <mat-dialog-actions>
+    <button
+      mat-raised-button
+      color="warn"
+      class="closeButton"
+      (click)="close()"
+    >
+      Close
+    </button>
+  </mat-dialog-actions>
+</div>
