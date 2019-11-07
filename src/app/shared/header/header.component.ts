@@ -46,13 +46,12 @@ export class HeaderComponent implements OnInit {
   }
 
   navHome() {
-    //modified route to take to home
     this.router.navigate(["./home"]);
   }
 
   navOrder() {
     console.log("Service Repair");
-    // this.router.navigate(["/"]);
+    this.router.navigate(["./session/service-repair/"]);
   }
 
   navAbout() {
@@ -69,13 +68,14 @@ export class HeaderComponent implements OnInit {
   }
 
   navManagement() {
-    // modified route to ./user-management
     this.router.navigate(["./user-management/"]);
   }
 
-  // modified to security questions route
+  navRoleConf() {
+    this.router.navigate(["./role-configuration/"])
+  }
+
   navSecQ() {
-    //changed route to ./security-questions
     this.router.navigate(["./security-questions"]);
   }
 }

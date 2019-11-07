@@ -54,18 +54,6 @@ router.get("/question/:id", function(req, res, next) {
   });
 });
 
-// find security questions by username
-
-router.get('/questions', (req, res, next) => {
-  SecurityQuestion.findOne({ username: req.body.username }, (err, questions) => {
-    if(err) {
-      console.log(err)
-    } else {
-      res.json(questions);
-    }
-  })
-})
-
 // Update security question by id
 router.put("/question/:id", function(req, res, next) {
   SecurityQuestion.findOne({ _id: req.params.id }, function(err, question) {
