@@ -33,7 +33,7 @@ router.post("/login", (req, res, next) => {
     .then(result => {
       if (!result) {
         return res.status(401).json({
-          message: "No users found"
+          message: "Incorrect user credentials."
         });
       }
       // send generated web token to front-end

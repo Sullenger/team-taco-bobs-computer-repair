@@ -14,34 +14,36 @@
         </div>
 
         <div class='parent' fxLayout='row' fxLayout.xs="column" fxLayoutAlign="center center">
-            <mat-card class='left' fxFlex="90%">
-                <h2>Our Services</h2>
-                <hr>
-                <ul>
-                    <li *ngFor='let service of services.services'><strong>{{ service.service }}</strong>:
-                        ${{ service.service_price }}
-                        <button mat-button (click)='addToCart(service)'>
+            <div fxFlex="90%">
+                <mat-card class='left'>
+                    <h2>Our Services</h2>
+                    <hr>
+                    <ul>
+                        <li *ngFor='let service of services.services'><strong>{{ service.service }}</strong>:
+                            ${{ service.service_price }}
+                            <button mat-button (click)='addToCart(service)'>
+                                <mat-icon>add_circle</mat-icon>
+                            </button>
+                        </li>
+                        <p><strong>Add Work Hours: </strong></p>
+                        <mat-form-field *ngIf='addHour === 0'>
+                            <input placeholder='Charge is $50/hour' type='number' [(ngModel)]='workHours' matInput>
+                        </mat-form-field>
+                        <button *ngIf='addHour === 0' mat-button (click)='addHours()'>
                             <mat-icon>add_circle</mat-icon>
                         </button>
-                    </li>
-                    <p><strong>Add Work Hours: </strong></p>
-                    <mat-form-field *ngIf='addHour === 0'>
-                        <input placeholder='Charge is $50/hour' type='number' [(ngModel)]='workHours' matInput>
-                    </mat-form-field>
-                    <button *ngIf='addHour === 0' mat-button (click)='addHours()'>
-                        <mat-icon>add_circle</mat-icon>
-                    </button>
-                    <br />
-                    <p><strong>Add Cost of Parts: </strong></p>
-                    <mat-form-field *ngIf='addPart === 0'>
-                        <input matInput type='number' [(ngModel)]='parts' placeholder='Enter dollar amount for parts.'>
-                    </mat-form-field>
-                    <button mat-button (click)='addParts()' *ngIf='addPart === 0'>
-                        <mat-icon>add_circle</mat-icon>
-                    </button>
-                </ul>
+                        <br />
+                        <p><strong>Add Cost of Parts: </strong></p>
+                        <mat-form-field *ngIf='addPart === 0'>
+                            <input matInput type='number' [(ngModel)]='parts' placeholder='Enter dollar amount for parts.'>
+                        </mat-form-field>
+                        <button mat-button (click)='addParts()' *ngIf='addPart === 0'>
+                            <mat-icon>add_circle</mat-icon>
+                        </button>
+                    </ul>
 
-            </mat-card>
+                </mat-card>
+            </div>
             <div fxFlex='90%'>
                 <mat-card class='right'>
                     <div class='cart-head'>
