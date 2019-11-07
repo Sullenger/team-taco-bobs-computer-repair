@@ -34,9 +34,7 @@ h2 {
 
 .cart-head-btn {
     display: inline-block;
-
 }
-
 
 .parent {
     width: 80%;
@@ -78,11 +76,13 @@ button {
 }
 
 .right {
-    min-height: 500px;
+    min-height: 525px;
+    box-shadow: 2px 2px 10px 10px rgb(158, 158, 158);
 }
 
 .left {
-    min-height: 500px;
+    min-height: 550px;
+    box-shadow: 2px 2px 10px 10px rgb(158, 158, 158);
 }
 
 .cart-head {
