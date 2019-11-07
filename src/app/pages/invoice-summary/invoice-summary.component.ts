@@ -18,6 +18,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./invoice-summary.component.css"]
 })
 export class InvoiceSummaryComponent implements OnInit {
+
   // change later
   @Input() public NameOfServiceOrder;
 
