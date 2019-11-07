@@ -46,6 +46,10 @@
             <mat-icon>perm_contact_calendar</mat-icon>
             <span>User Management</span>
           </button>
+          <button *ngIf='isAdmin == true' mat-menu-item (click)="navRoleConf()">
+            <mat-icon>perm_contact_calendar</mat-icon>
+            <span>Role Configuration</span>
+          </button>
           <!-- Modied user list to be security questions -->
           <button *ngIf='isAdmin == true' mat-menu-item (click)="navSecQ()">
             <mat-icon>lock</mat-icon>
