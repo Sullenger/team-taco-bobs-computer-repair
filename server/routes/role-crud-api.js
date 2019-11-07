@@ -53,18 +53,6 @@ router.get("/role/:id", function(req, res, next) {
   });
 });
 
-// find role by username
-
-router.get('/role', (req, res, next) => {
-  roleBank.findOne({ username: req.body.username }, (err, role) => {
-    if(err) {
-      console.log(err)
-    } else {
-      res.json(role);
-    }
-  })
-})
-
 // Update User Role by id
 router.put("/role/:id", function(req, res, next) {
   roleBank.findOne({ _id: req.params.id }, function(err, role) {
@@ -91,7 +79,7 @@ router.put("/role/:id", function(req, res, next) {
 router.delete("/role/:id", function(req, res, next) {
   roleBank.findByIdAndDelete({ _id: req.params.id }, function(
     err,
-    question
+    role
   ) {
     if (err) {
       console.log(err);

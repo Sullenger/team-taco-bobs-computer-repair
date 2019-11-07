@@ -20,6 +20,7 @@ const questionApi = require("./routes/question-crud-api");
 const recoverApi = require('./routes/acc-recovery')
 const purchaseHistoryApi = require('./routes/purchase-history-crud')
 const repairServices = require('./routes/repair-services')
+const roleBank = require('./routes/role-crud-api')
 
 let app = express();
 
@@ -36,6 +37,7 @@ app.use("/questions/api", questionApi);
 app.use("/recovery/api", recoverApi)
 app.use("/purchase-history/api", purchaseHistoryApi)
 app.use("/purchases/api", repairServices)
+app.use("/role-bank/api", roleBank)
 
 // Global variables
 const serverPort = 3000;
