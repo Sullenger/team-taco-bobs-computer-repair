@@ -7,22 +7,22 @@
 ;===========================================
 */
 #about{
-padding-top: 15px;
-display: flex;
-justify-content: center;
-align-items: center;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 mat-card {
-line-height:22.5px;
-width:85%;
-display: block;
-flex-direction: column;
-align-content: center;
+    line-height:22.5px;
+    width:85%;
+    display: block;
+    flex-direction: column;
+    align-content: center;
 }
 
 mat-card-content{
-font-family: cursive;
-font-size: 22px;
-line-height:22.5px;
+    font-family: cursive;
+    font-size: 22px;
+    line-height:22.5px;
 }
