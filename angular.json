@@ -27,7 +27,8 @@
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css"
             ],
-            "scripts": []
+
+            "scripts": ["../team-taco-bobs-computer-repair/node_modules/chart.js/dist/Chart.js"]
           },
           "configurations": {
             "production": {
