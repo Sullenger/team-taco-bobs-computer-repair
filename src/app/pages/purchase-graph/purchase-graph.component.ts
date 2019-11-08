@@ -18,12 +18,25 @@ import { HttpClient } from "@angular/common/http";
 export class PurchaseGraphComponent implements OnInit {
   errorMessage: string;
   servicesPurchased: any;
+  data: any;
+  serviceCount: string[] = [];
 
   // Resources
   // https://www.primefaces.org/primeng/#/chart
   // https://www.primefaces.org/primeng/#/chart/bar
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.data = {
+      labels: ['First Item', 'Second Item', 'Third Item', 'Fourth Item'],
+      datasets: [
+          {
+              backgroundColor: 'white',
+              borderColor: 'blue',
+              data: this.servicesPurchased
+          },
+      ]
+  }
+  }
 
   ngOnInit() {
     this.http.get("/purchase-history/api/records").subscribe(res => {
@@ -35,4 +48,6 @@ export class PurchaseGraphComponent implements OnInit {
       }
     });
   }
+
+
 }
