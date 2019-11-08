@@ -51,7 +51,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { HeaderComponent } from "./shared/header/header.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-// import {ChartModule} from 'primeng/chart'
+import {ChartModule} from 'primeng/chart'
 
 
 
@@ -97,7 +97,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
     MatDialogModule,
     MatSlideToggleModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false }),
-    // ChartModule
+    ChartModule
   ],
   providers: [CookieService, AuthGuardService, RoleGuardService,
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
