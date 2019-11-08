@@ -76,7 +76,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
     PurchaseGraphComponent,
     ServiceRepairComponent,
     InvoiceSummaryComponent,
-    RoleConfigurationComponent
+    RoleConfigurationComponent,
   ],
   imports: [
     BrowserModule,
