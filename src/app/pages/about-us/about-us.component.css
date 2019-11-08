@@ -6,23 +6,16 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 */
-#about{
-    padding-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.row{
+    padding-top: 100px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 mat-card {
-    line-height:22.5px;
-    width:85%;
+    text-align: center;
     display: block;
-    flex-direction: column;
-    align-content: center;
-}
-
-mat-card-content{
-    font-family: cursive;
-    font-size: 22px;
     line-height:22.5px;
+    width:92%;
+    float: left;
 }
