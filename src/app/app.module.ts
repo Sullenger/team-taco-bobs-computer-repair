@@ -76,7 +76,7 @@ import {ChartModule} from 'primeng/chart'
     PurchaseGraphComponent,
     ServiceRepairComponent,
     InvoiceSummaryComponent,
-    RoleConfigurationComponent
+    RoleConfigurationComponent,
   ],
   imports: [
     BrowserModule,
