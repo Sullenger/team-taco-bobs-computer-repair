@@ -29,13 +29,13 @@ export class ErrorInterceptor implements HttpInterceptor {
                     this.router.navigate(['/sesson/500'])
                 }
 
-                // let errorMessage = 'An unknown error has occured..'
-                // if(error.error.message) {
-                //     errorMessage = error.error.message;
-                // }
-                // this.dialog.open(ErrorInterceptorComponent, {data: {message: errorMessage }});
-                // console.log(error)
-                alert(error.error.message)
+                let errorMessage = 'An unknown error has occured..'
+                if(error.error.message) {
+                    errorMessage = error.error.message;
+                }
+                this.dialog.open(ErrorInterceptorComponent, {data: {message: errorMessage }});
+                console.log(error)
+                // alert(error.error.message)
                 return throwError(error);
             })
         )
