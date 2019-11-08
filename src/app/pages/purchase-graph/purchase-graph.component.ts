@@ -19,35 +19,38 @@ export class PurchaseGraphComponent implements OnInit {
   errorMessage: string;
   servicesPurchased: any;
   data: any;
-  serviceCount: string[] = [];
+  options: any;
+  serviceCount = [];
 
   // Resources
   // https://www.primefaces.org/primeng/#/chart
   // https://www.primefaces.org/primeng/#/chart/bar
 
   constructor(private http: HttpClient) {
-    this.data = {
-      labels: ['First Item', 'Second Item', 'Third Item', 'Fourth Item'],
-      datasets: [
-          {
-              backgroundColor: 'white',
-              borderColor: 'blue',
-              data: this.servicesPurchased
-          },
-      ]
-  }
-  }
-
-  ngOnInit() {
     this.http.get("/purchase-history/api/records").subscribe(res => {
       if (res) {
         this.servicesPurchased = res;
         console.log(this.servicesPurchased);
+        for (let thing of this.servicesPurchased) {
+          this.serviceCount.push(thing);
+        }
+        console.log(this.serviceCount);
+        this.data = {
+          labels: ["First Item", "Second Item", "Third Item", "Fourth Item"],
+          datasets: [
+            {
+              label: "Purchases",
+              backgroundColor: "#9CCC65",
+              borderColor: "#7CB342",
+              data: this.serviceCount
+            }
+          ]
+        };
       } else {
         this.errorMessage = "Error collecting purchase data";
       }
     });
   }
 
-
+  ngOnInit() {}
 }
