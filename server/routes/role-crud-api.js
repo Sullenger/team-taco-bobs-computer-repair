@@ -13,7 +13,7 @@ const roleBank = require("../models/roleBank");
 
 // Create User Role
 router.post("/role", function(req, res, next) {
-  roleBank.create({ role: req.body.question }, function(
+  roleBank.create({ role: req.body.role }, function(
     err,
     roles
   ) {
