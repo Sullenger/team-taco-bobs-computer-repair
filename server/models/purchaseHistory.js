@@ -9,11 +9,15 @@
 
 const mongoose = require("mongoose");
 
-let purchaseHistorySchema = mongoose.Schema({
+let lineItemSchema = mongoose.Schema({
   firstItem: { type: Number, default: 0 },
   secondItem: { type: Number, default: 0 },
   thirdItem: { type: Number, default: 0 },
   fourthItem: { type: Number, default: 0 },
+});
+
+let purchaseHistorySchema = mongoose.Schema({
+  items: [lineItemSchema]
 });
 
 module.exports = mongoose.model("PurchaseHistory", purchaseHistorySchema);

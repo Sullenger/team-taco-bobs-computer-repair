@@ -30,11 +30,8 @@ export class PurchaseGraphComponent implements OnInit {
     this.http.get("/purchase-history/api/records").subscribe(res => {
       if (res) {
         this.servicesPurchased = res;
-        console.log(this.servicesPurchased);
-        for (let thing of this.servicesPurchased) {
-          this.serviceCount.push(thing);
-        }
-        console.log(this.serviceCount);
+        this.serviceCount = Object.values(this.servicesPurchased[0].items[0])
+
         this.data = {
           labels: ["First Item", "Second Item", "Third Item", "Fourth Item"],
           datasets: [
