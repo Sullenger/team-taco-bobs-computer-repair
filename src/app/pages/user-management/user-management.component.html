@@ -71,13 +71,17 @@
 
                 <!-- Adding Role -->
                 <td scope="row" *ngIf='user._id !== editUserId'>{{ user.roles[0].role }}</td>
-                <td *ngIf='user._id === editUserId'>
-                    <button mat-button color='warn' class="tableCell" *ngIf="user.roles[0].role === 'standard'"
-                        (click)="user.roles[0].role = 'admin'">Add Admin Role</button>
-                    <button mat-button color='warn' class="tableCell" *ngIf="user.roles[0].role === 'admin'"
-                        (click)="user.roles[0].role = 'standard'">Remove Admin Role</button>
-                </td>
 
+                <td *ngIf='user._id === editUserId'>
+                    {{ user.roles[0].role }}
+                    <button mat-button color='accent' [matMenuTriggerFor]="menu"><strong>Update User Role</strong></button>
+                    <mat-menu #menu="matMenu">
+                        <div *ngFor='let role of roles'>
+                            <button mat-menu-item color='warn' class="tableCell"
+                                (click)="user.roles[0].role = role.role">{{ role.role }}</button>
+                        </div>
+                    </mat-menu>
+                </td>
 
                 <td>
                     <button mat-button color='accent' *ngIf='isEdit === true' (click)='onUpdate(user)'>

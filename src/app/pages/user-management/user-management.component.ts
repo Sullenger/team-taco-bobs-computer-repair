@@ -37,6 +37,7 @@ export class UserManagementComponent implements OnInit {
   ShowEditedTable: boolean = false;
   editUserId: any = '';
   isEdit: boolean = false;
+  roles: any;
 
   constructor(private fb: FormBuilder, private http: HttpClient, private cookie: CookieService, private router: Router) { }
 
@@ -50,6 +51,14 @@ export class UserManagementComponent implements OnInit {
       }
     });
 
+    this.http.get('/role-bank/api/role').subscribe( res => {
+      if(res) {
+        console.log(res)
+        this.roles = res
+      } else {
+        return
+      }
+    })
   }
 
     onUpdate(val1) {
