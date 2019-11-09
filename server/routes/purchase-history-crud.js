@@ -17,10 +17,7 @@ const purchaseHistory = require("../models/purchaseHistory");
 router.post("/records", function(req, res, next) {
   purchaseHistory.create(
     {
-      firstItem: req.body.firstItem,
-      secondItem: req.body.secondItem,
-      thirdItem: req.body.thirdItem,
-      fourthItem: req.body.fourthItem
+      items: req.body.items
     },
     function(err, records) {
       if (err) {
@@ -47,19 +44,6 @@ router.get("/records", function(req, res, next) {
   });
 });
 
-// Find purchase history records by id - Remove if not needed
-// router.get("/records/:id", function(req, res, next) {
-//   purchaseHistory.findOne({}, function(err, records) {
-//     if (err) {
-//       console.log(err);
-//       return next(err);
-//     } else {
-//       console.log(records);
-//       res.json(records);
-//     }
-//   });
-// });
-
 // Update purchase history records
 router.put("/records/:id", function(req, res, next) {
   purchaseHistory.findOne({ _id: req.params.id }, function(err, records) {
@@ -69,10 +53,7 @@ router.put("/records/:id", function(req, res, next) {
     } else {
       console.log(records);
       records.set({
-        firstItem: req.body.firstItem,
-        secondItem: req.body.secondItem,
-        thirdItem: req.body.thirdItem,
-        fourthItem: req.body.fourthItem
+        items: req.body.items
       });
       records.save(function(err, updatedRecords) {
         if (err) {
@@ -88,6 +69,7 @@ router.put("/records/:id", function(req, res, next) {
 });
 
 // Delete purchase history records
+// Not actually deleting. set values to 0
 router.put("/records/delete/:id", function(req, res, next) {
   purchaseHistory.findOne({ _id: req.params.id }, function(err, records) {
     if (err) {
@@ -96,10 +78,7 @@ router.put("/records/delete/:id", function(req, res, next) {
     } else {
       console.log(records);
       records.set({
-        firstItem: req.body.firstItem,
-        secondItem: req.body.secondItem,
-        thirdItem: req.body.thirdItem,
-        fourthItem: req.body.fourthItem
+        items: req.body.items,
       });
       records.save(function(err, deletedRecords) {
         if (err) {
