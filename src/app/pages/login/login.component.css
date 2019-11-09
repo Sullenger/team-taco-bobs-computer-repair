@@ -17,9 +17,11 @@ h1 {
   flex-direction: column;
   align-content: center;
   width: 25%;
-  border: 0.5em darkorchid;
   text-align: center;
   margin-top: 100px;
+  font-family: 'Bungee', cursive;
+  background-color: #c8e6c9;
+  color: #1b5e20;
 }
 
 mat-form-field {

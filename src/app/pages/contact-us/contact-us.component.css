@@ -20,6 +20,7 @@ mat-card {
   width:89%;
   float: left;
   background-color: #ffd180;
+  font-family: 'Bungee', cursive;
 }
 
 ul, li{
