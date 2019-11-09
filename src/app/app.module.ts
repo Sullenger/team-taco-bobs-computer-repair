@@ -47,11 +47,11 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { HeaderComponent } from "./shared/header/header.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import {ChartModule} from 'primeng/chart'
+import { ChartModule } from 'primeng/chart'
 
 
 

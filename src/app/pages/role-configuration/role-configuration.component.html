@@ -6,4 +6,53 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
-<p>role-configuration works!</p>
+
+<mat-card>
+  <div class="container">
+    <small *ngIf="errorMessage">{{ errorMessage }} </small>
+    <div class="roleListing">
+      <div class="roleTitle">
+        <h2>Role Management</h2>
+      </div>
+      <div *ngIf="newRole">
+        <input type="text" [(ngModel)]="addingRole" placeholder="Enter new role" />
+        <button mat-raised-button color="accent" class="buttonStyle" (click)="addRole(addingRole)">
+          Submit Role
+        </button>
+      </div>
+      <button mat-raised-button color="accent" class="buttonStyle" *ngIf="!newRole" (click)="addNewRole()">
+        New Role
+      </button>
+      <table class="tableRole table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Role</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let role of roles">
+          <tr>
+            <td *ngIf="role._id === editRoleId">
+              <input type="text" [(ngModel)]="role.role" />
+              <button mat-raised-button color="accent" class="buttonStyle" (click)="update(role)">
+                Update
+              </button>
+            </td>
+            <td *ngIf="role._id !== editRoleId" scope="row">
+              {{ role.role }}
+            </td>
+
+            <td scope="row">
+              <button mat-button color="accent" class="buttonStyle" (click)="edit(role._id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-button color="warn" class="buttonStyle" (click)="deleteRole(role)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</mat-card>
