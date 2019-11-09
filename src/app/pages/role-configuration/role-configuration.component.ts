@@ -32,8 +32,8 @@ export class RoleConfigurationComponent implements OnInit {
   ngOnInit() {
     this.http.get("/role-bank/api/role").subscribe(res => {
       if (res) {
-        return (this.roles = res);
         console.log(this.roles);
+        return (this.roles = res);
       } else {
         return (this.errorMessage = "AYYYYYUT, No roles found");
       }
@@ -46,7 +46,7 @@ export class RoleConfigurationComponent implements OnInit {
     console.log(this.roleId);
     this.http.delete("/role-bank/api/role/" + this.roleId).subscribe(res =>  {
       this.roles = res;
-      document.location.reload(true);
+      //document.location.reload(true);
     }) ;
   }
 
@@ -65,7 +65,7 @@ export class RoleConfigurationComponent implements OnInit {
     console.log(roleInput);
     this.http.post("/role-bank/api/role", { role: roleInput }).subscribe(res => {
       this.roles = res;
-      document.location.reload(true);
+      //document.location.reload(true);
     });
   }
 
@@ -77,7 +77,7 @@ export class RoleConfigurationComponent implements OnInit {
       role: role.role
     }).subscribe(res => {
       this.roles = res;
-      document.location.reload(true);
+      //document.location.reload(true);
     });
   }
 }

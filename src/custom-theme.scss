@@ -55,20 +55,20 @@ $md-mycolor1: (
 );
 
 $md-mycolor2: (
-  50: #e1e6e8,
-  100: #b3c1c6,
-  200: #8098a1,
-  300: #4d6e7b,
-  400: #274f5e,
-  500: #013042,
-  600: #012b3c,
-  700: #012433,
-  800: #011e2b,
-  900: #00131d,
-  A100: #5bb2ff,
-  A200: #289aff,
-  A400: #0081f4,
-  A700: #0074da,
+  50: #fff3e0,
+  100: #ffe0b2,
+  200: #ffcc80,
+  300: #ffb74d,
+  400: #ffa726,
+  500: #ff9800,
+  600: #fb8c00,
+  700: #f57c00,
+  800: #ef6c00,
+  900: #e65100,
+  A100: #ffd180,
+  A200: #ffab40,
+  A400: #ff9100,
+  A700: #ff6d00,
   contrast: (
     50: #000000,
     100: #000000,
@@ -120,9 +120,9 @@ $md-mcgpalette: (
   )
 );
 
-$my-app-primary: mat-palette($md-mycolor1, 400, );
-$my-app-accent: mat-palette($md-mycolor2, 300, 500);
-$my-app-warn: mat-palette($md-mcgpalette, 400, 500);
+$my-app-primary: mat-palette($md-mycolor2, 200);
+$my-app-accent: mat-palette($md-mycolor1, 600);
+$my-app-warn: mat-palette($md-mcgpalette, 500);
 
 //$my-app-background:    mat-palette($md-mcgpalette2, 200);
 

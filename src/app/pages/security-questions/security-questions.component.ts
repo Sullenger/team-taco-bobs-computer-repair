@@ -35,8 +35,8 @@ export class SecurityQuestionsComponent implements OnInit {
   ngOnInit() {
     this.http.get("/questions/api/question").subscribe(res => {
       if (res) {
-        return (this.questions = res);
         console.log(this.questions);
+        return (this.questions = res);
       } else {
         return (this.errorMessage = "No questions found");
       }
