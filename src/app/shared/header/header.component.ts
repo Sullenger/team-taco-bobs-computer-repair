@@ -63,4 +63,7 @@ export class HeaderComponent implements OnInit {
   navSecQ() {
     this.router.navigate(["./security-questions"]);
   }
+  navGraph() {
+    this.router.navigate(["./purchase-graph"])
+  }
 }
