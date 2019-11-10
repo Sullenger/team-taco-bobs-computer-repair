@@ -6,11 +6,12 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 -->
-
+<div class="container">
 <!-- Added error message -->
 <small *ngIf="errorMessage">{{ errorMessage }} </small>
 
 <mat-card>
+  <div class="mgmtForm">
     <div class="userTitle">
         <h2>Manage Users</h2>
     </div>
@@ -100,4 +101,6 @@
             </tr>
         </tbody>
     </table>
+  </div>
 </mat-card>
+</div>

@@ -19,9 +19,9 @@ h1 {
   width: 25%;
   text-align: center;
   margin-top: 100px;
-  font-family: 'Bungee', cursive;
   background-color: #c8e6c9;
   color: #1b5e20;
+  font-family: 'Bungee', cursive;
 }
 
 mat-form-field {
@@ -30,13 +30,10 @@ mat-form-field {
 
 button {
   width: 75%;
-}
-
-a:hover {
-  cursor: pointer;
-  color: blue;
+  font-family: 'Bungee', cursive;
 }
 
 .error {
   color: red;
+  font-family: 'Bungee', cursive;
 }
