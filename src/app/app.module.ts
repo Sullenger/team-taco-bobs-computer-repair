@@ -51,7 +51,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { HeaderComponent } from "./shared/header/header.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { ChartModule } from 'primeng/chart'
+import { ChartModule } from 'primeng/chart';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component'
 
 
 
@@ -78,6 +79,7 @@ import { ChartModule } from 'primeng/chart'
     ServiceRepairComponent,
     InvoiceSummaryComponent,
     RoleConfigurationComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

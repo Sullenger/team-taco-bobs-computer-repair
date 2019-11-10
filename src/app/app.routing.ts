@@ -26,6 +26,7 @@ import { PurchaseGraphComponent } from './pages/purchase-graph/purchase-graph.co
 import { ServiceRepairComponent } from './pages/service-repair/service-repair.component';
 import { InvoiceSummaryComponent } from './pages/invoice-summary/invoice-summary.component';
 import { RoleConfigurationComponent } from './pages/role-configuration/role-configuration.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 export const AppRoutes: Routes = [
   {
@@ -64,6 +65,10 @@ export const AppRoutes: Routes = [
         path: 'role-configuration',
         component: RoleConfigurationComponent,
         canActivate: [RoleGuardService]
+      },
+      {
+        path: 'user-profile',
+        component: UserProfileComponent
       }
     ]
   },

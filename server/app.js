@@ -21,6 +21,7 @@ const recoverApi = require('./routes/acc-recovery')
 const purchaseHistoryApi = require('./routes/purchase-history-crud')
 const repairServices = require('./routes/repair-services')
 const roleBank = require('./routes/role-crud-api')
+const invoices = require('./models/invoice');
 
 let app = express();
 

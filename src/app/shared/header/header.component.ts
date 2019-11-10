@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
 
   userProfile() {
     console.log("User Profile");
-    // this.router.navigate(["/"]);
+    this.router.navigate(["/user-profile"]);
   }
 
   navManagement() {
