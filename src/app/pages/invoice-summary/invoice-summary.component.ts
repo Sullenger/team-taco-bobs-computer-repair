@@ -54,12 +54,11 @@ export class InvoiceSummaryComponent implements OnInit {
           this.dialogRef.close();
         },
         () => {
-          this.purchaseHistoryIncrement();
           alert("Thank you for confirming you order!");
 
           this.http
-            .put("/purchase-history/api/records/5dc8647753899e07a80ee71d", {
-              items: this.purchaseHistory
+            .put("/purchase-history/api/records/5dc874cbcc0d5547e0e8a694", {
+              items: this.purchaseHistory[0].items
             })
             .subscribe(
               res => {},
@@ -72,7 +71,7 @@ export class InvoiceSummaryComponent implements OnInit {
             );
 
           this.dialogRef.close();
-          this.router.navigate(["/"]);
+          this.router.navigate(["/home"]);
         }
       );
   }
@@ -81,25 +80,25 @@ export class InvoiceSummaryComponent implements OnInit {
     let item = this.purchaseHistory[0].items[0];
     for (var i = 0; i < this.invoice.cart.length; i++) {
       if (this.invoice.cart[i].service === "Password Reset") {
-        item.passwordReset ++;
+        item.passwordReset++;
       }
       if (this.invoice.cart[i].service === "Spyware Removal") {
-        item.spywareRemoval ++;
+        item.spywareRemoval++;
       }
       if (this.invoice.cart[i].service === "RAM Upgrade") {
-        item.ramUpgrade ++;
+        item.ramUpgrade++;
       }
       if (this.invoice.cart[i].service === "Software Installation") {
-        item.softwareInstallation ++;
+        item.softwareInstallation++;
       }
       if (this.invoice.cart[i].service === "Tune-Up") {
-        item.tuneUp ++;
+        item.tuneUp++;
       }
       if (this.invoice.cart[i].service === "Keyboard Cleaning") {
-        item.keyboardCleaning ++;
+        item.keyboardCleaning++;
       }
       if (this.invoice.cart[i].service === "Disk Cleanup") {
-        item.diskCleanup ++;
+        item.diskCleanup++;
       }
     }
   }
