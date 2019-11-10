@@ -6,6 +6,11 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 */
+.container {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  font-family: 'Bungee', cursive;
+}
 .lineItem {
   display: inline-block;
 }
