@@ -73,7 +73,7 @@ export class RoleConfigurationComponent implements OnInit {
   update(role) {
     this.roleId = role._id;
     console.log(this.roleId);
-    this.http.put("/role-bank/api/role" + this.roleId, {
+    this.http.put("/role-bank/api/role/" + this.roleId, {
       role: role.role
     }).subscribe(res => {
       this.roles = res;
