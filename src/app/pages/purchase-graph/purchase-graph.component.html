@@ -7,7 +7,20 @@
 ;===========================================
 -->
 
-
-<p>purchase-graph works!</p>
-<p-chart type="bar" [data]="data"></p-chart>
-
+<div class="container">
+    <small *ngIf="errorMessage">{{ errorMessage }}</small>
+      <mat-card class="mat-elevation-z8">
+          <mat-card-title class="graphTitle"
+          ><h3 class="alignCenter">Purchased Services Graph</h3></mat-card-title
+            >
+            <mat-card-content>
+                <p-chart type="bar" [data]="data"></p-chart>
+            </mat-card-content>
+          <!-- Actions -->
+          <mat-card-actions>
+              <button class="alignCenter" mat-raised-button color="primary" (click)="navHome()">
+                  Home
+                </button>
+          </mat-card-actions>
+        </mat-card>
+  </div>

@@ -23,10 +23,6 @@ table {
   position: relative;
 }
 
-.tableCell {
-  border: #1b5e20;
-}
-
 h2 {
   text-align: center;
 }
@@ -40,4 +36,3 @@ input {
   display:table-cell;
   width:80%;
 }
-

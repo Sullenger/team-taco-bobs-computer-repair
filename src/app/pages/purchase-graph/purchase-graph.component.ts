@@ -9,6 +9,7 @@
 
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-purchase-graph",
@@ -26,19 +27,18 @@ export class PurchaseGraphComponent implements OnInit {
   // https://www.primefaces.org/primeng/#/chart
   // https://www.primefaces.org/primeng/#/chart/bar
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router,) {
     this.http.get("/purchase-history/api/records").subscribe(res => {
       if (res) {
         this.servicesPurchased = res;
         this.serviceCount = Object.values(this.servicesPurchased[0].items[0])
 
         this.data = {
-          labels: ["First Item", "Second Item", "Third Item", "Fourth Item"],
+          labels: ["Password Reset", "Spyware Removal", "Ram Upgrade", "Software Installation", "Tune Up", "Keyboard Cleaning", "Disk Cleanup"],
           datasets: [
             {
               label: "Purchases",
-              backgroundColor: "#9CCC65",
-              borderColor: "#7CB342",
+              backgroundColor: "#1b5e20",
               data: this.serviceCount
             }
           ]
@@ -50,4 +50,8 @@ export class PurchaseGraphComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  navHome() {
+    this.router.navigate(["/home"]);
+  }
 }
