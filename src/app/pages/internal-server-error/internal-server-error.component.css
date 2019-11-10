@@ -15,6 +15,9 @@
     border: 0.5em black;
     text-align: center;
     margin-top: 100px;
+    background-color: #c8e6c9;
+    color: #1b5e20;
+    font-family: 'Bungee', cursive;
 }
 body {
     text-align: center;
