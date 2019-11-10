@@ -47,8 +47,8 @@ export class LoginComponent implements OnInit {
     this.http.post<any>("/auth/api/login", submit).subscribe(res => {
 
       if (res) {
-        this.cookie.set("isAuthenticated", "true", 10);
-        this.cookie.set("user", res.userId);
+        this.cookie.set("isAuthenticated", "true", 2);
+        this.cookie.set("user", res.userId, 2);
         this.router.navigate(["/home"]);
       } else {
         this.error = "Invalid login credentials";

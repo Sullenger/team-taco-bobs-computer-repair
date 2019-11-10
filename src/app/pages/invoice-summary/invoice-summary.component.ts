@@ -18,9 +18,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./invoice-summary.component.css"]
 })
 export class InvoiceSummaryComponent implements OnInit {
-
-  // change later
-  @Input() public NameOfServiceOrder;
+  @Input() public invoice;
 
   constructor(
     private dialogRef: MatDialogRef<ServiceRepairComponent>,
@@ -29,11 +27,11 @@ export class InvoiceSummaryComponent implements OnInit {
 
   ngOnInit() {
     // change later
-    console.log(this.NameOfServiceOrder);
+    console.log(this.invoice);
   }
 
   close() {
     this.dialogRef.close();
-    this.router.navigate(["/home"]);
+    // this.router.navigate(["/home"]);
   }
 }

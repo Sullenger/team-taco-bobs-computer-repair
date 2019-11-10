@@ -7,47 +7,74 @@
 ;===========================================
 */ -->
 
+<div
+  class="parent"
+  fxLayout="column"
+  fxLayout.xs="column"
+  fxLayoutAlign="center center"
+>
+  <mat-card class="left">
+    <h1>Our Services</h1>
+    <hr />
 
-
-    <div class='parent' fxLayout='column' fxLayout.xs="column" fxLayoutAlign="center center">
-        <mat-card class='left'>
-            <h1>Our Services</h1>
-            <hr>
-
-            <mat-card *ngFor='let service of services.services'><strong>{{ service.service }}</strong>:
-                ${{ service.service_price }}
-                <mat-slide-toggle (change)='slideToggle($event,service, service.service_price)'>
-                </mat-slide-toggle>
-            </mat-card>
-            <hr>
-            <mat-card>
-                <p><strong>Add Work Hours: </strong></p>
-                <mat-form-field>
-                    <input placeholder='Charge is $50/hour' type='number' [(ngModel)]='workHours' matInput>
-                </mat-form-field>
-                <button *ngIf='addHour === 0' mat-button (click)='addHours()'>
-                    <mat-icon>add_circle</mat-icon>
-                </button>
-                <button mat-button class='btn-remove' (click)='removeHours()' *ngIf='addHour !== 0'>
-                    <mat-icon>remove_circle</mat-icon>
-                </button>
-            </mat-card>
-            <mat-card>
-                <p><strong>Add Cost of Parts: </strong></p>
-                <mat-form-field>
-                    <input matInput type='number' [(ngModel)]='parts' placeholder='Enter dollar amount for parts.'>
-                </mat-form-field>
-                <button mat-button (click)='addParts()' *ngIf='addPart === 0'>
-                    <mat-icon>add_circle</mat-icon>
-                </button>
-                <button mat-button class='btn-remove' (click)='removeParts()' *ngIf='addPart !== 0'>
-                    <mat-icon>remove_circle</mat-icon>
-                </button>
-            </mat-card>
-
-        </mat-card>
-        <mat-card>
-            Your Total is: ${{ cartTotal }}.00
-            <button mat-raised-button color='accent'>Submit</button>
-        </mat-card>
-    </div>
+    <mat-card *ngFor="let service of invoice.services.services"
+      ><strong>{{ service.service }}</strong
+      >: ${{ service.service_price }}
+      <mat-slide-toggle
+        (change)="slideToggle($event, service, service.service_price)"
+      >
+      </mat-slide-toggle>
+    </mat-card>
+    <hr />
+    <mat-card>
+      <p><strong>Add Work Hours: </strong></p>
+      <mat-form-field>
+        <input
+          placeholder="Charge is $50/hour"
+          type="number"
+          [(ngModel)]="invoice.workHours"
+          matInput
+        />
+      </mat-form-field>
+      <button *ngIf="invoice.addHour === 0" mat-button (click)="addHours()">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+      <button
+        mat-button
+        class="btn-remove"
+        (click)="removeHours()"
+        *ngIf="invoice.addHour !== 0"
+      >
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+    </mat-card>
+    <mat-card>
+      <p><strong>Add Cost of Parts: </strong></p>
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="invoice.parts"
+          placeholder="Enter dollar amount for parts."
+        />
+      </mat-form-field>
+      <button mat-button (click)="addParts()" *ngIf="invoice.addPart === 0">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+      <button
+        mat-button
+        class="btn-remove"
+        (click)="removeParts()"
+        *ngIf="invoice.addPart !== 0"
+      >
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+    </mat-card>
+  </mat-card>
+  <mat-card>
+    Your Total is: ${{ invoice.cartTotal }}.00
+    <button mat-raised-button color="accent" (click)="orderModal()">
+      Submit
+    </button>
+  </mat-card>
+</div>

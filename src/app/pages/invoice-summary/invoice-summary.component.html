@@ -8,25 +8,43 @@
 -->
 
 <div class="container">
-  <h1 mat-dialog-title>Service Repair Invoice</h1>
-  <p>invoice-summary works!</p>
+  <h1>Order Confirmation</h1>
+  <br />
+  <hr />
   <!-- dialog content -->
   <mat-dialog-content>
-    <!-- <div *ngFor="let TBD of TBD; index as i"> -->
-    <div>
-      <!-- ^ Remove after ngFor has been sorted ^ -->
-      <h1>Order Details here</h1>
+    <p>Date: {{ invoice.date | date: "medium" }}</p>
+    <p>User ID: {{invoice.user}}</p>
+    <br />
+    <hr />
+    <h4>Items Ordered</h4>
+    <br />
+    <div *ngFor="let item of invoice.cart; index as i">
+      <p>{{ item.service }}</p>
+      <p>{{ item.service_price | currency }}</p>
     </div>
+    <hr />
+    <br />
+    <br />
+    <h4>Total: {{ invoice.cartTotal | currency }}</h4>
   </mat-dialog-content>
   <!-- dialog button -->
   <mat-dialog-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      class="closeButton"
+      (click)="close()"
+    >
+      Primary
+    </button>
     <button
       mat-raised-button
       color="warn"
       class="closeButton"
       (click)="close()"
     >
-      Close
+      Cancel Order
     </button>
   </mat-dialog-actions>
 </div>
