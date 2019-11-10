@@ -7,16 +7,18 @@
 ;===========================================
 */
 .row{
-    padding-top: 100px;
-    padding-left: 5%;
-    padding-right: 5%;
+  padding-top: 100px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 mat-card {
-    text-align: center;
-    display: block;
-    line-height:22.5px;
-    width:92%;
-    float: left;
-    font-family: 'Bungee', cursive;
+  text-align: center;
+  display: block;
+  line-height:22.5px;
+  width:92%;
+  float: left;
+  font-family: 'Bungee', cursive;
+  background-color: #c8e6c9;
+  color: #1b5e20;
 }

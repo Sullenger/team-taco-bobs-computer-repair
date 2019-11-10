@@ -19,7 +19,8 @@ mat-card {
   line-height:22.5px;
   width:89%;
   float: left;
-  background-color: #ffd180;
+  background-color: #c8e6c9;
+  color: #1b5e20;
   font-family: 'Bungee', cursive;
 }
 

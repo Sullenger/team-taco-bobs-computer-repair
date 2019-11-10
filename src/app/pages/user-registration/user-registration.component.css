@@ -8,17 +8,18 @@
 */
 
 small {
-  color: red;
+  color: #f9a825;
   display: block;
   width: 100%;
   min-width: 100% !important;
   margin-top: 10px;
 }
-
+.container {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+}
 .formInput {
   width: 100%;
-  /* padding: 0px 10px; */
-
 }
 
 .autoMargin {
@@ -27,4 +28,4 @@ small {
 
 .addressInput {
   width: 100%;
- }
+}
