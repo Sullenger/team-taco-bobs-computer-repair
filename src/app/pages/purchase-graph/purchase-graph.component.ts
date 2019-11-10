@@ -49,7 +49,6 @@ export class PurchaseGraphComponent implements OnInit {
                 display: true,
                 ticks: {
                     beginAtZero: true,
-                    min: 0
                 }
             }]
         },
