@@ -43,6 +43,16 @@ export class PurchaseGraphComponent implements OnInit {
             }
           ]
         };
+        this.options = {
+          scales: {
+            yAxes: [{
+                display: true,
+                ticks: {
+                    beginAtZero: true,
+                }
+            }]
+        },
+      };
       } else {
         this.errorMessage = "Error collecting purchase data";
       }
