@@ -81,25 +81,25 @@ export class InvoiceSummaryComponent implements OnInit {
     let item = this.purchaseHistory[0].items[0];
     for (var i = 0; i < this.invoice.cart.length; i++) {
       if (this.invoice.cart[i].service === "Password Reset") {
-        item.passwordReset += 1;
+        item.passwordReset ++;
       }
       if (this.invoice.cart[i].service === "Spyware Removal") {
-        item.spywareRemoval += 1;
+        item.spywareRemoval ++;
       }
       if (this.invoice.cart[i].service === "RAM Upgrade") {
-        item.ramUpgrade += 1;
+        item.ramUpgrade ++;
       }
       if (this.invoice.cart[i].service === "Software Installation") {
-        item.softwareInstallation += 1;
+        item.softwareInstallation ++;
       }
       if (this.invoice.cart[i].service === "Tune-Up") {
-        item.tuneUp += 1;
+        item.tuneUp ++;
       }
       if (this.invoice.cart[i].service === "Keyboard Cleaning") {
-        item.keyboardCleaning += 1;
+        item.keyboardCleaning ++;
       }
       if (this.invoice.cart[i].service === "Disk Cleanup") {
-        item.diskCleanup += 1;
+        item.diskCleanup ++;
       }
     }
   }
