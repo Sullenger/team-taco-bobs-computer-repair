@@ -46,7 +46,7 @@ export class RoleConfigurationComponent implements OnInit {
     console.log(this.roleId);
     this.http.delete("/role-bank/api/role/" + this.roleId).subscribe(res =>  {
       this.roles = res;
-      //document.location.reload(true);
+      document.location.reload(true);
     }) ;
   }
 
@@ -65,7 +65,7 @@ export class RoleConfigurationComponent implements OnInit {
     console.log(roleInput);
     this.http.post("/role-bank/api/role", { role: roleInput }).subscribe(res => {
       this.roles = res;
-      //document.location.reload(true);
+      document.location.reload(true);
     });
   }
 

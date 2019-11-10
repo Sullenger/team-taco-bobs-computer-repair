@@ -14,7 +14,7 @@
       <div class="questionTitle">
         <h2>Security Question Management</h2>
       </div>
-      <div *ngIf="newQuestion === false;">
+      <div *ngIf="newQuestion">
         <input type="text" [(ngModel)]="addingQuestion" placeholder="Enter new question" />
         <button mat-raised-button color="accent" class="buttonStyle" (click)="addQuestion(addingQuestion)">
           Submit Question
