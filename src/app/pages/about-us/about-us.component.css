@@ -22,3 +22,7 @@ mat-card {
   background-color: #c8e6c9;
   color: #1b5e20;
 }
+
+h6 {
+  font-size: 20px;
+}
