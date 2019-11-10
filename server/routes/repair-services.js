@@ -14,10 +14,11 @@ const Services = require('../models/services')
 
 router.post('/invoice', (req, res, next) => {
     const invoice = new Invoices({
-        date: new Date(),
-        username: req.body.username,
-        services_ordered: req.body.services_ordered,
-        total: req.body.total
+      date: req.body.date,
+      user_id: req.body.user_id,
+      services_ordered: req.body.services_ordered,
+      order_snapshot: req.body.order_snapshot,
+      total: req.body.total
     })
     invoice.save();
     res.status(201).json({
@@ -26,17 +27,17 @@ router.post('/invoice', (req, res, next) => {
     console.log(invoice)
 })
 
-router.post('/service', (req, res, next) => {
-    const service = new Services({
-        service: req.body.service,
-        service_number: req.body.service_number,
-        service_price: req.body.service_price
-    })
-    service.save();
-    res.status(201).json({
-        message: "Service successfully save to the database."
-    })
-})
+// router.post('/service', (req, res, next) => {
+//     const service = new Services({
+//         service: req.body.service,
+//         service_number: req.body.service_number,
+//         service_price: req.body.service_price
+//     })
+//     service.save();
+//     res.status(201).json({
+//         message: "Service successfully save to the database."
+//     })
+// })
 
 router.get('/all-services', (req, res, next) => {
     Services.find({}, (err, services) => {

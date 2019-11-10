@@ -34,6 +34,7 @@ export class ServiceRepairComponent implements OnInit {
     date: "",
     user: "",
   };
+  purchaseHistory: any;
 
   constructor(private http: HttpClient, public dialog: MatDialog, private cookie: CookieService) {}
 
@@ -47,6 +48,14 @@ export class ServiceRepairComponent implements OnInit {
       }
     });
     this.invoice.user = this.cookie.get("user");
+    this.http.get("/purchase-history/api/records").subscribe(res => {
+      if (res) {
+        this.purchaseHistory = res;
+        console.log(this.purchaseHistory);
+      } else {
+        console.log("no purchase history found");
+      }
+    });
   }
 
   openDialog() {
@@ -59,6 +68,7 @@ export class ServiceRepairComponent implements OnInit {
     });
 
     invoiceModal.componentInstance.invoice = this.invoice;
+    invoiceModal.componentInstance.purchaseHistory = this.purchaseHistory;
   }
 
   slideToggle(event, service, service_price) {

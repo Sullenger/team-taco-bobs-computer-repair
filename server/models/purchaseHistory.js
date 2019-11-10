@@ -10,10 +10,13 @@
 const mongoose = require("mongoose");
 
 let lineItemSchema = mongoose.Schema({
-  firstItem: { type: Number, default: 0 },
-  secondItem: { type: Number, default: 0 },
-  thirdItem: { type: Number, default: 0 },
-  fourthItem: { type: Number, default: 0 },
+  passwordReset: { type: Number, default: 0 },
+  spywareRemoval: { type: Number, default: 0 },
+  ramUpgrade: { type: Number, default: 0 },
+  softwareInstallation: { type: Number, default: 0 },
+  tuneUp: { type: Number, default: 0 },
+  keyboardCleaning: { type: Number, default: 0 },
+  diskCleanup: { type: Number, default: 0 },
 });
 
 let purchaseHistorySchema = mongoose.Schema({
