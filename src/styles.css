@@ -27,3 +27,9 @@ h5,
 h6 {
   font-family: "Bungee", cursive;
 }
+
+.custom-dialog-container .mat-dialog-container {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  font-family: "Bungee", cursive;
+}

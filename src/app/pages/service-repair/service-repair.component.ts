@@ -68,7 +68,8 @@ export class ServiceRepairComponent implements OnInit {
     const invoiceModal = this.dialog.open(InvoiceSummaryComponent, {
       width: "60%",
       height: "90%",
-      disableClose: true
+      disableClose: true,
+      panelClass: 'custom-dialog-container'
     });
 
     invoiceModal.componentInstance.invoice = this.invoice;

@@ -11,6 +11,11 @@
   color: #1b5e20;
   font-family: "Bungee", cursive;
 }
+mat-dialog-content {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  font-family: "Bungee", cursive;
+}
 .lineItem {
   display: inline-block;
 }
