@@ -12,10 +12,12 @@
 body {
   text-align: center;
   padding: 15px;
+  font-family: "Bungee", cursive;
 }
 
 h1 {
   margin-top: 30px;
+  font-family: "Bungee", cursive;
 }
 
 .home-section {
@@ -24,12 +26,14 @@ h1 {
   text-align: center;
   margin-bottom: 50px;
   position: relative;
+  font-family: "Bungee", cursive;
 }
 
 .home {
   list-style: none;
   width: 100%;
   margin: auto;
+  font-family: "Bungee", cursive;
 }
 
 .home-section .overlay {
@@ -40,6 +44,7 @@ h1 {
   top: 0;
   left: 0;
   padding: 50px 20px;
+  font-family: "Bungee", cursive;
 }
 
 .home li {
