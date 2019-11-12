@@ -31,6 +31,7 @@ import { UserRegistrationComponent } from "./pages/user-registration/user-regist
 import { AboutUsComponent } from "./pages/about-us/about-us.component";
 import { ContactUsComponent } from "./pages/contact-us/contact-us.component";
 import { InternalServerErrorComponent } from "./pages/internal-server-error/internal-server-error.component";
+import "hammerjs";
 
 import { AuthGuardService } from "./guards/auth.guard";
 import { RoleGuardService } from "./guards/role.guard";

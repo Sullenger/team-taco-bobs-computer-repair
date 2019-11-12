@@ -49,6 +49,7 @@ export class RoleGuardService implements CanActivate {
         if (isAdmin === "admin") {
           return true;
         } else {
+          alert("You're not authorized to access that page.")
           this.router.navigate(["/home"]);
           return false;
         }
