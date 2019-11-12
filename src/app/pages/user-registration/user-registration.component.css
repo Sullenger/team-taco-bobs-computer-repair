@@ -19,10 +19,14 @@ small {
   color: #1b5e20;
 }
 
+mat-form-field {
+  width: 100%;
+}
+/*
 .formInput {
   width: 100%;
 }
 
 .addressInput {
   width: 100%;
-}
+} */
