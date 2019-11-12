@@ -42,7 +42,7 @@ export class InvoiceSummaryComponent implements OnInit {
       .post("/purchases/api/invoice", {
         date: this.invoice.date,
         user_id: this.invoice.user,
-        services_ordered: this.invoice.services,
+        services_ordered: this.invoice.cart,
         order_snapshot: this.invoice,
         total: this.invoice.cartTotal
       })
