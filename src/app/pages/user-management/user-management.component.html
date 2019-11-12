@@ -10,10 +10,12 @@
 <small *ngIf="errorMessage">{{ errorMessage }} </small>
 
 <mat-card>
+  <div class="userTable">
   <div class="userTitle">
     <h2>Manage Users</h2>
   </div>
-  <table class="table table-hover">
+  <div class="table-responsive">
+  <table class="table table-hover table-striped">
     <thead>
       <tr>
         <th scope="col">Username</th>
@@ -187,4 +189,6 @@
       </tr>
     </tbody>
   </table>
+</div>
+</div>
 </mat-card>

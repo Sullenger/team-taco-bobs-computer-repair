@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   constructor(private http: HttpClient, private cookie: CookieService) {}
 
   userId: any;
-  userData: any;
+  userData: object;
   userInvoice: any;
 
   ngOnInit() {
