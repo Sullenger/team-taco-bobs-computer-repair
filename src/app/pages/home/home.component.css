@@ -52,6 +52,7 @@ h1 {
   margin-right: 40px;
   display: inline-block;
   width: 15%;
+  cursor: pointer;
 }
 
 .home-photo {
