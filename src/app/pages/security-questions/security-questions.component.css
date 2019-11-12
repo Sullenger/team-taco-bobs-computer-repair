@@ -7,7 +7,7 @@
 ;===========================================
  */
 
- mat-card{
+mat-card {
   width: 95%;
   margin: auto;
   margin-top: 100px;
@@ -19,9 +19,9 @@ h2 {
   text-align: center;
 }
 
- .container {
+.container {
   width: 95%;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
   margin: 0 auto;
 }
 

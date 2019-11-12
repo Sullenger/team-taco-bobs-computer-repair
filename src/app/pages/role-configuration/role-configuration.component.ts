@@ -6,17 +6,16 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 */
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-role-configuration',
-  templateUrl: './role-configuration.component.html',
-  styleUrls: ['./role-configuration.component.css']
+  selector: "app-role-configuration",
+  templateUrl: "./role-configuration.component.html",
+  styleUrls: ["./role-configuration.component.css"]
 })
 export class RoleConfigurationComponent implements OnInit {
-
   roles: any;
   errorMessage: string;
   roleId: string;
@@ -24,10 +23,7 @@ export class RoleConfigurationComponent implements OnInit {
   newRole: boolean;
   newQuestionText: string;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router
-  ) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.http.get("/role-bank/api/role").subscribe(res => {
@@ -44,10 +40,10 @@ export class RoleConfigurationComponent implements OnInit {
   deleteRole(role) {
     this.roleId = role._id;
     console.log(this.roleId);
-    this.http.delete("/role-bank/api/role/" + this.roleId).subscribe(res =>  {
+    this.http.delete("/role-bank/api/role/" + this.roleId).subscribe(res => {
       this.roles = res;
       document.location.reload(true);
-    }) ;
+    });
   }
 
   // Enables modifying existing roles
@@ -63,21 +59,25 @@ export class RoleConfigurationComponent implements OnInit {
   // Sends new question from input to DB
   addRole(roleInput) {
     console.log(roleInput);
-    this.http.post("/role-bank/api/role", { role: roleInput }).subscribe(res => {
-      this.roles = res;
-      document.location.reload(true);
-    });
+    this.http
+      .post("/role-bank/api/role", { role: roleInput })
+      .subscribe(res => {
+        this.roles = res;
+        document.location.reload(true);
+      });
   }
 
   // Updates existing questions
   update(role) {
     this.roleId = role._id;
     console.log(this.roleId);
-    this.http.put("/role-bank/api/role/" + this.roleId, {
-      role: role.role
-    }).subscribe(res => {
-      this.roles = res;
-      //document.location.reload(true);
-    });
+    this.http
+      .put("/role-bank/api/role/" + this.roleId, {
+        role: role.role
+      })
+      .subscribe(res => {
+        this.roles = res;
+        //document.location.reload(true);
+      });
   }
 }

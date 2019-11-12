@@ -13,10 +13,7 @@ const roleBank = require("../models/roleBank");
 
 // Create User Role
 router.post("/role", function(req, res, next) {
-  roleBank.create({ role: req.body.role }, function(
-    err,
-    roles
-  ) {
+  roleBank.create({ role: req.body.role }, function(err, roles) {
     if (err) {
       console.log(err);
       return next(err);
@@ -77,10 +74,7 @@ router.put("/role/:id", function(req, res, next) {
 
 // delete user role by id
 router.delete("/role/:id", function(req, res, next) {
-  roleBank.findByIdAndDelete({ _id: req.params.id }, function(
-    err,
-    role
-  ) {
+  roleBank.findByIdAndDelete({ _id: req.params.id }, function(err, role) {
     if (err) {
       console.log(err);
       return next(err);

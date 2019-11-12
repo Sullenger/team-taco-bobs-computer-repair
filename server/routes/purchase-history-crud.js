@@ -78,7 +78,7 @@ router.put("/records/delete/:id", function(req, res, next) {
     } else {
       console.log(records);
       records.set({
-        items: req.body.items,
+        items: req.body.items
       });
       records.save(function(err, deletedRecords) {
         if (err) {

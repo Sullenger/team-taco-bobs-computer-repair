@@ -27,14 +27,22 @@ export class PurchaseGraphComponent implements OnInit {
   // https://www.primefaces.org/primeng/#/chart
   // https://www.primefaces.org/primeng/#/chart/bar
 
-  constructor(private http: HttpClient, private router: Router,) {
+  constructor(private http: HttpClient, private router: Router) {
     this.http.get("/purchase-history/api/records").subscribe(res => {
       if (res) {
         this.servicesPurchased = res;
-        this.serviceCount = Object.values(this.servicesPurchased[0].items[0])
+        this.serviceCount = Object.values(this.servicesPurchased[0].items[0]);
 
         this.data = {
-          labels: ["Password Reset", "Spyware Removal", "Ram Upgrade", "Software Installation", "Tune Up", "Keyboard Cleaning", "Disk Cleanup"],
+          labels: [
+            "Password Reset",
+            "Spyware Removal",
+            "Ram Upgrade",
+            "Software Installation",
+            "Tune Up",
+            "Keyboard Cleaning",
+            "Disk Cleanup"
+          ],
           datasets: [
             {
               label: "Purchases",
@@ -45,14 +53,16 @@ export class PurchaseGraphComponent implements OnInit {
         };
         this.options = {
           scales: {
-            yAxes: [{
+            yAxes: [
+              {
                 display: true,
                 ticks: {
-                    beginAtZero: true,
+                  beginAtZero: true
                 }
-            }]
-        },
-      };
+              }
+            ]
+          }
+        };
       } else {
         this.errorMessage = "Error collecting purchase data";
       }

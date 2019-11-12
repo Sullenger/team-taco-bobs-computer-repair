@@ -7,17 +7,16 @@
 ;===========================================
 */
 
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-not-found',
-  templateUrl: './not-found.component.html',
-  styleUrls: ['./not-found.component.css']
+  selector: "app-not-found",
+  templateUrl: "./not-found.component.html",
+  styleUrls: ["./not-found.component.css"]
 })
 export class NotFoundComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
@@ -26,5 +25,4 @@ export class NotFoundComponent implements OnInit {
     //modified route to take to home
     this.router.navigate(["./home"]);
   }
-
 }

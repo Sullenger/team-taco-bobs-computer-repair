@@ -16,7 +16,7 @@ let lineItemSchema = mongoose.Schema({
   softwareInstallation: { type: Number, default: 0 },
   tuneUp: { type: Number, default: 0 },
   keyboardCleaning: { type: Number, default: 0 },
-  diskCleanup: { type: Number, default: 0 },
+  diskCleanup: { type: Number, default: 0 }
 });
 
 let purchaseHistorySchema = mongoose.Schema({

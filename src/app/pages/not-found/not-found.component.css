@@ -8,14 +8,14 @@
 */
 
 .nfBox {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    width: 25%;
-    border: 0.5em black;
-    text-align: center;
-    margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 25%;
+  border: 0.5em black;
+  text-align: center;
+  margin-top: 100px;
 }
 body {
-    text-align: center;
+  text-align: center;
 }

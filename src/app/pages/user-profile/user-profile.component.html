@@ -8,46 +8,45 @@
 */ -->
 
 <mat-card>
+  <h1>Your Profile</h1>
 
-    <h1>Your Profile</h1>
-
-    <table class='table'>
-        <tr>
-            <th>First Name:</th>
-            <td>{{ userData.name_first }}</td>
-        </tr>
-        <tr>
-            <th>Last Name:</th>
-            <td>{{ userData.name_last }}</td>
-        </tr>
-        <tr>
-            <th>Email:</th>
-            <td>{{ userData.email }}</td>
-        </tr>
-        <tr>
-            <th>Phone Number:</th>
-            <td>{{ userData.phone_number }}</td>
-        </tr>
-        <tr>
-            <th>Username:</th>
-            <td>{{ userData.username }}</td>
-        </tr>
-        <tr>
-            <th>
-                Address:
-            </th>
-            <td *ngFor='let address of userData.address'>
-                {{ address.street_address }} {{ address.city }}, {{ address.state }}, {{ address.zip }}
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Join Date:
-            </th>
-            <td>
-                {{userData.date_created}}
-            </td>
-        </tr>
-    </table>
-
+  <table class="table">
+    <tr>
+      <th>First Name:</th>
+      <td>{{ userData.name_first }}</td>
+    </tr>
+    <tr>
+      <th>Last Name:</th>
+      <td>{{ userData.name_last }}</td>
+    </tr>
+    <tr>
+      <th>Email:</th>
+      <td>{{ userData.email }}</td>
+    </tr>
+    <tr>
+      <th>Phone Number:</th>
+      <td>{{ userData.phone_number }}</td>
+    </tr>
+    <tr>
+      <th>Username:</th>
+      <td>{{ userData.username }}</td>
+    </tr>
+    <tr>
+      <th>
+        Address:
+      </th>
+      <td *ngFor="let address of userData.address">
+        {{ address.street_address }} {{ address.city }}, {{ address.state }},
+        {{ address.zip }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Join Date:
+      </th>
+      <td>
+        {{ userData.date_created }}
+      </td>
+    </tr>
+  </table>
 </mat-card>

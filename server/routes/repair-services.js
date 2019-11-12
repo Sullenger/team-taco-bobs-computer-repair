@@ -9,23 +9,23 @@
 const express = require("express");
 const router = express.Router();
 
-const Invoices = require('../models/invoice')
-const Services = require('../models/services')
+const Invoices = require("../models/invoice");
+const Services = require("../models/services");
 
-router.post('/invoice', (req, res, next) => {
-    const invoice = new Invoices({
-      date: req.body.date,
-      user_id: req.body.user_id,
-      services_ordered: req.body.services_ordered,
-      order_snapshot: req.body.order_snapshot,
-      total: req.body.total
-    })
-    invoice.save();
-    res.status(201).json({
-        message: "Invoice successfully posted to the database."
-    })
-    console.log(invoice)
-})
+router.post("/invoice", (req, res, next) => {
+  const invoice = new Invoices({
+    date: req.body.date,
+    user_id: req.body.user_id,
+    services_ordered: req.body.services_ordered,
+    order_snapshot: req.body.order_snapshot,
+    total: req.body.total
+  });
+  invoice.save();
+  res.status(201).json({
+    message: "Invoice successfully posted to the database."
+  });
+  console.log(invoice);
+});
 
 // router.post('/service', (req, res, next) => {
 //     const service = new Services({
@@ -39,22 +39,20 @@ router.post('/invoice', (req, res, next) => {
 //     })
 // })
 
-router.get('/all-services', (req, res, next) => {
-    Services.find({}, (err, services) => {
-        if(err){
-            console.log(err);
-            res.status(500).json({
-                message: "no services found!"
-            })
-        } else {
-            res.status(201).json({
-                services: services,
-                message: "Sending services."
-            })
-        }
-    })
-})
-
-
+router.get("/all-services", (req, res, next) => {
+  Services.find({}, (err, services) => {
+    if (err) {
+      console.log(err);
+      res.status(500).json({
+        message: "no services found!"
+      });
+    } else {
+      res.status(201).json({
+        services: services,
+        message: "Sending services."
+      });
+    }
+  });
+});
 
 module.exports = router;

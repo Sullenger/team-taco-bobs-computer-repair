@@ -41,13 +41,13 @@
           </div>
         </div>
         <div *ngIf="invoice.addedParts">
-            <div class="itemName">
-              <p>Additional parts</p>
-            </div>
-            <div class="itemPrice">
-              <p>{{ invoice.addPart | currency }}</p>
-            </div>
+          <div class="itemName">
+            <p>Additional parts</p>
           </div>
+          <div class="itemPrice">
+            <p>{{ invoice.addPart | currency }}</p>
+          </div>
+        </div>
       </div>
     </div>
     <hr />

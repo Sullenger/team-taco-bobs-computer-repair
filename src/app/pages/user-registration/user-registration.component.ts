@@ -99,7 +99,7 @@ export class UserRegistrationComponent implements OnInit {
       })
       .subscribe(
         res => {
-          console.log(res)
+          console.log(res);
           this.resSuccess = res;
         },
         err => {

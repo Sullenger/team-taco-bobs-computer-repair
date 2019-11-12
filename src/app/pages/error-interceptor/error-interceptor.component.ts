@@ -7,21 +7,18 @@
 ;===========================================
 */
 
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit, Inject } from "@angular/core";
+import { MAT_DIALOG_DATA } from "@angular/material";
 
 @Component({
-  selector: 'app-error-handler',
-  templateUrl: './error-interceptor.component.html',
-  styleUrls: ['./error-interceptor.component.css']
+  selector: "app-error-handler",
+  templateUrl: "./error-interceptor.component.html",
+  styleUrls: ["./error-interceptor.component.css"]
 })
 export class ErrorInterceptorComponent implements OnInit {
+  message = "A gosh darn error has done occured ayyyut";
 
-  message = 'A gosh darn error has done occured ayyyut';
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { message: string }) {}
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {message: string}) { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

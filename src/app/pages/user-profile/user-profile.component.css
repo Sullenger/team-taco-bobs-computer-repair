@@ -8,17 +8,17 @@
 */
 
 mat-card {
-    width: 50%;
-    margin: auto;
-    margin-top: 75px;
-    text-align: center;
+  width: 50%;
+  margin: auto;
+  margin-top: 75px;
+  text-align: center;
 }
 
 table {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }

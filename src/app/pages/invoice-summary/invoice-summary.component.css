@@ -9,17 +9,16 @@
 .container {
   background-color: #c8e6c9;
   color: #1b5e20;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
 }
 .lineItem {
   display: inline-block;
 }
 
 .itemName {
-margin-left: 50px;
+  margin-left: 50px;
 }
 
 .itemPrice {
   margin-left: 150px;
 }
-

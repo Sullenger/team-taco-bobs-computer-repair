@@ -14,29 +14,48 @@
     <mat-toolbar class="menu" role="header" color="primary">
       <mat-toolbar-row>
         <!-- Home -->
-        <button mat-button class="toolbar__icon-button mat-button" (click)="navHome()">
+        <button
+          mat-button
+          class="toolbar__icon-button mat-button"
+          (click)="navHome()"
+        >
           <span><h3>Bob's Computer Repair Shop</h3></span>
         </button>
         <!-- Service Repair -->
-        <button mat-button class="toolbar__icon-button mat-button" (click)="navOrder()">
+        <button
+          mat-button
+          class="toolbar__icon-button mat-button"
+          (click)="navOrder()"
+        >
           <mat-icon>add_shopping_cart</mat-icon>
           <span>Service Repair</span>
         </button>
         <!-- About Us -->
-        <button mat-button class="toolbar__icon-button mat-button" (click)="navAbout()">
+        <button
+          mat-button
+          class="toolbar__icon-button mat-button"
+          (click)="navAbout()"
+        >
           <mat-icon>face</mat-icon>
           <span>About Us</span>
         </button>
         <!-- Contact Us -->
-        <button mat-button class="toolbar__icon-button mat-button" (click)="navContact()">
+        <button
+          mat-button
+          class="toolbar__icon-button mat-button"
+          (click)="navContact()"
+        >
           <mat-icon>email</mat-icon>
           <span>Contact Us</span>
         </button>
 
-
         <div fxFlex></div>
 
-        <button mat-icon-button class="toolbar__icon-button" [matMenuTriggerFor]="menu">
+        <button
+          mat-icon-button
+          class="toolbar__icon-button"
+          [matMenuTriggerFor]="menu"
+        >
           <mat-icon>settings_applications</mat-icon>
         </button>
         <mat-menu #menu="matMenu">

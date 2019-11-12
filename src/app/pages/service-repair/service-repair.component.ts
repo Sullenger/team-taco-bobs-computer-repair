@@ -32,11 +32,15 @@ export class ServiceRepairComponent implements OnInit {
     addedHours: false,
     addedParts: false,
     date: "",
-    user: "",
+    user: ""
   };
   purchaseHistory: any;
 
-  constructor(private http: HttpClient, public dialog: MatDialog, private cookie: CookieService) {}
+  constructor(
+    private http: HttpClient,
+    public dialog: MatDialog,
+    private cookie: CookieService
+  ) {}
 
   ngOnInit() {
     this.http.get("/purchases/api/all-services").subscribe(res => {

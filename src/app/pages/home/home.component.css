@@ -9,7 +9,7 @@
 
 /* CSS credit to https://miketricking.github.io/bootstrap-image-hover/ */
 
-body{
+body {
   text-align: center;
   padding: 15px;
 }
@@ -53,7 +53,10 @@ h1 {
   width: 95%;
 }
 
-.home-list, .home-list-1, .home-list-2, .overlay {
+.home-list,
+.home-list-1,
+.home-list-2,
+.overlay {
   width: 15%;
   height: 15%;
   position: absolute;
@@ -63,7 +66,10 @@ h1 {
   padding: 50px 20px;
 }
 
-.home-list, .home-list-1, .home-list-2, img {
+.home-list,
+.home-list-1,
+.home-list-2,
+img {
   display: block;
   position: relative;
   max-width: none;
@@ -71,67 +77,86 @@ h1 {
   width: calc(100% + 20px);
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(-10px,0,0);
-  transform: translate3d(-10px,0,0);
+  -webkit-transform: translate3d(-10px, 0, 0);
+  transform: translate3d(-10px, 0, 0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
-.home-list:hover, .home-list-1:hover, .home-list-2:hover, img {
+.home-list:hover,
+.home-list-1:hover,
+.home-list-2:hover,
+img {
   /* opacity: 1;
   filter: alpha(opacity=1); */
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
-.home-list, .home-list-1, .home-list-2, h2 {
+.home-list,
+.home-list-1,
+.home-list-2,
+h2 {
   text-transform: uppercase;
   color: #fff;
   text-align: center;
   position: relative;
   font-size: 17px;
   overflow: hidden;
-  padding: 0.5em .8em;
+  padding: 0.5em 0.8em;
   background-color: transparent;
 }
 
-.home-list h2:after, .home-list-1 h2:after, .home-list-2 h2:after {
+.home-list h2:after,
+.home-list-1 h2:after,
+.home-list-2 h2:after {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
   background: #fff;
-  content: '';
+  content: "";
   -webkit-transition: -webkit-transform 0.35s;
   transition: transform 0.35s;
-  -webkit-transform: translate3d(-100%,0,0);
-  transform: translate3d(-100%,0,0);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
 }
 
-.home-list:hover h2:after, .home-list-1:hover h2:after, .home-list-2:hover h2:after {
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+.home-list:hover h2:after,
+.home-list-1:hover h2:after,
+.home-list-2:hover h2:after {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
-.home-list a, .home-list p, .home-list-1 a, .home-list-1 p, .home-list-2 a, .home-list-2 p {
-  color: #FFF;
+.home-list a,
+.home-list p,
+.home-list-1 a,
+.home-list-1 p,
+.home-list-2 a,
+.home-list-2 p {
+  color: #fff;
   opacity: 0;
   filter: alpha(opacity=0);
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: translate3d(100%,0,0);
-  transform: translate3d(100%,0,0);
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
 }
 
-.home-list:hover a, .home-list:hover p, .home-list-1:hover a, .home-list-1:hover p, .home-list-2:hover a, .home-list-2:hover p {
+.home-list:hover a,
+.home-list:hover p,
+.home-list-1:hover a,
+.home-list-1:hover p,
+.home-list-2:hover a,
+.home-list-2:hover p {
   opacity: 1;
   filter: alpha(opacity=100);
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .home-section {
   padding-top: 50px;
-  
 }

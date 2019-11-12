@@ -17,11 +17,11 @@ const mongoose = require("mongoose");
 const crudApi = require("./routes/crud-api");
 const authApi = require("./routes/auth-api");
 const questionApi = require("./routes/question-crud-api");
-const recoverApi = require('./routes/acc-recovery')
-const purchaseHistoryApi = require('./routes/purchase-history-crud')
-const repairServices = require('./routes/repair-services')
-const roleBank = require('./routes/role-crud-api')
-const invoices = require('./models/invoice');
+const recoverApi = require("./routes/acc-recovery");
+const purchaseHistoryApi = require("./routes/purchase-history-crud");
+const repairServices = require("./routes/repair-services");
+const roleBank = require("./routes/role-crud-api");
+const invoices = require("./models/invoice");
 
 let app = express();
 
@@ -35,10 +35,10 @@ app.use("/", express.static(path.join(__dirname, "../dist/bcrs")));
 app.use("/api", crudApi);
 app.use("/auth/api", authApi);
 app.use("/questions/api", questionApi);
-app.use("/recovery/api", recoverApi)
-app.use("/purchase-history/api", purchaseHistoryApi)
-app.use("/purchases/api", repairServices)
-app.use("/role-bank/api", roleBank)
+app.use("/recovery/api", recoverApi);
+app.use("/purchase-history/api", purchaseHistoryApi);
+app.use("/purchases/api", repairServices);
+app.use("/role-bank/api", roleBank);
 
 // Global variables
 const serverPort = 3000;

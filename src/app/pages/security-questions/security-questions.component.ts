@@ -11,7 +11,7 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 // import { FormBuilder, Validators } from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "app-security-questions",
@@ -42,7 +42,6 @@ export class SecurityQuestionsComponent implements OnInit {
       }
     });
   }
-
 
   // Deletes existing question
   deleteQuestion(question) {

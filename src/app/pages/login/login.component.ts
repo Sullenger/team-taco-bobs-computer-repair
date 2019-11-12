@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
     console.log(submit);
 
     this.http.post<any>("/auth/api/login", submit).subscribe(res => {
-
       if (res) {
         this.cookie.set("isAuthenticated", "true", 2);
         this.cookie.set("user", res.userId, 2);

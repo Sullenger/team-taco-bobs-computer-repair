@@ -8,59 +8,55 @@
 */
 
 .custom {
-    min-width: 70%;
+  min-width: 70%;
 }
 
 h1 {
-    padding: 3px;
-    color: black;
-    border-radius: 3px;
-    text-align: center;
+  padding: 3px;
+  color: black;
+  border-radius: 3px;
+  text-align: center;
 }
 
 h2 {
-    margin-bottom: 5px;
-    display: inline-block;
+  margin-bottom: 5px;
+  display: inline-block;
 }
 
 .parent {
-    width: 80%;
-    height: 100%;
-    margin: auto;
-    color: #1b5e20;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  color: #1b5e20;
 }
-
 
 mat-card {
-    display: inline-block;
-    min-width: 40%;
-    margin: 5px;
-    border: 2px solid black;
-    background-color: #c8e6c9;
-    color: #1b5e20;
-    font-family: 'Bungee', cursive;
+  display: inline-block;
+  min-width: 40%;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  font-family: "Bungee", cursive;
 }
 
-
 li {
-    list-style: none;
-    margin-top:20px;
-    margin-bottom: 5px;
+  list-style: none;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
 button {
-    float: right;
-    color: green;
-
+  float: right;
+  color: green;
 }
 
 .btn-remove {
-    color: red;
+  color: red;
 }
 
 .left {
-    margin-top: 50px;
-    max-width: 75;
-    text-align: center;
+  margin-top: 50px;
+  max-width: 75;
+  text-align: center;
 }
-

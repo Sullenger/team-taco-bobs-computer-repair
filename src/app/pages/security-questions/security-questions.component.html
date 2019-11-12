@@ -15,12 +15,27 @@
         <h2>Security Question Management</h2>
       </div>
       <div *ngIf="newQuestion">
-        <input type="text" [(ngModel)]="addingQuestion" placeholder="Enter new question" />
-        <button mat-raised-button color="accent" class="buttonStyle" (click)="addQuestion(addingQuestion)">
+        <input
+          type="text"
+          [(ngModel)]="addingQuestion"
+          placeholder="Enter new question"
+        />
+        <button
+          mat-raised-button
+          color="accent"
+          class="buttonStyle"
+          (click)="addQuestion(addingQuestion)"
+        >
           Submit Question
         </button>
       </div>
-      <button mat-raised-button color="accent" class="buttonStyle" *ngIf="!newQuestion" (click)="addNewQuestion()">
+      <button
+        mat-raised-button
+        color="accent"
+        class="buttonStyle"
+        *ngIf="!newQuestion"
+        (click)="addNewQuestion()"
+      >
         New Question
       </button>
       <table class="tableQuestion table table-hover">
@@ -34,7 +49,12 @@
           <tr>
             <td *ngIf="question._id === editQuestionId">
               <input type="text" [(ngModel)]="question.question" />
-              <button mat-raised-button color="accent" class="buttonStyle" (click)="update(question)">
+              <button
+                mat-raised-button
+                color="accent"
+                class="buttonStyle"
+                (click)="update(question)"
+              >
                 Update
               </button>
             </td>
@@ -43,10 +63,20 @@
             </td>
 
             <td scope="row">
-              <button mat-button color="accent" class="buttonStyle" (click)="edit(question._id)">
+              <button
+                mat-button
+                color="accent"
+                class="buttonStyle"
+                (click)="edit(question._id)"
+              >
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-button color="warn" class="buttonStyle" (click)="deleteQuestion(question)">
+              <button
+                mat-button
+                color="warn"
+                class="buttonStyle"
+                (click)="deleteQuestion(question)"
+              >
                 <mat-icon>delete</mat-icon>
               </button>
             </td>

@@ -14,7 +14,7 @@ mat-card {
   text-align: center;
   background-color: #c8e6c9;
   color: #1b5e20;
-  font-family: 'Bungee', cursive;
+  font-family: "Bungee", cursive;
 }
 
 table {
@@ -33,6 +33,6 @@ input {
 }
 
 .tableCell {
-  display:table-cell;
-  width:80%;
+  display: table-cell;
+  width: 80%;
 }

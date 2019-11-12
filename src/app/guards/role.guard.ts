@@ -15,44 +15,48 @@ import {
   RouterStateSnapshot
 } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators'
-import { nextTick } from 'q';
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
+import { nextTick } from "q";
 
 @Injectable({
   providedIn: "root"
 })
 export class RoleGuardService implements CanActivate {
-  constructor(private http: HttpClient, private router: Router, private cookie: CookieService) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private cookie: CookieService
+  ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.findUserRole().pipe(map(res => {
-        
-      let role = JSON.stringify(res);
-      let userRole = role.split(/[{};:"",]+/, 20);
-      let isAdmin = ''
+    return this.findUserRole().pipe(
+      map(res => {
+        let role = JSON.stringify(res);
+        let userRole = role.split(/[{};:"",]+/, 20);
+        let isAdmin = "";
 
-      loop();
+        loop();
 
-      function loop() {
-        for (let i = 0; i < userRole.length; i++) {
-          if (userRole[i] === "admin") {
-            isAdmin = userRole[i];
+        function loop() {
+          for (let i = 0; i < userRole.length; i++) {
+            if (userRole[i] === "admin") {
+              isAdmin = userRole[i];
+            }
           }
         }
-      }
 
-        if(isAdmin === "admin") {
-            return true
+        if (isAdmin === "admin") {
+          return true;
         } else {
-            this.router.navigate(['/home']);
-            return false
-          }
-    }))
+          this.router.navigate(["/home"]);
+          return false;
+        }
+      })
+    );
   }
 
-findUserRole() {
-    return this.http.get('/auth/api/roles/' + this.cookie.get('user'))
-}
-
+  findUserRole() {
+    return this.http.get("/auth/api/roles/" + this.cookie.get("user"));
+  }
 }

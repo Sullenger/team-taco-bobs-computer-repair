@@ -17,9 +17,7 @@ import { CookieService } from "ngx-cookie-service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private cookie: CookieService) {
-
-  }
+  constructor(private router: Router, private cookie: CookieService) {}
 
   ngOnInit() {}
 
@@ -57,13 +55,13 @@ export class HeaderComponent implements OnInit {
   }
 
   navRoleConf() {
-    this.router.navigate(["./role-configuration/"])
+    this.router.navigate(["./role-configuration/"]);
   }
 
   navSecQ() {
     this.router.navigate(["./security-questions"]);
   }
   navGraph() {
-    this.router.navigate(["./purchase-graph"])
+    this.router.navigate(["./purchase-graph"]);
   }
 }
