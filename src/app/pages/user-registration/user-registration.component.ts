@@ -86,28 +86,22 @@ export class UserRegistrationComponent implements OnInit {
     };
 
     if(formSecurityQuestion.question_text === formSecurityQuestion.question_text1) {
-      console.log('noob1')
       alert(this.securityQuestionError)
       return
     } else if (formSecurityQuestion.question_text === formSecurityQuestion.question_text2) {
 
-      console.log('noob2')
       alert(this.securityQuestionError)
       return
     } else if(formSecurityQuestion.question_text1 === formSecurityQuestion.question_text ){
-      console.log('noob3')
       alert(this.securityQuestionError)
       return
     }  else if(formSecurityQuestion.question_text1 === formSecurityQuestion.question_text2 ){
-      console.log('noob4')
       alert(this.securityQuestionError)
       return
     }  else if(formSecurityQuestion.question_text2 === formSecurityQuestion.question_text ){
-      console.log('noob5')
       alert(this.securityQuestionError)
       return
     } else if(formSecurityQuestion.question_text2 === formSecurityQuestion.question_text1 ){
-      console.log('noob6')
       alert(this.securityQuestionError)
       return
     } else {
