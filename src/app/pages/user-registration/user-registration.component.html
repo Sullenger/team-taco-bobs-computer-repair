@@ -83,8 +83,8 @@
                 >
                 <small
                   *ngIf="
-                    form.controls['password'].hasError('required') &&
-                    form.controls['password'].pattern
+                    form.controls['password'].hasError('pattern') &&
+                    form.controls['password'].touched
                   "
                   >Password Does Not Meet Requirements</small
                 >
