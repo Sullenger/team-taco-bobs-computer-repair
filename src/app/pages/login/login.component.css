@@ -38,3 +38,8 @@ button {
   color: red;
   font-family: "Bungee", cursive;
 }
+
+a.hover:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
