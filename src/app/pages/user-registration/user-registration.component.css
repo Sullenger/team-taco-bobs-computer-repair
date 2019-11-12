@@ -15,18 +15,31 @@ small {
   margin-top: 10px;
 }
 .container {
-  background-color: #c8e6c9;
-  color: #1b5e20;
+  background-color: #388e3c !important;
+  color: #1b5e20 !important;
+  font-family: "Bungee", cursive !important;
+}
+
+.form {
+  background-color: #c8e6c9 !important;
 }
 
 mat-form-field {
   width: 100%;
 }
-/*
-.formInput {
-  width: 100%;
+
+.card-header {
+  background-color: #c8e6c9;
+  color: #1b5e20 !important;
+  font-family: "Bungee", cursive !important;
+}
+.btn-link {
+  color: #1b5e20 !important;
+  font-family: "Bungee", cursive !important;
 }
 
-.addressInput {
-  width: 100%;
-} */
+.card-body {
+  background-color: #c8e6c9;
+  color: #1b5e20 !important;
+  font-family: "Bungee", cursive !important;
+}
