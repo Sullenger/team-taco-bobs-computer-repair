@@ -50,6 +50,7 @@ export class RoleGuardService implements CanActivate {
           return true;
         } else {
           this.router.navigate(["/home"]);
+          alert("You're not authorized to access that page.")
           return false;
         }
       })
