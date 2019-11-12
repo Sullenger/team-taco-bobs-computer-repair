@@ -96,11 +96,11 @@ export class ForgotPasswordComponent implements OnInit {
     
       if (this.securityQuestions.result.username == val.username) {
         console.log('success')
+        this.hasSubmitted = true;
       }
     });
 
     setTimeout(()=> {this.extractIds()} ,300)
-
   }
 
  extractIds(){
@@ -119,8 +119,7 @@ export class ForgotPasswordComponent implements OnInit {
         }
       }
     }
-    console.log(this.hasSubmitted)
-    this.hasSubmitted = true;
+
   }
 
 
