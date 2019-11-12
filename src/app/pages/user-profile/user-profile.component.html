@@ -1,0 +1,54 @@
+<!-- /*
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+*/ -->
+
+<div *ngIf="userData">
+  <mat-card>
+    <h1>Your Profile</h1>
+
+    <table class="table">
+      <tr>
+        <th>First Name:</th>
+        <td>{{ userData.name_first }}</td>
+      </tr>
+      <tr>
+        <th>Last Name:</th>
+        <td>{{ userData.name_last }}</td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td>{{ userData.email }}</td>
+      </tr>
+      <tr>
+        <th>Phone Number:</th>
+        <td>{{ userData.phone_number }}</td>
+      </tr>
+      <tr>
+        <th>Username:</th>
+        <td>{{ userData.username }}</td>
+      </tr>
+      <tr>
+        <th>
+          Address:
+        </th>
+        <td *ngFor="let address of userData.address">
+          {{ address.street_address }} {{ address.city }}, {{ address.state }},
+          {{ address.zip }}
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Join Date:
+        </th>
+        <td>
+          {{ userData.date_created | date: "medium" }}
+        </td>
+      </tr>
+    </table>
+  </mat-card>
+</div>

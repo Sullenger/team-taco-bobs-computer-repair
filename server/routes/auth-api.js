@@ -33,7 +33,7 @@ router.post("/login", (req, res, next) => {
     .then(result => {
       if (!result) {
         return res.status(401).json({
-          message: "No users found"
+          message: "Username or password are incorrect."
         });
       }
       // send generated web token to front-end
@@ -48,6 +48,18 @@ router.post("/login", (req, res, next) => {
         message: "Authentication failed"
       });
     });
+});
+
+router.get("/roles/:id", function(req, res, next) {
+  User.findOne({ _id: req.params.id }, (err, role) => {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      console.log(role);
+      res.json(role.roles);
+    }
+  });
 });
 
 module.exports = router;

@@ -17,24 +17,29 @@ h1 {
   flex-direction: column;
   align-content: center;
   width: 25%;
-  border: 0.5em darkorchid;
   text-align: center;
   margin-top: 100px;
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  font-family: "Bungee", cursive;
 }
 
 mat-form-field {
   width: 90%;
+  color: #1b5e20;
 }
 
 button {
   width: 75%;
-}
-
-a:hover {
-  cursor: pointer;
-  color: blue;
+  font-family: "Bungee", cursive;
 }
 
 .error {
   color: red;
+  font-family: "Bungee", cursive;
+}
+
+a.hover:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

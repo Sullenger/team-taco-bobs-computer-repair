@@ -6,3 +6,19 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 */
+.navBar {
+  font-family: "Bungee", cursive;
+}
+
+h3 {
+  color: #c8e6c9;
+  font-family: "Bungee", cursive;
+  text-emphasis: bold;
+}
+span {
+  font-family: "Bungee", cursive;
+}
+
+mat-icon {
+  color: #c8e6c9;
+}

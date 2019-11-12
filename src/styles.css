@@ -13,12 +13,23 @@ html {
   height: 100%;
   width: 100%;
 }
-body, p {
+body,
+p {
   margin: 0;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Bungee", cursive;
 }
 
-h1, h2, h3, h4, h5, h6{
-  font-family: 'Playfair Display SC', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Bungee", cursive;
+}
 
+.custom-dialog-container .mat-dialog-container {
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  font-family: "Bungee", cursive;
 }

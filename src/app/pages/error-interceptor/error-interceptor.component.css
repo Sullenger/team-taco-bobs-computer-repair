@@ -8,9 +8,14 @@
 */
 
 button {
-    margin: auto;
+  margin: auto;
+  font-family: "Bungee", cursive;
+  color: #1b5e20;
 }
 
-h1, p {
-    text-align: center;
+h1,
+p {
+  text-align: center;
+  font-family: "Bungee", cursive;
+  color: #1b5e20;
 }

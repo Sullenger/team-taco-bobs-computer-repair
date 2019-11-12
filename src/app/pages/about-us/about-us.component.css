@@ -6,111 +6,23 @@
 ; Description: End-to-end billing system for Bob's Computer - MEAN stack
 ;===========================================
 */
-
-ol {
-      position: relative;
-      display: block;
-      margin: 100px;
-      height: 4px;
-      background: black;
-  }
-  ol::before,
-  ol::after {
-      content: "";
-      position: absolute;
-      top: -8px;
-      display: block;
-      width: 0;
-      height: 0;
-    border-radius: 10px;
-      border: 10px solid black;
-  }
-  ol::before {
-      left: -5px;
-  }
-  ol::after {
-      right: -10px;
-      border: 10px solid transparent;
-      border-right: 0;
-      border-left: 20px solid black;
-    border-radius: 3px;
-  }
-
-  /* ---- Timeline elements ---- */
-  li {
-      position: relative;
-      display: inline-block;
-      width: 150px;
-      font: bold 14px arial;
-    height: 50px;
-  }
-  li .diplome {
-    position: absolute;
-    top: -47px;
-    left: 36%;
-    color: rgb(231, 198, 97);
-  }
-  li .point {
-      content: "";
-      top: -4px;
-      left: 43%;
-      display: block;
-      width: 6px;
-      height: 6px;
-      border: 4px solid rgb(231, 198, 97);
-      border-radius: 10px;
-      background: #fff;
-    position: absolute;
-  }
-  li .description {
-    display: none;
-    background-color: #f4f4f4;
-    padding: 10px;
-    margin-top: 20px;
-    position: relative;
-    font-weight: normal;
-    z-index: 1;
-  }
-  .description::before {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid #f4f4f4;
-    position: absolute;
-    top: -5px;
-    left: 43%;
-  }
-
-  /* ---- Hover effects ---- */
-  li:hover {
-      cursor: pointer;
-    color: rgb(231, 198, 97);
-  }
-  li:hover .description {
-    display: block;
-  }
-
-#about{
-    padding-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
-      }
-
-mat-card {
-line-height:22.5px;
-width:85%;
-display: block;
-flex-direction: column;
-align-content: center;
+.row {
+  padding-top: 100px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-mat-card-content{
-  font-family: cursive;
-  font-size: 22px;
-  line-height:22.5px;
-  }
+mat-card {
+  text-align: center;
+  display: block;
+  line-height: 22.5px;
+  width: 92%;
+  float: left;
+  font-family: "Bungee", cursive;
+  background-color: #c8e6c9;
+  color: #1b5e20;
+}
+
+h6 {
+  font-size: 20px;
+}

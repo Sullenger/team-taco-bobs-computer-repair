@@ -32,66 +32,61 @@ export class UserManagementComponent implements OnInit {
   ];
   users: any;
   errorMessage: string;
-  role: any;
-  isAdmin: boolean = false;
-  hideUsers: boolean = false;
 
   tableData: any;
   ShowEditedTable: boolean = false;
-  editUserId: any = '';
+  editUserId: any = "";
   isEdit: boolean = false;
+  roles: any;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private cookie: CookieService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private cookie: CookieService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.http.get("/api/users/").subscribe(res => {
       if (res) {
-        console.log(res)
+        console.log(res);
         return (this.users = res);
       } else {
         return (this.errorMessage = "Welcome to the land of no users :D");
       }
     });
 
-    this.userAdmin()
+    this.http.get("/role-bank/api/role").subscribe(res => {
+      if (res) {
+        console.log(res);
+        this.roles = res;
+      } else {
+        return;
+      }
+    });
   }
 
-  userAdmin() {
-    this.role = this.cookie.get('role')
-    console.log(this.role);
-    if(this.role == "admin") {
-      this.isAdmin = true;
-      this.hideUsers = false;
-      console.log(this.isAdmin)
-    }
-    else {
-      this.isAdmin = false;
-      this.hideUsers = true;
-    }
-  }
-
-    onUpdate(val1) {
-    console.log(val1)
-    this.http.put('/api/users/' + this.editUserId, val1 ).subscribe( res => {
+  onUpdate(val1) {
+    console.log(val1);
+    this.http.put("/api/users/" + this.editUserId, val1).subscribe(res => {
       this.tableData = res;
-      document.location.reload(true)
-     })
+      document.location.reload(true);
+    });
   }
 
   onDelete(val1, val2) {
-    console.log(val1)
-    console.log(this.editUserId)
+    console.log(val1);
+    console.log(this.editUserId);
 
-    this.http.delete('/api/users/' + val2, val1 ).subscribe( res => {
+    this.http.delete("/api/users/" + val2, val1).subscribe(res => {
       this.tableData = res;
-      document.location.reload(true)
-     })
+      document.location.reload(true);
+    });
   }
 
   edit(val) {
-    console.log(val)
+    console.log(val);
     this.editUserId = val;
-    this.isEdit = true
+    this.isEdit = true;
   }
-
 }

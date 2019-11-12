@@ -45,7 +45,6 @@ router.post("/users/registration", function(req, res, next) {
             });
           });
         });
-        
       } else {
         console.log("Username Unavailable");
         res.status(500).send({
@@ -156,7 +155,5 @@ router.put("/edit/security-questions/:id", (req, res, next) => {
       .json({ message: "security questions successfully updated." });
   });
 });
-
-
 
 module.exports = router;

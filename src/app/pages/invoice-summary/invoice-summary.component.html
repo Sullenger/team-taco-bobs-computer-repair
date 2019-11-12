@@ -1,0 +1,77 @@
+<!--
+============================================
+; Title: WEB	450	Bob’s	Computer	Repair	Shop
+; Author: Ethan Townsend, Lea Trueworthy, Natasha Whitmer, and Jason Sullenger
+; Date: 17 October 2019
+; Description: End-to-end billing system for Bob's Computer - MEAN stack
+;===========================================
+-->
+
+<div class="container">
+  <h1>Order Confirmation</h1>
+  <br />
+  <hr />
+  <!-- dialog content -->
+  <mat-dialog-content>
+    <p>Date: {{ invoice.date | date: "medium" }}</p>
+    <br />
+    <hr />
+    <h4>Items Ordered:</h4>
+    <br />
+    <div *ngFor="let item of invoice.cart; index as i">
+      <div class="lineItem">
+        <div class="itemName">
+          <p>{{ item.service }}</p>
+        </div>
+        <div class="itemPrice">
+          <p>{{ item.service_price | currency }}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="invoice.addedHours || invoice.addedParts">
+      <br />
+      <h4>Services Ordered:</h4>
+      <div class="lineItem">
+        <div *ngIf="invoice.addedHours">
+          <div class="itemName">
+            <p>Work hours cost</p>
+          </div>
+          <div class="itemPrice">
+            <p>{{ invoice.addHour | currency }}</p>
+          </div>
+        </div>
+        <div *ngIf="invoice.addedParts">
+          <div class="itemName">
+            <p>Additional parts</p>
+          </div>
+          <div class="itemPrice">
+            <p>{{ invoice.addPart | currency }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <br />
+    <br />
+    <h4>Total: {{ invoice.cartTotal | currency }}</h4>
+  </mat-dialog-content>
+  <!-- dialog button -->
+  <mat-dialog-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      class="closeButton"
+      (click)="orderConfirmed()"
+    >
+      Confirm Order
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      class="closeButton"
+      (click)="close()"
+    >
+      Cancel Order
+    </button>
+  </mat-dialog-actions>
+</div>

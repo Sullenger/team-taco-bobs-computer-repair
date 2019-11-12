@@ -20,160 +20,125 @@
 @include mat-core();
 
 /* For use in src/lib/core/theming/_palette.scss */
+//Blue
+$md-mycolor1: (
+  50: #e8f5e9,
+  100: #c8e6c9,
+  200: #a5d6a7,
+  300: #81c784,
+  400: #66bb6a,
+  500: #4caf50,
+  600: #43a047,
+  700: #388e3c,
+  800: #2e7d32,
+  900: #1b5e20,
+  A100: #b9f6ca,
+  A200: #69f0ae,
+  A400: #00e676,
+  A700: #00c853,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
 $md-mycolor2: (
-    50 : #fbf5e4,
-    100 : #f5e7bb,
-    200 : #eed78e,
-    300 : #e7c661,
-    400 : #e1ba3f,
-    500 : #dcae1d,
-    600 : #d8a71a,
-    700 : #d39d15,
-    800 : #ce9411,
-    900 : #c5840a,
-    A100 : #fff9f0,
-    A200 : #ffe6bd,
-    A400 : #ffd28a,
-    A700 : #ffc870,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50: #e8f5e9,
+  100: #c8e6c9,
+  200: #a5d6a7,
+  300: #81c784,
+  400: #66bb6a,
+  500: #4caf50,
+  600: #43a047,
+  700: #388e3c,
+  800: #2e7d32,
+  900: #1b5e20,
+  A100: #b9f6ca,
+  A200: #69f0ae,
+  A400: #00e676,
+  A700: #00c853,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff
+  )
 );
 
-$md-mycolor3: (
-    50 : #e1e6e8,
-    100 : #b3c1c6,
-    200 : #8098a1,
-    300 : #4d6e7b,
-    400 : #274f5e,
-    500 : #013042,
-    600 : #012b3c,
-    700 : #012433,
-    800 : #011e2b,
-    900 : #00131d,
-    A100 : #5bb2ff,
-    A200 : #289aff,
-    A400 : #0081f4,
-    A700 : #0074da,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #ffffff,
-        400 : #ffffff,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #ffffff,
-        A700 : #ffffff,
-    )
-);
-
-$md-mcgpalette2: (
-    50 : #ffffff,
-    100 : #ffffff,
-    200 : #ffffff,
-    300 : #f3f9f7,
-    400 : #deeee9,
-    500 : #cae4db,
-    600 : #b6dacd,
-    700 : #a1cfbf,
-    800 : #8dc5b2,
-    900 : #79bba4,
-    A100 : #ffffff,
-    A200 : #ffffff,
-    A400 : #eaf7f3,
-    A700 : #daeee7,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #000000,
-        800 : #000000,
-        900 : #000000,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);
 $md-mcgpalette: (
-    50 : #ffffff,
-    100 : #e8eeec,
-    200 : #c8d6d2,
-    300 : #9fb7b1,
-    400 : #8daaa2,
-    500 : #7c9d94,
-    600 : #6b8f85,
-    700 : #5e7e75,
-    800 : #516c65,
-    900 : #445b54,
-    A100 : #ffffff,
-    A200 : #c8eae1,
-    A400 : #8cc0b2,
-    A700 : #85ada2,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #000000,
-        600 : #000000,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
+  50: #fffde7,
+  100: #fff9c4,
+  200: #fff59d,
+  300: #fff176,
+  400: #ffee58,
+  500: #ffeb3b,
+  600: #fdd835,
+  700: #fbc02d,
+  800: #f9a825,
+  900: #f57f17,
+  A100: #ffff8d,
+  A200: #ffff00,
+  A400: #ffea00,
+  A700: #ffd600,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
 );
 
-$my-app-primary: mat-palette($md-mcgpalette2, 300, 500, 900);
-$my-app-accent:  mat-palette($md-mycolor3, 300,500);
-$my-app-warn:    mat-palette($md-mycolor2, 300, 500);
-
+$my-app-primary: mat-palette($md-mycolor2, 900);
+$my-app-accent: mat-palette($md-mycolor1, 700);
+$my-app-warn: mat-palette($md-mcgpalette, 900);
 
 //$my-app-background:    mat-palette($md-mcgpalette2, 200);
 
-$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn );
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 @include angular-material-theme($my-app-theme);
 
 html {
-  
-    // Get a specific hue for a palette. 
-    // See https://material.io/archive/guidelines/style/color.html#color-color-palette for hues.
-    background-color: mat-color($my-app-accent);
-  }
+  // Get a specific hue for a palette.
+  // See https://material.io/archive/guidelines/style/color.html#color-color-palette for hues.
+  background-color: mat-color($my-app-accent);
+}
 
-  body {
-
-    background-color: mat-color($my-app-accent);
-    
-    }
+body {
+  background-color: mat-color($my-app-accent);
+}
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.

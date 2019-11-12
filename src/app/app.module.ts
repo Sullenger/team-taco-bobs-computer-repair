@@ -21,11 +21,25 @@ import { LoginComponent } from "./pages/login/login.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
 import { UserManagementComponent } from "./pages/user-management/user-management.component";
 import { SecurityQuestionsComponent } from "./pages/security-questions/security-questions.component";
-import { ErrorInterceptorComponent } from './pages/error-interceptor/error-interceptor.component';
-import { AuthGuardService } from "./../auth.guard";
+import { ErrorInterceptorComponent } from "./pages/error-interceptor/error-interceptor.component";
+import { PurchaseGraphComponent } from "./pages/purchase-graph/purchase-graph.component";
+import { ServiceRepairComponent } from "./pages/service-repair/service-repair.component";
+import { InvoiceSummaryComponent } from "./pages/invoice-summary/invoice-summary.component";
+import { RoleConfigurationComponent } from "./pages/role-configuration/role-configuration.component";
+import { ForgotPasswordComponent } from "./pages/forgot-password/forgot-password.component";
+import { UserRegistrationComponent } from "./pages/user-registration/user-registration.component";
+import { AboutUsComponent } from "./pages/about-us/about-us.component";
+import { ContactUsComponent } from "./pages/contact-us/contact-us.component";
+import { InternalServerErrorComponent } from "./pages/internal-server-error/internal-server-error.component";
+import "hammerjs";
+
+import { AuthGuardService } from "./guards/auth.guard";
+import { RoleGuardService } from "./guards/role.guard";
+import { ErrorInterceptor } from "./error-interceptor";
 
 import { CookieService } from "ngx-cookie-service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatSlideToggleModule } from "@angular/material";
 import { MatTableModule, MatDialog, MatDialogModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
@@ -34,16 +48,12 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from "@angular/material/select";
 import { HeaderComponent } from "./shared/header/header.component";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
-import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
-import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { InternalServerErrorComponent } from './pages/internal-server-error/internal-server-error.component';
-import { ErrorInterceptor } from './error-interceptor';
+import { ChartModule } from "primeng/chart";
+import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
 
 @NgModule({
   declarations: [
@@ -61,7 +71,12 @@ import { ErrorInterceptor } from './error-interceptor';
     AboutUsComponent,
     ContactUsComponent,
     InternalServerErrorComponent,
-    ErrorInterceptorComponent
+    ErrorInterceptorComponent,
+    PurchaseGraphComponent,
+    ServiceRepairComponent,
+    InvoiceSummaryComponent,
+    RoleConfigurationComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -80,10 +95,15 @@ import { ErrorInterceptor } from './error-interceptor';
     FlexLayoutModule,
     HttpClientModule,
     MatDialogModule,
-    RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false })
+    MatSlideToggleModule,
+    RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false }),
+    ChartModule
   ],
-  providers: [CookieService, AuthGuardService,
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  providers: [
+    CookieService,
+    AuthGuardService,
+    RoleGuardService,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
   entryComponents: [ErrorInterceptorComponent]

@@ -8,23 +8,38 @@
 */
 
 small {
-  color: red;
+  color: #f9a825;
   display: block;
   width: 100%;
   min-width: 100% !important;
   margin-top: 10px;
 }
-
-.formInput {
-  width: 100%;
-  /* padding: 0px 10px; */
-
+.container {
+  background-color: #388e3c !important;
+  color: #1b5e20 !important;
+  font-family: "Bungee", cursive !important;
 }
 
-.autoMargin {
-  margin: 0 auto;
+.form {
+  background-color: #c8e6c9 !important;
 }
 
-.addressInput {
+mat-form-field {
   width: 100%;
- }
+}
+
+.card-header {
+  background-color: #c8e6c9;
+  color: #1b5e20 !important;
+  font-family: "Bungee", cursive !important;
+}
+.btn-link {
+  color: #1b5e20 !important;
+  font-family: "Bungee", cursive !important;
+}
+
+.card-body {
+  background-color: #c8e6c9;
+  color: #1b5e20 !important;
+  font-family: "Bungee", cursive !important;
+}

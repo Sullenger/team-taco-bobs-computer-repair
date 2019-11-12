@@ -11,7 +11,7 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 // import { FormBuilder, Validators } from '@angular/forms';
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "app-security-questions",
@@ -25,9 +25,6 @@ export class SecurityQuestionsComponent implements OnInit {
   editQuestionId: any = "";
   newQuestion: boolean;
   newQuestionText: string;
-  role: any;
-  isAdmin: boolean = false;
-  hideUsers: boolean = false;
 
   constructor(
     private cookie: CookieService,
@@ -38,29 +35,12 @@ export class SecurityQuestionsComponent implements OnInit {
   ngOnInit() {
     this.http.get("/questions/api/question").subscribe(res => {
       if (res) {
-        return (this.questions = res);
         console.log(this.questions);
+        return (this.questions = res);
       } else {
         return (this.errorMessage = "No questions found");
       }
     });
-
-    this.userAdmin()
-  }
-
-// restricts access to standard users
-  userAdmin() {
-    this.role = this.cookie.get('role')
-    console.log(this.role);
-    if(this.role == "admin") {
-      this.isAdmin = true;
-      this.hideUsers = false;
-      console.log(this.isAdmin)
-    }
-    else {
-      this.isAdmin = false;
-      this.hideUsers = true;
-    }
   }
 
   // Deletes existing question

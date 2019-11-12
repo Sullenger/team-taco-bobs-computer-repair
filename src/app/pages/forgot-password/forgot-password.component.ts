@@ -7,114 +7,135 @@
 ;===========================================
 */
 
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, Validators, AbstractControl } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.css']
+  selector: "app-forgot-password",
+  templateUrl: "./forgot-password.component.html",
+  styleUrls: ["./forgot-password.component.css"]
 })
 export class ForgotPasswordComponent implements OnInit {
-
   hasSubmitted: boolean = false;
-  securityQuestions: any = { questions: ''};
-  user_answer: string = '';
-  user_answer1: string = '';
-  user_answer2: string = '';
+  securityQuestions: any = { questions: "" };
+  user_answer: string = "";
+  user_answer1: string = "";
+  user_answer2: string = "";
   username: any;
   hasAnswered: boolean = false;
   errorMessage: boolean = false;
-  displayError: string = '*One or more of your answers were incorrect.'
+  displayError: string = "*One or more of your answers were incorrect.";
   userError: boolean = false;
   noPasswordMatch: boolean = false;
-  updatePassword: string = '';
-  confirmNewPassword: string = '';
+  updatePassword: string = "";
+  confirmNewPassword: string = "";
 
   secQuestions: any;
 
   forgotPassword = this.fb.group({
-    username: ['', Validators.required ]
-  })
-
-  resetPassword = this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(7), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(7), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]]
+    username: ["", Validators.required]
   });
 
-  constructor(private router: Router,private http: HttpClient, private fb: FormBuilder) { }
+  resetPassword = this.fb.group({
+    password: [
+      "",
+      [
+        Validators.required,
+        Validators.minLength(7),
+        Validators.pattern(
+          "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}"
+        )
+      ]
+    ],
+    confirmPassword: [
+      "",
+      [
+        Validators.required,
+        Validators.minLength(7),
+        Validators.pattern(
+          "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}"
+        )
+      ]
+    ]
+  });
+
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {
-
-    this.http.get('/questions/api/question').subscribe( res => {
-      if(res) {
+    this.http.get("/questions/api/question").subscribe(res => {
+      if (res) {
         this.secQuestions = res;
-        console.log(this.secQuestions)
+        console.log(this.secQuestions);
         return;
       } else {
-        console.log('fail');
+        console.log("fail");
       }
-    })
-
+    });
   }
 
   onSubmit(val) {
-
     this.username = val;
-    
-    this.http.post('/recovery/api/questions', val).subscribe( res => {
+
+    this.http.post("/recovery/api/questions", val).subscribe(res => {
       this.securityQuestions = res;
 
-      if(this.securityQuestions.result.username == val.username){
+      if (this.securityQuestions.result.username == val.username) {
         this.hasSubmitted = true;
       }
-    })
+    });
   }
 
-  checkAnswers(){
-    let answered = false
+  checkAnswers() {
+    let answered = false;
     let correctAnswer = 0;
     let error = false;
 
-    let answers = this.securityQuestions.result.security_questions
-    let newAnswers = JSON.stringify(answers)
-    let newData = newAnswers.split(/[{};:"",]+/, 75)
+    let answers = this.securityQuestions.result.security_questions;
+    let newAnswers = JSON.stringify(answers);
+    let newData = newAnswers.split(/[{};:"",]+/, 75);
 
-    for(let i = 0; i < newData.length; i++) {
-      
-      if(newData[i] === this.user_answer){
-        correctAnswer++
-      } else if(newData[i] === this.user_answer1) {
-        correctAnswer++
-      } else if(newData[i] === this.user_answer2) {
-        correctAnswer++
-        console.log(correctAnswer)
-      } else if(correctAnswer === 3) {
+    for (let i = 0; i < newData.length; i++) {
+      if (newData[i] === this.user_answer) {
+        correctAnswer++;
+      } else if (newData[i] === this.user_answer1) {
+        correctAnswer++;
+      } else if (newData[i] === this.user_answer2) {
+        correctAnswer++;
+        console.log(correctAnswer);
+      } else if (correctAnswer === 3) {
         answered = true;
       } else {
         error = true;
       }
     }
-    this.hasAnswered = answered
+    this.hasAnswered = answered;
     this.errorMessage = error;
-    console.log(answered)
+    console.log(answered);
   }
 
   onReset(val) {
-
-    if( this.updatePassword !== this.confirmNewPassword) {
-      this.noPasswordMatch = true
-      console.log('fail')
-      return
-    } else{
-      this.securityQuestions.result.password = this.updatePassword
-      console.log(this.securityQuestions.result)
-      this.http.put('/recovery/api/update/' + this.username.username, this.securityQuestions.result).subscribe( res => {
-        console.log(res);
-        alert("Password updated Successfully.")
-      })
+    if (this.updatePassword !== this.confirmNewPassword) {
+      this.noPasswordMatch = true;
+      console.log("fail");
+      return;
+    } else {
+      this.securityQuestions.result.password = this.updatePassword;
+      console.log(this.securityQuestions.result);
+      this.http
+        .put(
+          "/recovery/api/update/" + this.username.username,
+          this.securityQuestions.result
+        )
+        .subscribe(res => {
+          console.log(res);
+          alert("Password updated Successfully.");
+        });
     }
 
     this.router.navigate(["/session/login"]);

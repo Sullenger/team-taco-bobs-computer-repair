@@ -17,24 +17,7 @@ import { CookieService } from "ngx-cookie-service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private cookie: CookieService) {
-    this.userAdmin()
-  }
-
-  isAdmin: boolean = false;
-  role: string;
-
-  userAdmin() {
-    this.role = this.cookie.get('role')
-    console.log(this.role);
-    if(this.role == "admin") {
-      this.isAdmin = true;
-      console.log(this.isAdmin)
-    }
-    else {
-      this.isAdmin = false;
-    }
-  }
+  constructor(private router: Router, private cookie: CookieService) {}
 
   ngOnInit() {}
 
@@ -46,41 +29,39 @@ export class HeaderComponent implements OnInit {
   }
 
   navHome() {
-    console.log("Home");
-    //modified route to take to home
     this.router.navigate(["./home"]);
   }
 
   navOrder() {
     console.log("Service Repair");
-    // this.router.navigate(["/"]);
+    this.router.navigate(["./service-repair/"]);
   }
 
   navAbout() {
-    console.log("About Us");
     this.router.navigate(["./session/about-us"]);
   }
 
   navContact() {
-    console.log("Contact Us");
     this.router.navigate(["./session/contact-us"]);
   }
 
   userProfile() {
     console.log("User Profile");
-    // this.router.navigate(["/"]);
+    this.router.navigate(["/user-profile"]);
   }
 
   navManagement() {
-    console.log("User Management");
-    // modified route to ./user-management
     this.router.navigate(["./user-management/"]);
   }
 
-  // modified to security questions route
+  navRoleConf() {
+    this.router.navigate(["./role-configuration/"]);
+  }
+
   navSecQ() {
-    console.log("Security Questions");
-    //changed route to ./security-questions
     this.router.navigate(["./security-questions"]);
+  }
+  navGraph() {
+    this.router.navigate(["./purchase-graph"]);
   }
 }
