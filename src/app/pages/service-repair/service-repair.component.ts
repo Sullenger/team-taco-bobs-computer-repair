@@ -90,14 +90,13 @@ export class ServiceRepairComponent implements OnInit {
         this.calcTotal();
         console.log(this.invoice.cart);
         console.log(this.invoice.total);
-      } else {
-        console.log("rip.. ayyyut");
       }
     }
   }
 
   addHours() {
     this.invoice.addHour = this.invoice.workHours * 50;
+    Number(this.invoice.addHour);
     this.invoice.total.push(this.invoice.addHour);
     console.log(this.invoice.total);
     this.calcTotal();
@@ -106,6 +105,7 @@ export class ServiceRepairComponent implements OnInit {
 
   addParts() {
     this.invoice.addPart = this.invoice.parts;
+    Number(this.invoice.addPart);
     this.invoice.total.push(this.invoice.addPart);
     console.log(this.invoice.total);
     this.calcTotal();
@@ -135,17 +135,19 @@ export class ServiceRepairComponent implements OnInit {
   }
 
   addToCart(service) {
+    Number(service);
     this.invoice.cart.push(service);
     this.invoice.total.push(service.service_price);
+    console.log(this.invoice.cart)
+    console.log(this.invoice.total)
     this.calcTotal();
   }
 
   calcTotal() {
     this.invoice.cartTotal = this.invoice.total.reduce(
-      (x, y) => x + parseInt(y),
+      (x, y) => x + y,
       0
     );
-    console.log(this.invoice.cartTotal);
   }
 
   orderModal() {
