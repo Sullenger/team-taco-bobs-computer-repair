@@ -30,6 +30,7 @@ export class InvoiceSummaryComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.purchaseHistory);
+    console.log(this.invoice)
   }
 
   close() {
@@ -44,7 +45,9 @@ export class InvoiceSummaryComponent implements OnInit {
         user_id: this.invoice.user,
         services_ordered: this.invoice.cart,
         order_snapshot: this.invoice,
-        total: this.invoice.cartTotal
+        total: this.invoice.cartTotal,
+        hours: this.invoice.addHour,
+        parts: this.invoice.addPart
       })
       .subscribe(
         res => {},

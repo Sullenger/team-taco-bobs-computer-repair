@@ -14,7 +14,9 @@ let invoiceSchema = mongoose.Schema({
   user_id: { type: String },
   services_ordered: { type: Object },
   order_snapshot: { type: Object },
-  total: { type: String }
-});
+  total: { type: String },
+  hours: {type: String},
+  parts: { type: String }
+}, { collection: "invoices" });
 
 module.exports = mongoose.model("Invoice", invoiceSchema);

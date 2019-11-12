@@ -18,7 +18,9 @@ router.post("/invoice", (req, res, next) => {
     user_id: req.body.user_id,
     services_ordered: req.body.services_ordered,
     order_snapshot: req.body.order_snapshot,
-    total: req.body.total
+    total: req.body.total,
+    hours: req.body.hours,
+    parts: req.body.parts
   });
   invoice.save();
   res.status(201).json({
@@ -26,6 +28,19 @@ router.post("/invoice", (req, res, next) => {
   });
   console.log(invoice);
 });
+
+// find user invoices by id
+router.get('/user-invoices/:id', (req, res, next) => {
+  Invoices.find({ user_id: req.params.id}, (err, invoices) => {
+    if(err){
+      console.log(err)
+      return next(err)
+    } else {
+      console.log(invoices + ' from server');
+      res.json(invoices);
+    }
+  })
+})
 
 // router.post('/service', (req, res, next) => {
 //     const service = new Services({
