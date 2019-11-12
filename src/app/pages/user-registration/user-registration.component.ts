@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { CookieService } from "ngx-cookie-service";
 import { User } from ".../../server/models/user.js";
+import { MatAutocompleteTrigger } from '@angular/material';
 
 @Component({
   selector: "app-user-registration",
@@ -25,6 +26,7 @@ export class UserRegistrationComponent implements OnInit {
   securityQuestions: any;
   form: FormGroup;
   resSuccess: any;
+  securityQuestionError: string = 'Security questions cannot be the same.';
 
   constructor(
     private http: HttpClient,
@@ -66,6 +68,7 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   onSubmit(userData) {
+
     console.log(userData);
     let formAddress = {
       street_address: userData.street,
@@ -81,6 +84,36 @@ export class UserRegistrationComponent implements OnInit {
       question_text2: userData.securityQuestionThree,
       user_answer2: userData.securityAnswerThree
     };
+
+    if(formSecurityQuestion.question_text === formSecurityQuestion.question_text1) {
+      console.log('noob1')
+      alert(this.securityQuestionError)
+      return
+    } else if (formSecurityQuestion.question_text === formSecurityQuestion.question_text2) {
+
+      console.log('noob2')
+      alert(this.securityQuestionError)
+      return
+    } else if(formSecurityQuestion.question_text1 === formSecurityQuestion.question_text ){
+      console.log('noob3')
+      alert(this.securityQuestionError)
+      return
+    }  else if(formSecurityQuestion.question_text1 === formSecurityQuestion.question_text2 ){
+      console.log('noob4')
+      alert(this.securityQuestionError)
+      return
+    }  else if(formSecurityQuestion.question_text2 === formSecurityQuestion.question_text ){
+      console.log('noob5')
+      alert(this.securityQuestionError)
+      return
+    } else if(formSecurityQuestion.question_text2 === formSecurityQuestion.question_text1 ){
+      console.log('noob6')
+      alert(this.securityQuestionError)
+      return
+    } else {
+      console.log('succeses')
+    }
+
     let formRole = {
       role: "standard"
     };
