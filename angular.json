@@ -29,7 +29,7 @@
             ],
 
             "scripts": [
-              "../team-taco-bobs-computer-repair/node_modules/chart.js/dist/Chart.js"
+              "./team-taco-bobs-computer-repair/node_modules/chart.js/dist/Chart.js"
             ]
           },
           "configurations": {
