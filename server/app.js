@@ -41,7 +41,7 @@ app.use("/purchases/api", repairServices);
 app.use("/role-bank/api", roleBank);
 
 // Global variables
-const serverPort = 3000;
+const serverPort = process.env.PORT || 3000;
 
 // Connection String
 
