@@ -78,7 +78,7 @@ export class RoleConfigurationComponent implements OnInit {
       })
       .subscribe(res => {
         this.roles = res;
-        //document.location.reload(true);
+        document.location.reload(true);
       });
   }
 }
