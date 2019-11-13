@@ -86,7 +86,7 @@ export class SecurityQuestionsComponent implements OnInit {
         question: question.question
       })
       .subscribe(res => {
-        this.questions = res;
+        console.log(res)
         document.location.reload(true);
       });
   }

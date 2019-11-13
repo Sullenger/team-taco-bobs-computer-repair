@@ -69,7 +69,9 @@ router.put("/question/:id", function(req, res, next) {
           return next(err);
         } else {
           console.log(updatedSecurityQuestion);
-          res.json(updatedSecurityQuestion);
+          res.send({
+            message: "update success"
+          });
         }
       });
     }
