@@ -22,6 +22,7 @@ export class RoleConfigurationComponent implements OnInit {
   editRoleId: any = "";
   newRole: boolean;
   newQuestionText: string;
+  addingRole: string;
 
   constructor(private http: HttpClient, private router: Router) {}
 

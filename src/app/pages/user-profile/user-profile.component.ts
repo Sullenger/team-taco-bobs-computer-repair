@@ -20,7 +20,14 @@ export class UserProfileComponent implements OnInit {
   constructor(private http: HttpClient, private cookie: CookieService) {}
 
   userId: any;
-  userData: object;
+  userData: object = {
+    name_first: '',
+    name_last: '',
+    email: '',
+    phone_number: '',
+    address: '',
+    date_created: ''
+  };
   userInvoices: any;
   isResponse: boolean = false;
 
