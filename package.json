@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng build && node server/app.js",
+    "start": "node server/app/js",
+    "localhost": "ng build && node server/app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --configuration=production"
   },
   "private": true,
   "dependencies": {
@@ -61,5 +63,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
+  },
+  "engines": {
+    "npm": "6.9.x",
+    "node": "10.15.x"
   }
 }
