@@ -25,6 +25,7 @@ export class SecurityQuestionsComponent implements OnInit {
   editQuestionId: any = "";
   newQuestion: boolean;
   newQuestionText: string;
+  addingQuestion: string;
 
   constructor(
     private cookie: CookieService,
