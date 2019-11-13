@@ -12,6 +12,10 @@ mat-card {
   margin: auto;
   margin-top: 75px;
   text-align: center;
+  margin-bottom: 20px;
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  font-family: "Bungee", cursive;
 }
 
 table {
@@ -21,4 +25,19 @@ table {
 
 h1 {
   text-align: center;
+}
+
+.invoice-card {
+  width: 95%;
+  margin-top: 20px;
+  box-shadow: 1px 1px 4px 4px rgb(158, 158, 158);
+}
+
+.invoice-card:hover {
+  box-shadow: 2px 2px 6px 6px #43a047;
+
+}
+
+h3 {
+  margin-top: 10px;
 }

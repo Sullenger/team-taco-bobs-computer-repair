@@ -19,7 +19,7 @@ import { Router } from "@angular/router";
 })
 export class ForgotPasswordComponent implements OnInit {
   hasSubmitted: boolean = false;
-  securityQuestions: any = { questions: "" };
+  securityQuestions: any;
   user_answer: string = "";
   user_answer1: string = "";
   user_answer2: string = "";
@@ -33,6 +33,14 @@ export class ForgotPasswordComponent implements OnInit {
   confirmNewPassword: string = "";
 
   secQuestions: any;
+  secQuestionIds: any = [];
+  secQuestionQuestions: any = []
+  userQuestions: any = []
+
+  question1:any = ''
+  question2:any = ''
+  question3:any = ''
+
 
   forgotPassword = this.fb.group({
     username: ["", Validators.required]
@@ -84,12 +92,36 @@ export class ForgotPasswordComponent implements OnInit {
 
     this.http.post("/recovery/api/questions", val).subscribe(res => {
       this.securityQuestions = res;
-
+      console.log(this.securityQuestions)
+    
       if (this.securityQuestions.result.username == val.username) {
+        console.log('success')
         this.hasSubmitted = true;
       }
     });
+
+    setTimeout(()=> {this.extractIds()} ,300)
   }
+
+ extractIds(){
+    if(this.securityQuestions !== undefined){
+      for (let userQuestion of this.securityQuestions.result.security_questions){
+        for(let questionId of this.secQuestions){
+          if(userQuestion.question_text === questionId._id){
+            this.question1 = questionId.question
+          } else if(userQuestion.question_text1 === questionId._id){
+            this.question2 = questionId.question
+          } else if (userQuestion.question_text2 === questionId._id){
+            this.question3 = questionId.question
+          } else {
+            console.log('rip')
+          }
+        }
+      }
+    }
+
+  }
+
 
   checkAnswers() {
     let answered = false;

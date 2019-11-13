@@ -39,7 +39,8 @@ import { ErrorInterceptor } from "./error-interceptor";
 
 import { CookieService } from "ngx-cookie-service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatSlideToggleModule } from "@angular/material";
+import { MatSlideToggleModule} from "@angular/material";
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule, MatDialog, MatDialogModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
@@ -76,7 +77,7 @@ import { UserProfileComponent } from "./pages/user-profile/user-profile.componen
     ServiceRepairComponent,
     InvoiceSummaryComponent,
     RoleConfigurationComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,7 +98,8 @@ import { UserProfileComponent } from "./pages/user-profile/user-profile.componen
     MatDialogModule,
     MatSlideToggleModule,
     RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false }),
-    ChartModule
+    ChartModule,
+    MatTabsModule
   ],
   providers: [
     CookieService,

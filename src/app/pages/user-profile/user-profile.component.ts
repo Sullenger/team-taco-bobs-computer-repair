@@ -21,7 +21,8 @@ export class UserProfileComponent implements OnInit {
 
   userId: any;
   userData: object;
-  userInvoice: any;
+  userInvoices: any;
+  isResponse: boolean = false;
 
   ngOnInit() {
     this.userId = this.cookie.get("user");
@@ -36,5 +37,25 @@ export class UserProfileComponent implements OnInit {
         return;
       }
     });
+
+    this.http.get('/purchases/api/user-invoices/' + this.userId).subscribe(res => {
+      if(res) {
+        console.log(res);
+        this.userInvoices = res;
+
+        for(let i = 0; i < this.userInvoices.length; i++){
+          if(this.userInvoices.length > 0){
+            this.isResponse = true;
+            console.log(this.isResponse)
+          } else {
+            this.isResponse = false;
+            console.log(this.isResponse)
+          }
+        }
+      } else {
+        console.log('no users.');
+        return;
+      }
+    })
   }
 }
