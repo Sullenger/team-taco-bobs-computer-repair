@@ -64,8 +64,10 @@ router.put("/role/:id", function(req, res, next) {
           console.log(err);
           return next(err);
         } else {
-          console.log(updatedRoleBank);
-          res.json(updatedRoleBank);
+          console.log(updatedRoleBank + 'from server');
+          res.send({
+            message: 'update success'
+          });
         }
       });
     }
